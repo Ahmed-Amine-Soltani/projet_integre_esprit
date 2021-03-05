@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 mars 2019, 11:53:47
+    Author     : yassine
+*/
+.scroll-pane {
+    -fx-background-color: transparent;
+ }
+.nav-top {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 0);
+}
+
+.logo {
+    -fx-background-color: #263544;
+    -fx-text-fill: #cfcfcf;
+    -fx-border-radius: 0px;
+    -fx-border-color: #263544;
+}
+
+.nav-top-right {
+    -fx-padding: 0 15 0 0;
+    -fx-alignment: CENTER_RIGHT
+}
+.menu-button {
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 17;
+    -fx-padding: 0 10
+}
+.sidebar {
+    -fx-background-color: #263544;
+}
+
+.sidebar .label {
+    -fx-padding: 15px;
+    -fx-text-fill: #cfcfcf
+}
+.sidebar .link-button {
+    -fx-text-fill: #cfcfcf;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 15px;
+    -fx-cursor: hand;    
+
+}
+.sidebar .icon-button {
+    -fx-fill: #cfcfcf;
+}
+
+.sidebar .dropdown-button {
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #AAAAAA;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14;
+    -fx-padding: 0 0 0 40;
+    -fx-background-color: rgba(0,0,0,0.1);
+    
+}
+.sidebar .dropdown-button:hover ,.sidebar .dropdown-button:focused {
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #4099ff
+}
+.sidebar .link-button:hover ,.sidebar .link-button:focused  {
+    -fx-text-fill: #fff;
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #4099ff
+}
+.sidebar .link-button:hover  .icon-button {
+    -fx-fill: #fff;
+}
+
+.content-page {
+    -fx-padding: 25 35 25 25
+}
+.header-title {
+    -fx-pref-height: 85;
+}
+.title-label {
+    -fx-padding: 0 15px
+}
+.title-button {
+    -fx-background-color: #4099ff;
+    -fx-font-size: 20px;
+    -fx-pref-width: 47px;
+    -fx-pref-height: 47px;
+    
+}
+.title-button .title-button-icon {
+    -fx-fill: #fff;
+}
+
+.title-right {
+    -fx-alignment: CENTER_RIGHT
+}
+
+.info-dashboard {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-background-radius: 7px;
+}
+.info-item {
+    -fx-pref-width: 265.5px;
+    -fx-padding: 25px 35px;
+   
+}
+.info-button {
+    -fx-font-size: 20px;
+    -fx-pref-width: 47px;
+    -fx-pref-height: 47px;
+}
+
+.info-dashboard-icon {
+    -fx-fill: #fff;
+}

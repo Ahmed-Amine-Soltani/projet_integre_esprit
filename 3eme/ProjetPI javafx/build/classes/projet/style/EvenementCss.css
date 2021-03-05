@@ -1,0 +1,382 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/*.pageAccueil{
+    -fx-background-image: url('../Ressources/backgroundaccueil2.jpg');
+    -fx-background-size:cover;
+}
+
+.pageDetails{
+    -fx-background-image: url('../Ressources/backgroundDetails.jpg');
+    -fx-background-size:cover;
+}*/
+
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+/** table View */
+.content-gproduit {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-background-radius: 7px; 
+    -fx-padding: 15px;
+    -fx-font-family: "Century Gothic";
+}
+
+
+.table-view, .tree-table-view {
+    /* Constants used throughout the tableview. */
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color: -fx-box-border; /* Horizontal Lines*/
+    -fx-background-color: transparent;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 1;
+    -fx-font-size: 15px;
+
+
+}
+
+
+.table-view .filler, .tree-table-view .filler, .table-view .column-header,
+.tree-table-view .column-header {
+    -fx-size: 60;
+    -fx-border-style: null;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+
+
+}
+
+.table-view .show-hide-columns-button, .tree-table-view .show-hide-columns-button
+{
+    -fx-background-color: #fff;
+}
+
+.table-view .column-header .label, .table-view .filler .label,
+.table-view .column-drag-header .label, .tree-table-view .column-header .label,
+.tree-table-view .filler .label, .tree-table-view .column-drag-header .label
+{  
+    -fx-alignment: CENTER_LEFT;
+
+}
+
+.table-view .column-header-background, .tree-table-view .column-header-background
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+
+
+}
+
+.table-row-cell, .tree-table-row-cell {
+    -fx-cell-size: 60px;
+    -fx-border-color: #fff;
+    -fx-padding: 0;
+
+}
+.table-row-cell:selected, .tree-table-row-cell:selected {
+    -fx-background-color: transparent;
+    -fx-border-color: #fff;
+    -fx-text-background-color: #333;
+}
+.table-row-cell:selected, .tree-table-row-cell:hover {
+    -fx-background-color: #e1e1e1;
+}
+
+.table-cell {
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+}
+
+
+.table-view .button {
+    -fx-background-color: #ff5370;
+    -fx-font-size: 15;
+    -fx-text-fill: #fff;
+}
+.table-view .button:hover {
+    -fx-cursor: hand
+}
+
+
+/** end tableView **/
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-width: 0;
+}
+
+.list-cell {
+    -fx-background-color: #e1e1e1;;
+
+    -fx-font: bold italic 10pt "Arial";
+}
+
+.list-view {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .calendar-grid {
+    -fx-pref-width: 220.0;
+    -fx-pref-height: 180.0;
+
+
+}
+.date-picker-popup .spinner-label {
+    -fx-font-size: 14.0;
+}
+
+
+.titleImage{
+    -fx-background-repeat: stretch; 
+    -fx-background-position: center center;
+}
+/** dialog styling */
+/*
+Dialog
+*/
+.top-dialog {
+    -fx-alignment: CENTER_RIGHT;
+    -fx-background-color: #fff;
+}
+.button-dialog-close {
+    -fx-background-color: #fff;
+    -fx-border-color: #fff;
+
+}
+.button-dialog-close:hover {
+    -fx-background-color: #ff3333;
+    -fx-border-color: #ff3333;
+    -fx-text-fill: #fff
+}
+.content-dialog {
+    -fx-padding: 15;
+    -fx-border-color: #b1b1b1;
+    -fx-font-family: "Century Gothic";
+}
+.header-dialog {
+    -fx-padding: 5 25 45
+}
+.content-dialog-left {
+    -fx-padding: 15 25;
+}
+.content-dialog-right {
+    -fx-padding: 15 55;
+}
+.context-menu {
+    -fx-background-radius: 0.5em;
+    -fx-text-fill: white;
+
+}
+.menu-item > .label {
+    -fx-font: bold 10pt "Arial";
+    -fx-text-fill: black;
+    -fx-padding: 0em 0.5em 0em 0em;
+}
+
+.menu-item:focused {
+    -fx-background: -fx-selection-bar;
+    -fx-background-color: #e1e1e1;
+    -fx-text-fill:  -fx-text-background-color;
+}
+
+.menu-item:focused > .label {
+    -fx-text-fill: white;
+}
+
+/** tabpane*/
+
+.tab-header-background{
+    -fx-background-color: transparent;
+}
+
+
+
+.tab-pane .tab
+{
+    -fx-background-color: #e1e1e1;
+    -fx-pref-width: 23em;
+    -fx-padding: 0.416667em 0.416667em 0.166667em 0.0em; /* 5 5 2 0 */
+    -fx-background-radius: 0 3 3 0, 0 2 2 0, 0 1 1 0;
+    -fx-alignment: CENTER;
+
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    -fx-alignment: CENTER;
+    -fx-pref-width: 250.0;
+    -fx-font-family: "Century Gothic";
+    -fx-font-size: 17px
+
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-border-color: #4099ff;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: transparent
+}
+
+
+
+
+
+/* hamburger */
+.jfx-hamburger-icon{
+    -fx-spacing:7;
+}
+.jfx-hamburger-icon StackPane{
+    -fx-background-color:  #263544;
+    -fx-background-radius: 5px;
+}
+/* image accueil */
+.image-accueil{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-background-radius: 5em;
+    -fx-alignment: center ;
+    -fx-padding: 50 20 40 40;
+    -fx-spacing: 50;
+
+}
+
+.font-button {
+    -fx-font: bold italic 20pt "Arial";
+    -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+    -fx-background-color: linear-gradient(to bottom, repeat, #0099ff , #66ccff  );
+    -fx-text-fill: white ;
+}
+
+.image-detail{
+
+    -fx-hgap: 20px;
+    -fx-padding: 40px;
+
+
+    -fx-background-radius: 50px;
+
+    -fx-border-radius: 50px;
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+
+}
+
+.transparent-back{
+    -fx-background-color: transparent;
+}
+
+.popup-editor > .border {
+    -fx-stroke: linear-gradient(to bottom, rgb(217,217,217), rgb(157, 157, 157)) ;
+    -fx-stroke-width: 0.5;
+    -fx-fill: rgba(255.0,255.0,255.0, .95);
+    -fx-effect: dropshadow(gaussian, lightgray, 6.0, 0.0, 1.0, 1.0);
+}
+
+.notification-bar>.pane {
+    -fx-background-image: url('../images/Evenement/original.gif');
+    -fx-padding: 5 5 5 5;
+    -fx-background-insets: 0, 1, 2;
+}
+
+
+
+.notification-bar>.pane .label {
+    -fx-font: bold 20pt "Arial";
+    -fx-text-fill: white;
+    -fx-alignment: center;
+}
+
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 16.5;
+    -fx-padding: 3;
+}
+
+
+
+.combo-box{
+    -fx-font-size: 14;
+    -fx-pref-height: 25;
+
+
+}
+
+.text-field {
+    -fx-font-size: 14;
+    -fx-pref-height: 25;
+
+}
+.text-field:focused {
+    -fx-background-color: white;
+}
+
+.text-area {
+    -fx-font-size: 15;
+}
+.text-area:focused {
+    -fx-background-color: white;
+}
+
+
+.button-save {
+    -fx-background-color: #234b86;
+    -fx-text-fill: #fff;
+    -fx-pref-width: 120;
+    -fx-pref-height: 42
+}
+.button-close {
+    -fx-background-color: #dfdfdf;
+    -fx-pref-width: 120;
+    -fx-pref-height: 42;
+}
+
+
+.sidebar {
+    -fx-background-color: #263544;
+}
+
+.sidebar .label {
+    -fx-padding: 15px;
+    -fx-text-fill: #cfcfcf
+}
+.sidebar .link-button {
+    -fx-text-fill: #cfcfcf;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 15px;
+    -fx-cursor: hand;    
+
+}
+.sidebar .icon-button {
+    -fx-fill: #cfcfcf;
+}
+
+.sidebar .dropdown-button {
+    -fx-font-family: "Century Gothic";
+    -fx-text-fill: #AAAAAA;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 14;
+    -fx-padding: 0 0 0 40;
+    -fx-background-color: rgba(0,0,0,0.1);
+
+}
+.sidebar .dropdown-button:hover ,.sidebar .dropdown-button:focused {
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #4099ff
+}
+.sidebar .link-button:hover ,.sidebar .link-button:focused  {
+    -fx-text-fill: #fff;
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-border-width: 0 0 0 3;
+    -fx-border-color: #4099ff
+}
+.sidebar .link-button:hover  .icon-button {
+    -fx-fill: #fff;
+}

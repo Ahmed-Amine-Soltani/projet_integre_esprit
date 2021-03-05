@@ -1,0 +1,31 @@
+/*
+ * Empty Stylesheet file.
+ */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-font-family: "Century Gothic";
+ }
+ .nav-top {
+     -fx-font-family: "Century Gothic";
+     -fx-font-size: 17px
+ }
+ .nav-right {
+     -fx-alignment: TOP_RIGHT
+ }
+ .nav_button {
+     -fx-background-color: transparent;
+     -fx-pref-height: 47
+ }
+ .nav_button:hover , .nav_button:focused {
+     -fx-border-color: #4099ff;
+     -fx-border-width: 0 0 2 0;
+     -fx-background-color: transparent
+ }
+ .bl_search .text-field {
+    -fx-background-color: #fff;
+    -fx-pref-width: 225;
+    -fx-border-color: #fff;
+ }
+ .button-profil {
+    -fx-background-color: transparent;
+ }

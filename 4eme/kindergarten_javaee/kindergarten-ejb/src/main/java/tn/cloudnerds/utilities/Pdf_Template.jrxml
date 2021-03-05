@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pdf_Template" pageWidth="595" pageHeight="542" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1d6e1275-a819-4050-a148-5665e2a371b4">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataSourceDataset" uuid="c6784b4a-5e1e-4c32-8acb-1ee556810989">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="productName" class="java.lang.String"/>
+		<field name="productPrice" class="java.lang.Integer"/>
+		<field name="quantityChoosed" class="java.lang.Integer"/>
+		<field name="totalCartLinePrice" class="java.lang.Integer"/>
+		<variable name="total" class="java.lang.Integer" calculation="Sum">
+			<variableExpression><![CDATA[$F{totalCartLinePrice}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="dataSource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="57" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="1" width="160" height="50" uuid="fc0d7d14-cee1-4ec4-b63b-ae4f1a8f2c40"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/bg5.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="151" y="1" width="160" height="50" uuid="49d068db-b3a7-4b71-a2cd-fa630576bcf2"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/bg5.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="301" y="1" width="160" height="50" uuid="7aaa0964-e1ef-42bb-a590-599b980467cb"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/bg5.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="1" width="160" height="50" uuid="436cdd9d-7cc4-4365-95c9-a5e202ae2482"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/bg5.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<image>
+				<reportElement x="247" y="0" width="101" height="50" uuid="c4654915-3827-40da-9bc9-8c3b4240eda2"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/vc-img.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="11" y="0" width="140" height="20" forecolor="#000000" uuid="50d34808-0022-49c2-b901-fcd86bcf0809"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="6" width="520" height="30" forecolor="#88ECF7" uuid="b578c112-991b-486e-abc3-3848faba6ecf"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial Black" size="21"/>
+				</textElement>
+				<text><![CDATA[Thank you for purchasing our products]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="132" splitType="Stretch">
+			<componentElement>
+				<reportElement x="107" y="21" width="380" height="90" uuid="22011050-ddc4-40ba-9a18-fc3b8e8e7717">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dataSourceDataset" uuid="6970ed44-85ed-4c8e-94a8-56c3e283b78e">
+						<dataSourceExpression><![CDATA[$P{dataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="80" uuid="e890c75c-b3b9-458e-8958-8369bc827a48">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="3c512ae4-d91d-42b7-8071-015dcf209726"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Rounded MT Bold"/>
+								</textElement>
+								<text><![CDATA[Product name]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" uuid="2bb15f89-c263-4a0f-8f1f-985c82ea95c9"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Rounded MT Bold" size="12"/>
+								</textElement>
+								<text><![CDATA[total]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="f87c6ea3-fd0f-4cc1-94a2-e745578253c1"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Black"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{productName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="12b8875d-b5b5-4375-8789-6f05f8a6727e">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="c67c3a29-08e6-44f4-a3a8-d06b10017009"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Rounded MT Bold"/>
+								</textElement>
+								<text><![CDATA[Product price]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="42d9f357-c91e-4444-9e6f-4230180050ea"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[-]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="3a344b07-a00e-4286-bcfa-0c9cff700d12"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Black"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{productPrice}+" €"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="6db14a00-e0ad-480a-b683-b2975248fc33">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne3"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="8b3c3a88-fa5b-4e18-8f70-1cf4646f96a8"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Rounded MT Bold"/>
+								</textElement>
+								<text><![CDATA[Quantity choosed]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<box>
+								<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="e4d5ec6a-e623-4a67-af19-13eedde4c165"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[-]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="d2630e67-d9e7-4d0e-8210-b0173e64c2b3"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Black"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{quantityChoosed}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="130" uuid="8b2f04c9-00c9-468a-90ec-9c585b150b6b">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne4"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="130" height="30" uuid="6687668f-c462-4ba7-8a9e-ee0754ffa08f"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Rounded MT Bold"/>
+								</textElement>
+								<text><![CDATA[Price you have to pay]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="130" height="30" uuid="5a561b59-4559-412a-bd5d-d4ddce3f9cba"/>
+								<box leftPadding="10">
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Black" isBold="true" isItalic="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{total} + " €"]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="130" height="30" uuid="b186842e-d121-4701-a14c-ca02c6ebe956"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial Black"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{totalCartLinePrice} +" €"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="100">
+			<property name="com.jaspersoft.studio.layout"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<image>
+				<reportElement x="163" y="20" width="104" height="80" uuid="654fb316-c11d-4cce-b7d8-e0d6c81eab65"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="20" width="104" height="80" uuid="1b74094e-beac-43c2-8673-5ca2ddb5e96e"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="343" y="20" width="104" height="80" uuid="322415d2-2ba3-4e67-9adc-36fa34fce42b"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="20" width="100" height="80" uuid="a56b916f-2742-4c80-92b9-aae22db26e7b"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/begin.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="515" y="20" width="84" height="80" uuid="91f0fbc3-3c5f-437f-9653-776ec8ff9788"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/end.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="253" y="20" width="104" height="80" uuid="1a49ec67-7227-4b9e-9480-140324e5c7ab"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="433" y="20" width="104" height="80" uuid="71abca0f-750b-46b2-87da-10f21c6e7348"/>
+				<imageExpression><![CDATA["C:/Jee environment/eclipse-workspace/cloudkids_javaee/kindergarten-web/src/main/webapp/template/product-views/productImages/2.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

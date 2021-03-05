@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="DetailsEvenementStackPane" prefHeight="781.0" prefWidth="592.0" styleClass="pageDetails" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.DetailsEvenementController">
+   <children>
+      <AnchorPane fx:id="GUI" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="775.0" prefWidth="728.0" stylesheets="@EvenementCss.css">
+         <children>
+            <BorderPane layoutX="-14.0" layoutY="36.0" prefHeight="750.0" prefWidth="742.0" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="36.0">
+               <bottom>
+                  <HBox alignment="CENTER" prefHeight="156.0" prefWidth="742.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <VBox prefHeight="121.0" prefWidth="570.0">
+                           <children>
+                              <HBox prefHeight="75.0" prefWidth="593.0">
+                                 <children>
+                                    <TextArea fx:id="commentaire_text_fx" prefHeight="87.0" prefWidth="575.0">
+                                       <HBox.margin>
+                                          <Insets top="20.0" />
+                                       </HBox.margin>
+                                    </TextArea>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="87.0" prefWidth="374.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#ajouterCommentaireEvenement" prefHeight="49.0" prefWidth="152.0" styleClass="font-button" text="Partager" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </bottom>
+               <center>
+                  <VBox prefHeight="748.0" prefWidth="807.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="224.0" prefWidth="742.0">
+                           <children>
+                              <ImageView fx:id="affiche_evenement_detailsEvenement" fitHeight="231.0" fitWidth="387.0" pickOnBounds="true" preserveRatio="true" styleClass="image-detail">
+                                 <HBox.margin>
+                                    <Insets top="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="201.0" prefWidth="742.0">
+                           <children>
+                              <JFXListView fx:id="ListView_detailsEvenement" prefHeight="200.0" prefWidth="663.0" styleClass="scroll-bar">
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </HBox.margin>
+                              </JFXListView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="144.0" prefWidth="742.0">
+                           <children>
+                              <ScrollPane fx:id="scrollPaneCommentaire" hbarPolicy="NEVER" prefHeight="146.0" prefWidth="688.0" style="-fx-background-color: white; -fx-background-radius: 20;" stylesheets="@EvenementCss.css">
+                                 <content>
+                                    <VBox fx:id="content" prefHeight="151.0" prefWidth="707.0" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+            <HBox alignment="CENTER" layoutY="5.0" prefHeight="42.0" prefWidth="763.0">
+               <children>
+                  <Label fx:id="nom_evenement_detailsEvenement" text="Nom d'evenement" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="20.0">
+                     <children>
+                        <Label fx:id="nom_evenement_detailsEvenement1" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="702.0" layoutY="2.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Evenement/closeDetailsEvenement.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="28.0" fitWidth="24.0" layoutX="678.0" layoutY="2.0" onMouseClicked="#min" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Evenement/minusDetailsEvenement.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@EvenementCss.css" />
+      <URL value="@../style/EvenementCss.css" />
+   </stylesheets>
+</StackPane>

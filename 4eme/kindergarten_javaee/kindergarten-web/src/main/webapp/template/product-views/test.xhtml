@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/Shared/SharedForProduct/layout.xhtml">
+
+	<ui:define name="myContent">
+		<section class="pager-sec">
+			<div class="container">
+				<div class="pager-pag" style="padding-top: 165px">
+
+					<h:outputText value="#{loginBean.user.getId()}">
+					</h:outputText>
+					<h4>-----------</h4>
+				</div>
+			</div>
+		</section>
+		<section class="pager-sec">
+			<div class="container">
+				<h:form>
+
+					<h:commandButton styleClass="btn btn-default" value="test"
+						action="#{productBean.TestCreationPointsLoyalty()}">
+					</h:commandButton>
+
+
+				</h:form>
+				<!-- 		 -->
+				<h3>
+					<h:outputText value="" />
+				</h3>
+			</div>
+		</section>
+	</ui:define>
+
+</ui:composition>

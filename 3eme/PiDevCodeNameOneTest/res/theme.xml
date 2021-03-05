@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="10" useXmlUI="false">
+    <image name="1.jpg"  />
+    <image name="ajouter.png"  />
+    <image name="ajouterEvenementIcon.png"  />
+    <image name="ajouterPhoto.png"  />
+    <image name="annuler.png"  />
+    <image name="avatar.png"  />
+    <image name="back.png"  />
+    <image name="detail.png"  />
+    <image name="load.gif"  />
+    <image name="load.png"  />
+    <image name="mesEvenement.png"  />
+    <image name="modifier.png"  />
+    <image name="pasEvenement.png"  />
+    <image name="reservation.png"  />
+    <image name="supprimer.png"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+    </theme>
+    <image name="toolbar.png"  />
+    <image name="TsEvenement.png"  />
+</resource>

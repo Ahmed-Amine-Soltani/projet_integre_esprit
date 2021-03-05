@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scroll" hbarPolicy="NEVER" stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.ProduitController">
+   <content>
+      <VBox fx:id="content" alignment="TOP_CENTER" minWidth="-Infinity" prefWidth="1350.0" style="-fx-background-color: #fff;" styleClass="content-produit">
+         <children>
+            <HBox styleClass="hbox-categorie">
+               <children>
+                  <VBox prefHeight="334.0" prefWidth="451.0">
+                     <children>
+                        <Button fx:id="btn_categorie1" mnemonicParsing="false" onMouseClicked="#btn_categorie1" prefHeight="195.0" prefWidth="438.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <VBox fx:id="v_categorie1" prefHeight="209.0" prefWidth="100.0" styleClass="contentcateg" />
+                           </graphic>
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_categorie2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#btn_categorie2" prefHeight="195.0" prefWidth="438.0">
+                           <VBox.margin>
+                              <Insets right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <VBox fx:id="v_categorie2" prefHeight="200.0" prefWidth="438.0" styleClass="contentcateg" />
+                           </graphic>
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Button fx:id="btn_categorie3" mnemonicParsing="false" onMouseClicked="#btn_categorie3" prefHeight="400.0" prefWidth="427.0" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <VBox fx:id="v_categorie3" prefHeight="214.0" prefWidth="100.0" styleClass="contentcateg" />
+                     </graphic>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="334.0" prefWidth="451.0">
+                     <children>
+                        <Button fx:id="btn_categorie4" mnemonicParsing="false" onMouseClicked="#btn_categorie4" prefHeight="195.0" prefWidth="454.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <VBox fx:id="v_categorie4" prefHeight="200.0" prefWidth="100.0" styleClass="contentcateg" />
+                           </graphic>
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btn_categorie5" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#btn_categorie5" prefHeight="195.0" prefWidth="454.0" textAlignment="CENTER">
+                           <VBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <VBox fx:id="v_categorie5" prefHeight="200.0" prefWidth="100.0" styleClass="contentcateg" />
+                           </graphic>
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="24.0">
+               <children>
+                  <Label styleClass="title-art" text="Nouveautés et tendances">
+                     <font>
+                        <Font name="Century Gothic Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onMouseClicked="#newProduit" prefHeight="38.0" prefWidth="227.0" style="-fx-cursor: hand;" styleClass="button-more" text="Afficher toutes les options ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="65.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="new_product" alignment="TOP_CENTER" styleClass="content-item" />
+            <HBox prefHeight="359.0" styleClass="best-prod">
+               <children>
+                  <HBox prefHeight="359.0" prefWidth="1324.0" styleClass="content-best">
+                     <children>
+                        <VBox prefHeight="359.0" prefWidth="340.0">
+                           <children>
+                              <Label prefHeight="59.0" prefWidth="340.0" text="Les Meilleurs" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="46.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="14.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets top="41.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label layoutX="10.0" layoutY="10.0" prefHeight="55.0" prefWidth="340.0" text="Produits" textFill="WHITE">
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="46.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="14.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Button mnemonicParsing="false" onMouseClicked="#meilleurProduit" prefHeight="60.0" styleClass="button_link" text="Afficher toutes les options" />
+                           </children>
+                        </VBox>
+                        <HBox fx:id="meilleursProduit" prefHeight="359.0" prefWidth="981.0" styleClass="meilleur-prod" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="40.0" top="60.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox layoutX="25.0" layoutY="480.0" prefHeight="24.0">
+               <children>
+                  <Label styleClass="title-art" text="Produits présentés">
+                     <font>
+                        <Font name="Century Gothic Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onMouseClicked="#tousProduit" prefHeight="38.0" prefWidth="227.0" style="-fx-cursor: hand;" styleClass="button-more" text="Afficher toutes les options ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox fx:id="presente_product" alignment="TOP_CENTER" layoutX="25.0" layoutY="525.0" styleClass="content-item">
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderpane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/listposts.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.ListPostsController">
+    <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" styleClass="content-page" stylesheets="@../style/ajouterposts.css">
+         <children>
+            <HBox prefHeight="85.0" prefWidth="1015.0" styleClass="header-title">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="504.0" />
+                  <HBox layoutX="513.0" layoutY="10.0" prefHeight="100.0" prefWidth="523.0" />
+               </children>
+            </HBox>
+            <VBox styleClass="content-gproduit">
+               <children>
+                  <HBox prefHeight="42.0" prefWidth="985.0">
+                     <children>
+                        <HBox prefHeight="42.0" prefWidth="869.0">
+                           <children>
+                              <JFXButton onAction="#ajouter" prefHeight="41.0" prefWidth="103.0" style="-fx-background-color: #234b86;" text="Ajouter" textFill="WHITE">
+                                 
+                              </JFXButton>
+                              <JFXButton onAction="#supprimer" prefHeight="41.0" prefWidth="103.0" style="-fx-background-color: #e74c3c;" text="Supprimer" textFill="WHITE">
+                                 
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <JFXButton onAction="#modifier" prefHeight="41.0" prefWidth="146.0" style="-fx-background-color: #e1e1ef;" text="Modifier">
+                           
+                        </JFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="58.0" prefWidth="985.0" styleClass="hbox-search" />
+                  <TableView fx:id="listPosts">
+                     <columns>
+                        <TableColumn fx:id="id" prefWidth="44.0" text="ID" visible="false" />
+                        <TableColumn fx:id="title" prefWidth="197.0" text="Title" />
+                        <TableColumn fx:id="description" prefWidth="785.9999847412109" text="Description" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,81 @@
+﻿<!--nav start-->
+<nav>
+    <ul>
+        <li>
+            <a href="index.html" title="" class="hm">
+                <i class="fa fa-home"></i>
+                <b>Home</b>
+            </a>
+            <ul>
+                <li><a href="index.html" title="">Home 1</a></li>
+                <li><a href="index2.html" title="">Home 2</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" title="" class="hm">
+                <i class="fa fa-file-text-o"></i>
+                <b>Pages</b>
+            </a>
+            <ul>
+                <li><a href="butterfly-room.html" title="">Butterfly Room</a></li>
+                <li><a href="daisy-room.html" title="">Daisy Room</a></li>
+                <li><a href="pricingtables.html" title="">Pricing Tables</a></li>
+                <li><a href="gallery-masonary.html" title="">Gallery - Masonary</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="classes.html" title="" class="hm">
+                <i class="fa fa-graduation-cap"></i>
+                <b>Classes</b>
+            </a>
+            <ul>
+                <li><a href="session-rooms.html" title="">Sessions & Rooms</a></li>
+                <li><a href="classes-page.html" title="">Single Class</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="blog.html" title="" class="hm">
+                <i class="fa fa-edit"></i>
+                <b>Blog</b>
+            </a>
+        </li>
+        <li>
+            <a href="#" title="" class="hm">
+                <i class="fa fa-info-circle"></i>
+                <b>Shortcodes</b>
+            </a>
+            <ul>
+                <li><a href="accordions.html" title="">Accordions</a></li>
+                <li><a href="tabs.html" title="">Tabs</a></li>
+                <li><a href="counters.html" title="">Counters</a></li>
+                <li><a href="fancy-box.html" title="">Fancy Boxes</a></li>
+                <li><a href="background-videos.html" title="">Background Videos</a></li>
+                <li><a href="buttons.html" title="">Buttons</a></li>
+                <li><a href="classes.html" title="">Classes</a></li>
+                <li><a href="team.html" title="">Team</a></li>
+                <li><a href="recent-posts.html" title="">Recent Posts</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href='@Url.Action("Index", "Product")' title="" class="hm">
+                <i class="fa fa-shopping-basket"></i>
+                <b>Shop</b>
+            </a>
+            <ul>
+                <li><a href='@Url.Action("Index", "Product")' title="">Product List</a></li>
+                <li><a href='@Url.Action("Create", "Product")' title="">add Product</a></li>
+                <li><a href='@Url.Action("MyProducts", "Product")' title="">My Products</a></li>
+                <li><a href='@Url.Action("DetailsCart", "Product")' title="">My Cart</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="contact.html" title="" class="hm">
+                <i class="fa fa-phone"></i>
+                <b>Contact</b>
+            </a>
+        </li>
+        @Html.Partial("_LoginPartial")
+    </ul>
+
+
+</nav><!--nav end-->

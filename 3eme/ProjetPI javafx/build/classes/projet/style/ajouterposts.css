@@ -1,0 +1,466 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.scroll-pane {
+    -fx-background-color: transparent;
+ }
+.content-gproduit {
+    -fx-background-color: #fff;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+    -fx-background-radius: 7px; 
+    -fx-padding: 15px;
+    -fx-font-family: "Century Gothic";
+}
+
+
+.table-view, .tree-table-view {
+    /* Constants used throughout the tableview. */
+    -fx-table-header-border-color: transparent;
+    -fx-table-cell-border-color: -fx-box-border; /* Horizontal Lines*/
+    -fx-background-color: transparent;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 1;
+    -fx-font-size: 15px;
+
+
+}
+
+
+.table-view .filler, .tree-table-view .filler, .table-view .column-header,
+.tree-table-view .column-header {
+    -fx-size: 60;
+    -fx-border-style: null;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+
+
+}
+
+.table-view .show-hide-columns-button, .tree-table-view .show-hide-columns-button
+{
+    -fx-background-color: #fff;
+}
+
+.table-view .column-header .label, .table-view .filler .label,
+.table-view .column-drag-header .label, .tree-table-view .column-header .label,
+.tree-table-view .filler .label, .tree-table-view .column-drag-header .label
+{  
+    -fx-alignment: CENTER_LEFT;
+
+}
+
+.table-view .column-header-background, .tree-table-view .column-header-background
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 1 0;
+
+
+}
+
+.table-row-cell, .tree-table-row-cell {
+    -fx-cell-size: 60px;
+    -fx-border-color: #fff;
+    -fx-padding: 0;
+    
+}
+.table-row-cell:selected, .tree-table-row-cell:selected {
+     -fx-background-color: transparent;
+     -fx-border-color: #fff;
+     -fx-text-background-color: #333;
+}
+.table-row-cell:selected, .tree-table-row-cell:hover {
+     -fx-background-color: #e1e1e1;
+}
+
+.table-cell {
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+}
+
+
+.table-view .button {
+    -fx-background-color: #ff5370;
+    -fx-font-size: 15;
+    -fx-text-fill: #fff;
+}
+.table-view .button:hover {
+    -fx-cursor: hand
+}
+
+
+
+/*
+Dialog
+*/
+.top-dialog {
+    -fx-alignment: CENTER_RIGHT;
+    -fx-background-color: #fff;
+}
+.button-dialog-close {
+    -fx-background-color: #fff;
+    -fx-border-color: #fff;
+
+}
+.button-dialog-close:hover {
+    -fx-background-color: #ff3333;
+    -fx-border-color: #ff3333;
+    -fx-text-fill: #fff
+}
+.content-dialog {
+    -fx-padding: 15;
+    -fx-border-color: #b1b1b1;
+    -fx-font-family: "Century Gothic";
+}
+.header-dialog {
+    -fx-padding: 5 25 45
+}
+.content-dialog-left {
+     -fx-padding: 15 25;
+}
+.content-dialog-right {
+     -fx-padding: 15 55;
+}
+
+
+.content-h-uplaod {
+    -fx-padding: 5 0 0;
+    -fx-pref-height: 80
+}
+.image-upload {
+    -fx-fit-width: 188;
+}
+.button-upload {
+    -fx-border-color: #777;
+    -fx-border-radius: 7;
+    -fx-border-width: 2;
+    -fx-pref-width: 120;
+    -fx-pref-height: 32;
+    -fx-text-fill: #777;
+    -fx-background-color: transparent;
+    -fx-background-radius: 7
+}
+.icon-upload {
+    -fx-fill: #777;
+}
+
+.combo-box{
+  -fx-font-size: 14;
+  -fx-pref-height: 25;
+  
+  
+}
+
+.text-field {
+    -fx-font-size: 14;
+    -fx-pref-height: 25;
+
+}
+.text-field:focused {
+    -fx-background-color: white;
+}
+
+.text-area {
+   -fx-font-size: 15;
+}
+.text-area:focused {
+   -fx-background-color: white;
+}
+.dialog-group-button {
+    -fx-padding: 0 25;
+    -fx-alignment: CENTER_RIGHT
+}
+.button-save {
+    -fx-background-color: #234b86;
+    -fx-text-fill: #fff;
+    -fx-pref-width: 120;
+    -fx-pref-height: 42
+}
+.button-close {
+    -fx-background-color: #dfdfdf;
+    -fx-pref-width: 120;
+    -fx-pref-height: 42;
+}
+
+.label-errors {
+    -fx-text-fill : #ff3333
+}
+
+.hbox-search {
+    -fx-alignment: CENTER_RIGHT
+}
+
+
+.content-produit {
+    -fx-font-family: "Century Gothic";
+}
+
+.hbox-categorie .button {
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-background-position: center;
+    -fx-padding: 0;
+    -fx-background-size: cover;
+    -fx-cursor: hand
+
+}
+.hbox-categorie .button .contentcateg{
+    -fx-background-color: rgba(0,0,0,.4);
+    -fx-alignment: CENTER_RIGHT;
+    -fx-padding: 25
+}
+.hbox-categorie .button .contentcateg .label{
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+}
+.hbox-categorie .button:hover .contentcateg .label{
+    -fx-border-color: #fff;
+    -fx-border-width: 0 0 3 0;
+    -fx-padding: 0 0 3 0;
+    -fx-text-fill: #4099ff;
+}
+.title-art {
+    -fx-padding: 8 0    
+}
+.content-item {
+   -fx-pref-width: 1316;
+   -fx-padding: 15 -10;
+   
+}
+.content-item .button {
+    -fx-pref-width: 246;
+    -fx-border-insets: 0 10;
+    -fx-background-insets: 0 10;
+    -fx-padding: 0 0 10 0;
+    -fx-background-color: #fff; 
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 1;
+    -fx-cursor: hand
+    
+}
+.content-item .button .title_prod {
+    -fx-font-weight: bold
+}
+.content-item .button:hover .title_prod {
+    -fx-text-fill: #4099ff
+}
+.content-item .label {
+    -fx-font-size: 15;
+    -fx-alignment: CENTER;
+    -fx-pref-width: 246;
+    -fx-padding: 5
+}
+
+.best-prod{
+    -fx-background-image: url('../images/df.jpg');
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+
+}
+
+.content-best{
+    -fx-background-color: rgba(0,0,0,.7)
+}
+
+.hbox-filter {
+    -fx-padding: 15 0;
+}
+.hbox-filter .combo-box {
+    -fx-border-insets: 0 5px;
+    -fx-background-insets: 0 5px;
+    -fx-pref-width: 336px;
+    -fx-pref-height: 50px;
+    -fx-border-color: #AAAAAA;
+    -fx-border-width: 2;
+    -fx-padding: 0 15
+}
+
+.hbox-filter .combo-box .text {
+    -fx-font-size: 17
+}
+.button-more {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4099ff;
+    -fx-font-size: 15;   
+}
+
+.button-panier {
+    -fx-border-width: 3;
+    -fx-border-color: #333;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-cursor: hand
+
+}
+
+.btn-image {
+    -fx-border-width: 2;
+    -fx-border-color: #f1f1f1;
+}
+
+.btn-image:focused{
+    -fx-border-width: 2;
+    -fx-border-color: #4099ff;
+    -fx-focus-color: transparent;
+}
+.jfx-tab-pane .tab-header-background {
+    -fx-background-color: transparent; 
+}
+
+.jfx-tab-pane .tab .tab-label {
+    -fx-text-fill: black ;
+    -fx-padding: 7 15
+} 
+.tab:selected .focus-indicator {
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.detail_prod { 
+    -fx-padding: 0 10;
+    -fx-font-family: "Century Gothic";
+    -fx-pref-width: 170
+}
+.detail_prod .button { 
+    -fx-padding: 0 0 12;
+    -fx-background-color: transparent;
+    -fx-font-size: 16
+}
+.detail_prod .button:hover {
+    -fx-text-fill: #4099ff
+}
+.item_prod {
+    -fx-padding:17 5;  
+}
+.item_prod .button {
+    -fx-cursor: hand
+}
+.item_prod .btn_delete {
+    -fx-background-color: #e1e1e1;
+    -fx-border-radius: 50;
+    -fx-background-radius: 50;
+}
+.detail_prod .label {
+    -fx-font-size: 14;
+    -fx-text-fill: #7f7f7f
+}
+.detail_prod .prix_prod {
+    -fx-font-size: 15;
+    -fx-padding: 9 0 0;
+    -fx-text-fill: #333
+}
+
+.sidebarRight {
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 0 0 0 1
+}
+.item_prod_panier {
+    -fx-border-color: #e1e1e1;
+    -fx-border-width: 1;
+    -fx-padding: 25
+}
+.item_prod_panier .text-field {
+    -fx-pref-width: 50;
+    -fx-pref-height: 45;
+    -fx-border-color: #e1e1e1;
+    -fx-border-radius: 0
+}
+
+.item_prod_panier .prix_prod {
+    -fx-font-size: 22;
+    -fx-padding: 5 0;
+    -fx-text-fill: #333;
+}
+.item_prod_panier .detail_prod {
+    -fx-padding: 0 15;
+    -fx-pref-width: 300
+}    
+.item_prod_panier .detail_prod .button {
+    -fx-background-color: transparent;
+    -fx-font-size: 16;
+    -fx-padding: 0 0 5;
+    -fx-cursor: hand
+}
+.item_prod_panier .detail_prod .button:hover {
+    -fx-text-fill: #4099ff
+}
+
+
+.item_prod_panier .total_prix {
+    -fx-font-size: 20;
+    -fx-padding: 5 10;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-text-fill: #333;   
+    -fx-pref-width: 200
+}
+
+.item_prod_panier .btn_delete {
+    -fx-padding: 7 0;
+    -fx-cursor: hand;
+    -fx-background-color: transparent
+}
+
+.continuer {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.continuer:hover {
+    -fx-text-fill: #4099ff
+}
+
+.accordion .titled-pane > *.content{
+    -fx-background-color: transparent ;
+    -fx-border-color: transparent
+}
+.accordion .titled-pane {
+    -fx-text-fill: #AAAAAA; 
+}
+.accordion .titled-pane .title {
+    -fx-background-color: transparent ;
+    -fx-padding: 15;
+    -fx-font-size: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-cursor: "hand";
+    -fx-font-weight: bold
+}
+.titled-pane .arrow {
+    -fx-opacity: 0;
+}
+
+.content-detail {
+    -fx-padding: 25px 55px
+}
+
+.btn-my-panier {
+    -fx-background-color : transparent;
+    -fx-cursor: "hand";
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+    -fx-font-family: "Century Gothic";
+    -fx-padding: 0
+}
+
+.btn-my-panier:hover {
+    -fx-text-fill: #4099ff
+}
+
+.field-command {
+    -fx-pref-width: 350;
+    -fx-pref-height: 42;
+    -fx-border-raduis: 0;
+    -fx-border-color: #e1e1e1;
+    -fx-font-size: 17;
+    -fx-font-family: "Century Gothic";
+}
+
+.content_commande {
+    -fx-padding: 15 0;
+}
+.content_commande .label {
+    -fx-font-size: 17;
+    -fx-padding: 20;
+    -fx-font-family: "Century Gothic";
+}

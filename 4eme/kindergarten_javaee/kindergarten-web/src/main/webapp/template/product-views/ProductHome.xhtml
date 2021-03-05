@@ -1,0 +1,344 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/Shared/SharedForProduct/layout.xhtml">
+
+
+	<ui:define name="myContent">
+
+
+
+		<style>
+.popup-panel-overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.popup-panel {
+	margin: 100px;
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	border: 1px solid #DDD;
+}
+
+#taille {
+	width: 50px;
+	margin: 40px auto;
+}
+
+.demo {
+	margin-left: 10%;
+}
+
+.liSL {
+	display: block;
+	float: left;
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+.imgSL {
+	display: block;
+	height: 150px;
+	width: 150px;
+	border-radius: 10px;
+}
+
+.button {
+	height: 190px;
+	width: 200px;
+}
+</style>
+
+		<h:form>
+
+			<section class="block no-padding">
+
+				<section class="pager-section">
+					<div class="fixed-bg bg10"></div>
+					<div class="container">
+						<div class="pager-cont">
+							<div class="page_details">
+								<h3>Shop</h3>
+							</div>
+							<!--page_details end-->
+							<div class="page_links">
+								<ul class="user-acc wt">
+									<li><a href="#" title="">Home</a></li>
+									<li><span>Products</span></li>
+								</ul>
+							</div>
+							<!--page_links end-->
+						</div>
+						<!--pager-cont end-->
+					</div>
+				</section>
+				<!--pager-section end-->
+
+
+
+				<div class="fixed-bg bg-light2"></div>
+				<div class="sp-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+								<div class="sp-specs">
+									<h:graphicImage name="content/images/resources/sp-img1.jpg" />
+									<div class="specs-info">
+										<h3>
+											Back to <br /> School
+										</h3>
+										<a href="#" title="">GET READY</a>
+									</div>
+									<!--specs-info end-->
+								</div>
+								<!--sp-specs end-->
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+								<div class="sp-specs">
+									<h:graphicImage name="content/images/resources/sp-img2.jpg" />
+									<div class="specs-info">
+										<h3>
+											Stock up on<br /> Stationary
+										</h3>
+										<a href="#" title="">GET EQUIPPED <i
+											class="fa fa-angle-right"></i></a>
+									</div>
+									<!--specs-info end-->
+								</div>
+								<!--sp-specs end-->
+							</div>
+							<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+								<div class="sp-specs">
+									<h:graphicImage name="content/images/resources/sp-img3.jpg" />
+									<div class="specs-info">
+										<h3>
+											Arts and <br />Crafts
+										</h3>
+										<a href="#" title="">GET ARTISTIC</a>
+									</div>
+									<!--specs-info end-->
+								</div>
+								<!--sp-specs end-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--sp-section end-->
+				<div class="products-main-sec">
+
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-3">
+								<div class="cms-left-sidebar">
+									<div class="widget widget-search">
+										<input type="text" name="search" placeholder="Search" />
+										<button type="submit">
+											<i class="fa fa-search"></i>
+										</button>
+									</div>
+									<!-- widget-search end-->
+									<div class="widget widget-cateogories2">
+										<div class="widget-title">
+											<h3>Categories</h3>
+											<i class="fa fa-caret-down"></i>
+										</div>
+										<!--widget-title end-->
+										<ul>
+											<li><a href="#" title="">Clothes</a> <span>(5)</span></li>
+											<li><a href="#" title="">Nursery</a> <span>(8)</span></li>
+											<li><a href="#" title="">Pre-School</a> <span>(12)</span>
+											</li>
+											<li><a href="#" title="">Toys</a> <span>(25)</span></li>
+										</ul>
+									</div>
+									<!--widget-cateogories end-->
+									<div class="widget widget-filter">
+										<div class="product-filter-slider">
+
+											<button type="submit">Filter</button>
+										</div>
+									</div>
+									<!--widget-filter end-->
+									<div class="widget widget-adver">
+										<h:graphicImage name="content/images/resources/adver.png"
+											alt="" />
+									</div>
+									<!--widget-adver end-->
+								</div>
+								<!--cms-left-sidebar end-->
+							</div>
+							<div class="col-lg-9">
+								<div class="products-show-sec">
+									<div class="product-pd">
+										<div class="product-head">
+											<div class="product-sort">
+												<h4>Sort By :</h4>
+												<select>
+													<option>Default Sorting</option>
+													<option>Sort by popularity</option>
+													<option>Sort by average rating</option>
+													<option>Sort by newness</option>
+													<option>Sort by price: low to high</option>
+													<option>Sort by price: high to low</option>
+												</select>
+											</div>
+											<!--product-sort end-->
+											<div class="product-status">
+												<span>Showing 1: 9 of 10 product</span>
+											</div>
+											<!--product-status end-->
+										</div>
+										<!--product-head end-->
+									</div>
+									<!--product-pd end-->
+
+									<div class="products-show">
+										<div class="row">
+
+
+											<c:forEach var="productList"
+												items="#{productBean.GetlistOfAllProduct()}"
+												varStatus="status">
+												<div class="col-lg-4 col-md-6 col-sm-12 col-12">
+													<div class="product-info">
+
+
+														<h:commandButton
+															image="data:image/jpg;base64,#{productList.img1}"
+															styleClass="button" value="add to cart"
+															action="#{productBean.show()}">
+															<f:setPropertyActionListener
+																target="#{productBean.productFromView}"
+																value="#{productList}" styleClass="button" />
+															<f:ajax render="@form" />
+														</h:commandButton>
+
+
+														<h3>
+															<h:outputText value="#{productList.name}" />
+														</h3>
+														<span> <h:outputText value="#{productList.price}" />
+															€
+														</span>
+														<h3>aaaaaa</h3>
+													</div>
+													<!--product-info end-->
+												</div>
+											</c:forEach>
+
+
+										</div>
+									</div>
+
+
+
+									<h:panelGroup layout="block" styleClass="popup-panel-overlay"
+										rendered="#{productBean.showPopup}">
+										<div class="popup-panel">
+
+											<!-- 											<section class="pager-sec"> -->
+											<!-- 												<div class="container"> -->
+											<!-- 													<div class="pager-pag"> -->
+											<!-- 														<h3 class="no-mg"> -->
+											<!-- 															<h:outputText value="#{productBean.show().name}" /> -->
+											<!-- 														</h3> -->
+											<!-- 													</div> -->
+											<!-- 													pager-pag end -->
+											<!-- 												</div> -->
+											<!-- 											</section> -->
+
+
+											<div class="button-types">
+												<div class="row">
+													<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+														<img class="imgSL"
+															src="data:image/jpg;base64,#{productBean.show().img1}" />
+													</div>
+													<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+														<img class="imgSL"
+															src="data:image/jpg;base64,#{productBean.show().img1}" />
+													</div>
+													<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+														<img class="imgSL"
+															src="data:image/jpg;base64,#{productBean.show().img1}" />
+													</div>
+												</div>
+											</div>
+											<!--button-types end-->
+
+
+											<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+											<br /> <br />
+
+											<h:inputText id="validateQuentity" value="#{productBean.quantityChoosedFromView}"
+												pt:placeholder="Quantity" styleClass="form-control"
+												required="true"
+												validatorMessage="the quantity must be a number between 1 and 9"
+												 >
+												 <f:validateDoubleRange minimum="1" maximum="9" for="validateQuentity"></f:validateDoubleRange>
+												 </h:inputText>
+												<h:message for="validateQuentity" style="color:red"></h:message>
+												
+
+											<div class="row">
+												<div class="col-lg-12" align="center">
+													<h:commandButton styleClass="btn btn-default"
+														value="add to cart"
+														action="#{productBean.AddProductToCart()}">
+
+													</h:commandButton>
+
+													<h:commandButton styleClass="btn btn-default"
+														value="hide details" action="#{productBean.hide()}">
+														<f:ajax render="@form" />
+													</h:commandButton>
+												</div>
+											</div>
+										</div>
+									</h:panelGroup>
+
+
+
+
+
+
+
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</section>
+
+
+
+
+		</h:form>
+	</ui:define>
+
+
+</ui:composition>
+
+
+
+
+
+
+
+
+

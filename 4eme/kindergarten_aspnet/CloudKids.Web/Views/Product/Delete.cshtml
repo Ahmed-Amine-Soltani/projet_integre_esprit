@@ -1,0 +1,28 @@
+﻿@model CloudKids.Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<h2>Delete</h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+            @Html.DisplayNameFor(model => model.Name)
+       
+            @Html.DisplayFor(model => model.Name)
+        
+
+   </div>   
+  
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Confirm" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "MyProducts")
+        </div>
+    }
+</div>

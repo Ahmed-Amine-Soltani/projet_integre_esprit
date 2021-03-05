@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="accueilStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="scroll-bar" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.EvenementController">
+   <children>
+      <AnchorPane stylesheets="@EvenementCss.css">
+         <children>
+            <JFXTabPane cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="653.0" prefWidth="1366.0" scaleShape="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <tabs>
+                  <Tab text="Accueil">
+                     <content>
+                        <StackPane styleClass="pageAccueil">
+                           <children>
+                              <ScrollPane hbarPolicy="NEVER" vbarPolicy="ALWAYS">
+                                 <content>
+                                    <VBox alignment="CENTER" prefWidth="1206.0" style="-fx-background-color: transparent;">
+                                       <children>
+                                          <VBox fx:id="accueilVbox" alignment="CENTER" minHeight="200.0" style="-fx-background-color: transparent;">
+                                             <children>
+                                                <VBox fx:id="content" alignment="CENTER" minHeight="200.0" style="-fx-background-color: transparent;" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="200.0" right="200.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                           <stylesheets>
+                              <URL value="@EvenementCss.css" />
+                              <URL value="@../style/EvenementCss.css" />
+                           </stylesheets>
+                        </StackPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Tous les Evenements">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="125.0" layoutY="61.0" prefHeight="429.0" prefWidth="675.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <StackPane fx:id="afficherTsEvenementStackPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <AnchorPane fx:id="accueilGUI" prefHeight="551.0" prefWidth="1000.0">
+                                             <children>
+                                                <BorderPane prefHeight="551.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <TableView fx:id="tableView" prefHeight="329.0" prefWidth="683.0" BorderPane.alignment="CENTER">
+                                                         <columns>
+                                                            <TableColumn fx:id="col_nom_ev" prefWidth="75.0" text="Nom" />
+                                                            <TableColumn fx:id="col_lieu_ev" prefWidth="75.0" text="lieu" />
+                                                            <TableColumn fx:id="col_type_ev" prefWidth="75.0" text="Type" />
+                                                            <TableColumn fx:id="col_capacite_ev" prefWidth="75.0" text="Capacité" />
+                                                            <TableColumn fx:id="col_date_debut" prefWidth="75.0" text="Date Debut" />
+                                                            <TableColumn fx:id="col_date_fin" prefWidth="219.0" text="Date Fin" />
+                                                            <TableColumn fx:id="col_image" minWidth="60.0" prefWidth="75.0" text="image" />
+                                                         </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                         <contextMenu>
+                                                            <ContextMenu>
+                                                               <items>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#afficherTsEvenement" text="Actualiser">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/acctualiser.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </MenuItem>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#afficherDetailsEvenement" text="Afficher plus">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/detail.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </MenuItem>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#ajouterReservationEvenement" text="Reserver cet evenement">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/reserver.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </MenuItem>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#lireDescriptionEvenement" text="Ecouter la description">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/song.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </MenuItem>
+                                                                  <Menu mnemonicParsing="false" text="Imprimer">
+                                                                     <items>
+                                                                        <MenuItem mnemonicParsing="false" onAction="#jasperReportTsEvenementSelectionnerGUI" text="Imprimer cet evenement" />
+                                                                        <MenuItem mnemonicParsing="false" onAction="#jasperReportTsEvenement" text="Imprimer tous les evenements" />
+                                                                     </items>
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/imprimer.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </Menu>
+                                                               </items>
+                                                            </ContextMenu>
+                                                         </contextMenu>
+                                                      </TableView>
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </StackPane>
+                                 </center>
+                                 <top>
+                                    <HBox BorderPane.alignment="CENTER">
+                                       <children>
+                                          <TextField fx:id="rechercheParNomEvenement" prefHeight="31.0" prefWidth="600.0" promptText="Cherchez l'événement que vous voulez par nom">
+                                             <HBox.margin>
+                                                <Insets left="315.0" right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <TextField fx:id="rechercheParLieuEvenement" prefHeight="31.0" prefWidth="600.0" promptText="Cherchez l'événement que vous voulez par nom ou lieu">
+                                             <HBox.margin>
+                                                <Insets left="20.0" right="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </top>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Mes Evenements">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="461.0" prefWidth="967.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <StackPane fx:id="afficherMesEvenementStackPane" prefHeight="551.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <BorderPane prefHeight="551.0" prefWidth="1000.0">
+                                             <center>
+                                                <TableView fx:id="tableView_mesEvenement" prefHeight="381.0" prefWidth="949.0" BorderPane.alignment="CENTER">
+                                                   <columns>
+                                                      <TableColumn fx:id="col_id_ev_mesEvenement" prefWidth="76.0" resizable="false" text="id" />
+                                                      <TableColumn fx:id="col_nom_ev_mesEvenement" prefWidth="240.0" text="Nom" />
+                                                      <TableColumn fx:id="col_lieu_ev_mesEvenement" prefWidth="75.0" text="lieu" />
+                                                      <TableColumn fx:id="col_type_ev_mesEvenement" prefWidth="75.0" text="Type" />
+                                                      <TableColumn fx:id="col_capacite_ev_mesEvenement" prefWidth="75.0" text="Capacité" />
+                                                      <TableColumn fx:id="col_date_debut_mesEvenement" prefWidth="219.0" text="Date Debut" />
+                                                      <TableColumn fx:id="col_date_fin_mesEvenement" prefWidth="219.0" text="Date Fin" />
+                                                      <TableColumn fx:id="col_image_mesEvenement" minWidth="60.0" prefWidth="355.0" resizable="false" text="image" />
+                                                   </columns>
+                                                   <contextMenu>
+                                                      <ContextMenu>
+                                                         <items>
+                                                            <MenuItem mnemonicParsing="false" onAction="#afficherMesEvenement" text="Actualiser">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../images/Evenement/acctualiser.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </MenuItem>
+                                                            <MenuItem mnemonicParsing="false" onAction="#afficherValeurSelectionner" text="Modifier Evenement">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../images/Evenement/modifier.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </MenuItem>
+                                                            <MenuItem mnemonicParsing="false" onAction="#supprimerEvenement" text="Supprimer Evenement">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../images/Evenement/supprimer.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </MenuItem>
+                                                            <Menu mnemonicParsing="false" text="Imprimer">
+                                                               <items>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#jasperReportMesEvenementSelectionnerGUI" text="Imprimer cet evenement" />
+                                                                  <MenuItem mnemonicParsing="false" onAction="#jasperReportTsMesEvenementSelectionnerGUI" text="Imprimer tous mes evenements" />
+                                                               </items>
+                                                               <graphic>
+                                                                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@../images/Evenement/imprimer.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </Menu>
+                                                         </items>
+                                                      </ContextMenu>
+                                                   </contextMenu>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </center>
+                                          </BorderPane>
+                                       </children>
+                                    </StackPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Mes Reservations">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="125.0" layoutY="61.0" prefHeight="429.0" prefWidth="675.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <StackPane fx:id="afficherReservationStackPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <AnchorPane fx:id="accueilGUI1" prefHeight="551.0" prefWidth="1000.0">
+                                             <children>
+                                                <BorderPane prefHeight="551.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <TableView fx:id="tableView_participer" prefHeight="329.0" prefWidth="683.0" BorderPane.alignment="CENTER">
+                                                         <columns>
+                                                            <TableColumn fx:id="col_nom_ev_participer" prefWidth="75.0" text="Nom" />
+                                                            <TableColumn fx:id="col_lieu_ev_participer" prefWidth="75.0" text="lieu" />
+                                                            <TableColumn fx:id="col_type_ev_participer" prefWidth="75.0" text="Type" />
+                                                            <TableColumn fx:id="col_capacite_ev_participer" prefWidth="75.0" text="Capacité" />
+                                                            <TableColumn fx:id="col_date_debut_participer" prefWidth="75.0" text="Date Debut" />
+                                                            <TableColumn fx:id="col_date_fin_participer" prefWidth="219.0" text="Date Fin" />
+                                                            <TableColumn fx:id="col_image_participer" minWidth="60.0" prefWidth="75.0" text="image" />
+                                                         </columns>
+                                                         <columnResizePolicy>
+                                                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                         </columnResizePolicy>
+                                                         <contextMenu>
+                                                            <ContextMenu>
+                                                               <items>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#afficherMesReservation" text="Actualiser">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/acctualiser.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </MenuItem>
+                                                                  <MenuItem mnemonicParsing="false" onAction="#annulerReservation" text="Annuler Participation">
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/annuler.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </MenuItem>
+                                                                  <Menu mnemonicParsing="false" text="Imprimer">
+                                                                     <items>
+                                                                        <MenuItem mnemonicParsing="false" onAction="#jasperReportMesReservationSelectionnerGUI" text="Imprimer cet evenement" />
+                                                                        <MenuItem mnemonicParsing="false" onAction="#jasperReportTsMesReservationSelectionnerGUI" text="Imprimer tous les evenements" />
+                                                                     </items>
+                                                                     <graphic>
+                                                                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@../images/Evenement/imprimer.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </graphic>
+                                                                  </Menu>
+                                                               </items>
+                                                            </ContextMenu>
+                                                         </contextMenu>
+                                                      </TableView>
+                                                   </center>
+                                                </BorderPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </StackPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <styleClass>
+                  <String fx:value="tab-label" />
+                  <String fx:value="tab-pane" />
+               </styleClass>
+            </JFXTabPane>
+            <JFXHamburger fx:id="hamburger" layoutX="1296.0" layoutY="45.0" styleClass="jfx-hamburger-icon" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="8.0" />
+            <JFXDrawer fx:id="drawer" layoutY="97.0" prefHeight="442.0" prefWidth="165.0" stylesheets="@EvenementCss.css">
+               <padding>
+                  <Insets top="150.0" />
+               </padding>
+            </JFXDrawer>
+         </children>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@EvenementCss.css" />
+      <URL value="@../style/EvenementCss.css" />
+   </stylesheets>
+</StackPane>

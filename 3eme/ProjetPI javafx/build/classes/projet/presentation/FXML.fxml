@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.FXMLController">
+   <content>
+      <AnchorPane id="AnchorPane" fx:id="rootpane" prefHeight="719.0">
+         <children>
+            <Button fx:id="ajouter_promotion" layoutX="51.0" layoutY="58.0" mnemonicParsing="false" onAction="#ajouter_promotion" text="ajouter une promotion">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <stylesheets>
+                  <URL value="@btn.css" />
+                  <URL value="@../style/btn.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="modifier_promotion" layoutX="281.0" layoutY="58.0" mnemonicParsing="false" onAction="#modifier_promotion" text="modifier une promotion">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <stylesheets>
+                  <URL value="@btn.css" />
+                  <URL value="@../style/btn.css" />
+               </stylesheets>
+            </Button>
+            <Button fx:id="supp_promotion" layoutX="524.0" layoutY="58.0" mnemonicParsing="false" onAction="#supp_promotion" text="supprimer une promotion">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <stylesheets>
+                  <URL value="@btn.css" />
+                  <URL value="@../style/btn.css" />
+               </stylesheets>
+            </Button>
+            <TableView fx:id="table" layoutY="186.0" prefHeight="466.0" prefWidth="1066.0">
+              <columns>
+                <TableColumn fx:id="nom" prefWidth="202.40003049373627" text="nom du promotion " />
+                <TableColumn fx:id="date_debut" prefWidth="163.99996948242188" text="date debut" />
+                  <TableColumn fx:id="date_fin" prefWidth="169.60000610351562" text="date fin" />
+                  <TableColumn fx:id="pourcentage" prefWidth="180.79998779296875" text="pourcentage" />
+                  <TableColumn fx:id="produit" minWidth="0.0" prefWidth="350.39996337890625" text="produit" />
+              </columns>
+               <stylesheets>
+                  <URL value="@btn.css" />
+                  <URL value="@../style/btn.css" />
+               </stylesheets>
+            </TableView>
+            <Label layoutX="375.0" prefHeight="18.0" prefWidth="492.0" text="Promotion" textFill="#2682b7">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Button fx:id="statistique" layoutX="803.0" layoutY="58.0" mnemonicParsing="false" onAction="#stat" prefHeight="54.0" prefWidth="194.0" stylesheets="@../style/btn.css" text="Statistique" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

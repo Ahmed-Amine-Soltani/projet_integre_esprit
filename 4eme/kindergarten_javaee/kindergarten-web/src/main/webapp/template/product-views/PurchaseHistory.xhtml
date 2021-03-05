@@ -1,0 +1,209 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/template/Shared/SharedForProduct/layout.xhtml">
+
+	<ui:define name="myContent">
+		<style>
+img {
+	border-radius: 20px;
+}
+</style>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+
+		<section class="pager-sec">
+			<div class="container">
+				<div class="pager-pag">
+
+					<c:if test="${empty  productBean.listAllCartByParentIdViewTest()}">
+						<h3 class="no-mg">You Cart History is Empty</h3>
+					</c:if>
+
+					<c:if test="${not empty productBean.listAllCartByParentIdViewTest()}">
+						<h3 class="no-mg">Your Cart History</h3>
+					</c:if>
+
+				</div>
+				<!--pager-pag end-->
+			</div>
+		</section>
+
+		<!-- 		<section class="block5 remove-btm-gap"> -->
+		<!-- 			<div class="container"> -->
+		<!-- 				<div class="cms-accordion st2 toggle"> -->
+		<!-- 					<div class="toggle-item cl1"> -->
+		<!-- 						<h:form> -->
+		<!-- 								<p:calendar value="#{productBean.date1}" showOn="button" /> -->
+		<!-- 							<p:calendar value="#{productBean.date2}" showOn="button" /> -->
+		<!-- 							<h:inputText value="#{productBean.keyword}"></h:inputText> -->
+		<!-- 							<h:commandButton class="btn btn-default btn-purple" value="Search" action="#{productBean.Search()}"></h:commandButton> -->
+		<!-- 						</h:form> -->
+		<!-- 					</div> -->
+		<!-- 				</div> -->
+		<!-- 			</div> -->
+		<!-- 		</section> -->
+
+
+		<section class="block3">
+			<div class="fixed-bg bg9"></div>
+			<div class="container">
+				<div class="enquiry-sec">
+				<c:if test="${not empty productBean.listAllCartByParentIdViewTest()}">
+					<div class="heading clr">
+						<h3>You can search by date or name or both</h3>
+					</div>
+
+					
+						<!--heading end-->
+						<div class="contact_sec">
+							<h:form>
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="input-field">
+											<p:calendar value="#{productBean.date1}" showOn="button" />
+										</div>
+										<!--input-field end-->
+									</div>
+									<div class="col-lg-6">
+										<div class="input-field">
+											<p:calendar value="#{productBean.date2}" showOn="button" />
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="input-field">
+											<h:inputText value="#{productBean.keyword}"></h:inputText>
+										</div>
+									</div>
+
+									<div class="col-lg-12">
+										<div class="btn-submit">
+											<h:commandButton class="btn btn-default btn-purple"
+												value="Search" action="#{productBean.Search()}"></h:commandButton>
+										</div>
+										<!--btn-submit end-->
+										<div class="btn-submit">
+											<h:commandButton styleClass="btn btn-default" value="Reload"
+												action="#{productBean.init()}">
+											</h:commandButton>
+										</div>
+									</div>
+								</div>
+							</h:form>
+						</div>
+					</c:if>
+				</div>
+				<!--contact_sec end-->
+			</div>
+			<!--enquiry-sec end-->
+
+		</section>
+
+
+
+
+
+		<h:form>
+			<c:forEach items="#{productBean.getSearch()}" var="CartList"
+				varStatus="status">
+				<section class="block5 remove-btm-gap">
+					<div class="container">
+						<div class="cms-accordion st2 toggle">
+							<div class="toggle-item cl1">
+								<h2 class="clr1">
+									<i class="fa fa-shopping-bag"></i> PURCHASED :
+									<h:outputText style="font-weight:bold"
+										value="#{CartList.cartDate}">
+										<f:convertDateTime locale="en" timeStyle="short" type="both"
+											dateStyle="full" />
+									</h:outputText>
+								</h2>
+								<div class="content">
+									<p>
+										you validated the purchase of this cart on
+										<h:outputText style="font-weight:bold ; color: #D35591"
+											value="#{CartList.cartDate}">
+											<f:convertDateTime locale="en" timeStyle="short" type="both"
+												dateStyle="full" />
+										</h:outputText>
+										, the price you paid is
+
+										<h:outputText style="font-weight:bold ; color: #D35591"
+											value="#{CartList.cartTotalPriceWord}" />
+										€
+									</p>
+								</div>
+							</div>
+							<!-- Toggle Item -->
+
+							<c:forEach items="#{CartList.cartLines}" var="CartLine"
+								varStatus="status">
+
+								<div class="toggle-item cl2">
+									<h2 class="clr2">
+										Product naming :
+										<h:outputText value="#{CartLine.product.name}" />
+									</h2>
+									<div class="content">
+										<div class="row">
+											<div class="col-4">
+
+												<img id="img1" width="200" height="190"
+													src="data:image/jpg;base64,#{CartLine.product.img1}" />
+
+											</div>
+
+
+
+											<div class="col-8">
+												<p>
+													you bought
+													<h:outputText style="font-weight:bold ; color: #1A9EB9"
+														value="#{CartLine.quantityChoosed}" />
+													item of the product
+													<h:outputText style="font-weight:bold ; color: #1A9EB9"
+														value="#{CartLine.product.name}" />
+													which costs
+													<h:outputText style="font-weight:bold ; color: #1A9EB9"
+														value="#{CartLine.product.price}" />
+													€
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+
+
+
+
+
+
+
+							<!-- Toggle Item -->
+							<!-- 							<div class="toggle-item cl3 activate"> -->
+							<!-- 								<h2 class="clr3 active"> -->
+							<!-- 									<i class="fa fa-book"></i>Education -->
+							<!-- 								</h2> -->
+							<!-- 								<div class="content animated fadeInUp"> -->
+							<!-- 									<p>Elipsis magna a terminal nulla elementum morbi elite -->
+							<!-- 										Praesent arcu gravida vehicula est node maecenas loareet Urna -->
+							<!-- 										eget lacinia eleifend praesent luctus a arcu quis facilisis -->
+							<!-- 										venenatis Elipsis magna a terminal nulla elementum morbi elite -->
+							<!-- 										forte Maecenas est magna vehicula est node maecenas.</p> -->
+							<!-- 								</div> -->
+							<!-- 							</div> -->
+							<!-- Toggle Item -->
+						</div>
+					</div>
+				</section>
+
+			</c:forEach>
+		</h:form>
+
+
+	</ui:define>
+
+</ui:composition>

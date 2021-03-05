@@ -1,0 +1,113 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<header class="pb">
+		<div class="container">
+			<div class="header-data">
+				<div class="logo">
+					<a href="#" title=""><img src="content/images/logo.png" alt="" /></a>
+				</div>
+				<!--logo end-->
+				<nav>
+					<ul>
+						<li><a href="/kindergarten-web/template/index.jsf" title="" class="hm"> <i
+								class="fa fa-home"></i> <b>Home</b>
+						</a>
+							<ul>
+								<li><a href="index.html" title="">Home 1</a></li>
+								<li><a href="index2.html" title="">Home 2</a></li>
+							</ul></li>
+						<li><a href="#" title="" class="hm"> <i
+								class="fa fa-file-text-o"></i> <b>Pages</b>
+						</a>
+							<ul>
+								<li><a href="butterfly-room.html" title="">Butterfly
+										Room</a></li>
+								<li><a href="daisy-room.html" title="">Daisy Room</a></li>
+								<li><a href="pricingtables.html" title="">Pricing
+										Tables</a></li>
+								<li><a href="gallery-masonary.html" title="">Gallery -
+										Masonary</a></li>
+							</ul></li>
+						<li><a href="/kindergarten-web/template/EnfantEya/ListEnfant.jsf" title="" class="hm"> <i
+								class="fa fa-graduation-cap"></i> <b>Enfant</b>
+						</a>
+							<ul>
+								<li><a href="/kindergarten-web/template/EnfantEya/Pie.jsf" title="">Statistique
+									</a></li>
+								<li><a href="/kindergarten-web/template/EnfantEya/ttw.html" title="">Map</a></li>
+							</ul></li>
+						<li><a href='/kindergarten-web/template/chat/threads.xhtml' title="" class="hm"> <i class="fa fa-edit"></i>
+								<b>Chat</b>
+						</a></li>
+						<li><a href="#" title="" class="hm"> <i
+								class="fa fa-info-circle"></i> <b>Shortcodes</b>
+						</a>
+							<ul>
+								<li><a href="accordions.html" title="">Accordions</a></li>
+								<li><a href="tabs.html" title="">Tabs</a></li>
+								<li><a href="counters.html" title="">Counters</a></li>
+								<li><a href="fancy-box.html" title="">Fancy Boxes</a></li>
+								<li><a href="background-videos.html" title="">Background
+										Videos</a></li>
+								<li><a href="buttons.html" title="">Buttons</a></li>
+								<li><a href="classes.html" title="">Classes</a></li>
+								<li><a href="team.html" title="">Team</a></li>
+								<li><a href="recent-posts.html" title="">Recent Posts</a></li>
+							</ul></li>
+						<li><a href='#{productBean.DisplayProductHomePage()}' title="" class="hm"> <i
+								class="fa fa-shopping-bag"></i> <b>Shop</b>
+						</a>
+							<ul>
+									<li><a href='#{productBean.DisplayMyCartHistory()}' title=""> Purchase History </a></li>
+								<li><a href='#{productBean.DisplayMyCart()}' title=""> My Cart </a></li>
+								<li><a href='#' title="">Product Details</a></li>
+								<li><a href='#' title="">add Product</a></li>
+							</ul></li>
+						<li><a href="contact.html" title="" class="hm"> <i
+								class="fa fa-phone"></i> <b>Contact</b>
+						</a></li>
+
+						<!--  login / logoff treatment -->
+						<ui:fragment rendered="#{loginBean.jsfTest eq false}">
+							<li><a href='#' title="" class="hm"> <i
+									class="fa fa-plus-circle"></i> <b>Register</b></a></li>
+							<li><a href='/kindergarten-web/template/login.jsf' title=""
+								class="hm"> <i class="fa fa-user-o" aria-hidden="true"></i>
+									<b>Log in</b></a></li>
+						</ui:fragment>
+						<li><h:form>
+								<h:commandLink styleClass="hm" action="#{loginBean.logoff()}"
+									rendered="#{loginBean.jsfTest}">
+									<i class="fa fa-power-off"></i>
+									<b>Logout</b>
+								</h:commandLink>
+							</h:form></li>
+						<!--  end login / logoff treatment -->
+					</ul>
+
+					<h:outputText value="#{loginBean.email}"
+						rendered="#{loginBean.jsfTest}" />
+						
+				</nav>
+				<!--nav end-->
+				<div class="menu-btn">
+					<span class="bar1"></span> <span class="bar2"></span> <span
+						class="bar3"></span>
+				</div>
+				<!--menu-btn end-->
+			</div>
+			<!--header-data end-->
+		</div>
+	</header>
+	<!--header end-->
+
+
+</ui:composition>
+

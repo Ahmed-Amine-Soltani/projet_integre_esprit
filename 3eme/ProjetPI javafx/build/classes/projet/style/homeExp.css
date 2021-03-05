@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 10, 2019, 1:02:33 PM
+    Author     : houba
+*/
+
+row {
+    -fx-alignment: CENTER
+}
+.button {
+    -fx-pref-width: 230;
+    -fx-padding: 10 30 10 50;
+    -fx-border-insets: 10;
+    -fx-background-insets: 10;
+    -fx-background-color: transparent
+}
+
+.button .detail_btn {
+    -fx-padding: 10;
+    -fx-background-color: #3498db;
+    -fx-font-size: 14
+}
+
+.supp_Box .button{
+    
+    -fx-background-color: #e74c3c;
+    -fx-font-size: 15;
+    -fx-pref-width: 150;
+    -fx-pref-height: 60
+    
+}
+
+.button .detail_btn .label {
+    -fx-padding: 7 40;
+    -fx-font-size: 14
+}

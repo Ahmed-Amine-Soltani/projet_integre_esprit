@@ -1,0 +1,225 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	template="/template/Shared/SharedForProduct/layout.xhtml">
+
+
+	<ui:define name="myContent">
+
+
+		<style>
+.imgMO {
+	width: 100%;
+	height: 180px;
+}
+
+.popup-panel-overlay {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 20px;
+	left: 25%;
+	width: 800px;
+	height: 610px;;
+}
+
+.popup-panel {
+	background-color: transparent;
+}
+</style>
+		<h:form>
+			<section class="pager-sec">
+
+				<div class="container">
+
+					<div class="pager-pag">
+
+						<c:if test="${empty  productBean.GetProductByCartLinesIds()}">
+							<h3 class="no-mg">You Cart is Empty</h3>
+						</c:if>
+
+						<c:if test="${not empty productBean.GetProductByCartLinesIds()}">
+							<h3 class="no-mg">Your Cart</h3>
+						</c:if>
+
+					</div>
+					<!--pager-pag end-->
+				</div>
+			</section>
+			<!--pager-sec end-->
+
+
+			<h:commandButton styleClass="btn btn-default" value="Reload"
+				rendered="${not empty productBean.GetProductByCartLinesIds()}"
+				action="#{productBean.init()}">
+			</h:commandButton>
+
+			<section class="block5 bdr-bfr">
+
+				<div class="container">
+					<div class="more-services st2">
+
+
+						<div class="row">
+
+
+
+							<c:forEach var="productList"
+								items="#{productBean.GetProductByCartLinesIds()}"
+								varStatus="status">
+
+
+								<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+									<div class="services_details">
+										<div class="row">
+											<div class="col-lg-6">
+												<div class="srvc-img">
+													<img width="200" height="190"
+														src="data:image/jpg;base64,#{productList.img1}" />
+													<div class="specs-fig">
+														<ul>
+															<li>
+																<h3>
+																	12-24 <br /> Months Old
+																</h3>
+															</li>
+															<li>
+																<h3>
+																	12 <br /> Class Size
+																</h3>
+															</li>
+														</ul>
+													</div>
+													<!--specs-fig end-->
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class="demo srv_det">
+													<h3>
+														<h:outputText value="#{productList.name}" />
+													</h3>
+
+													<h5 style="color: white;">
+														product name :
+														<h:outputText value="#{productList.name}" />
+													</h5>
+													<h5 style="color: white;">quantity choosed :</h5>
+													<h5 style="color: white;">product price :</h5>
+													<br /> <a href='#' title="" class="form-btn2">Remove
+														from cart </a>
+												</div>
+												<!--srv_det end-->
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+							</c:forEach>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<div class="col-lg-12" align="center">
+				<h:commandButton
+					rendered="${not empty productBean.GetProductByCartLinesIds()}"
+					styleClass="btn btn-default" value="confirm purchase"
+					action="#{productBean.show2()}">
+					<f:ajax render="@form" />
+				</h:commandButton>
+			</div>
+
+
+			<h:panelGroup layout="block" styleClass="popup-panel-overlay"
+				rendered="#{productBean.showPopup2}">
+				<div class="popup-panel">
+
+					<div class="ico">
+						<h:graphicImage name="content/images/ico1.png" alt="" />
+					</div>
+					<h3>SHINING STARS</h3>
+					<span>3 - 4 years</span>
+
+					<div class="col-lg-12 col-md-6">
+						<div class="price-table">
+							<!-- 							<div class="ico"> -->
+							<!-- 								<h:graphicImage name="content/images/ico1.png" alt="" /> -->
+							<!-- 							</div> -->
+							<div class="pricing-content">
+								<ul>
+									<li><span>Your total cart price </span> <span><strong>
+												<h:outputText
+													value="#{productBean.GetNotYetPurchasedCartByParentId().getCartTotalPrice()}" />
+										</strong><b>€</b></span></li>
+
+									<c:if test="${productBean.GetPointsLoyalty().points != 0}">
+
+										<li><span>Your loyalty points are worth </span> <span><strong>
+													<h:outputText
+														value="#{productBean.GetPointsLoyalty().points}" />
+											</strong> <b>€</b> </span></li>
+
+										<li><span>The amount using loyalty points</span> <span><strong><h:outputText
+														value="#{productBean.theAmountYouHaveToPay()}" /></strong><b>€</b></span>
+										</li>
+
+										<li><span>Remaining loyalty point amount</span> <span><strong><h:outputText
+														value="#{productBean.RemainingLoyaltyPointAmount()}" /></strong><b>€</b></span>
+										</li>
+									</c:if>
+								</ul>
+							</div>
+
+							<c:if test="${productBean.GetPointsLoyalty().points != 0}">
+
+								<!--pricing-content end-->
+								<h:commandButton styleClass="btn btn-default"
+									value="Without my points"
+									action="#{productBean.ConfirmPurchaseWithoutLoyaltyPoints()}">
+								</h:commandButton>
+							</c:if>
+							<c:if test="${productBean.GetPointsLoyalty().points eq 0}">
+
+								<!--pricing-content end-->
+								<h:commandButton styleClass="btn btn-default"
+									value="Confirm purchase"
+									action="#{productBean.ConfirmPurchaseWithoutLoyaltyPoints()}">
+								</h:commandButton>
+							</c:if>
+
+
+
+
+							<c:if test="${productBean.GetPointsLoyalty().points != 0}">
+								<h:commandButton styleClass="btn btn-default"
+									value="Using my points"
+									action="#{productBean.ConfirmPurchaseUsingLoyaltyPoints()}">
+								</h:commandButton>
+							</c:if>
+
+
+							<h:commandButton styleClass="btn btn-default" value="hide"
+								action="#{productBean.hide2()}">
+								<f:ajax render="@form" />
+							</h:commandButton>
+
+						</div>
+					</div>
+
+
+
+
+				</div>
+
+
+			</h:panelGroup>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

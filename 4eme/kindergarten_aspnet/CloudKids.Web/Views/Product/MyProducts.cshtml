@@ -1,0 +1,222 @@
+﻿@model IEnumerable<CloudKids.Domain.Entities.Product>
+
+@{
+    ViewBag.Title = "My Products";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+
+<style>
+    .containerMO {
+        position: relative;
+        margin-top: 50px;
+        margin-right: 20px;
+        width: 350px;
+        height: 233px;
+    }
+
+    .imgMO {
+        position: absolute;
+        width: 350px;
+        height: 233px;
+        left: 0;
+        border-radius: 15px;
+    }
+
+    .titleMO {
+        position: absolute;
+        width: 250px;
+        left: 0;
+        top: 10px;
+        font-weight: 700;
+        font-size: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        color: black;
+        z-index: 1;
+        transition: top .5s ease;
+    }
+
+    .containerMO:hover .titleMO {
+        top: 30px;
+    }
+
+    .buttonMO {
+        position: absolute;
+        width: 300px;
+        left: 0;
+        top: 180px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity .35s ease;
+    }
+
+
+
+    .containerMO:hover .buttonMO {
+        opacity: 1;
+    }
+</style>
+<div class="responsive-mobile-menu">
+    <ul>
+        <li>
+            <a href="index.html" title="">Home</a>
+            <ul>
+                <li><a href="index.html" title="">Home 1</a></li>
+                <li><a href="index2.html" title="">Home 2</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" title="">Pages</a>
+            <ul>
+                <li><a href="butterfly-room.html" title="">Butterfly Room</a></li>
+                <li><a href="daisy-room.html" title="">Daisy Room</a></li>
+                <li><a href="pricingtables.html" title="">Pricing Tables</a></li>
+                <li><a href="gallery-masonary.html" title="">Gallery - Masonary</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="classes.html" title="">Classes</a>
+            <ul>
+                <li><a href="session-rooms.html" title="">Sessions & Rooms</a></li>
+                <li><a href="classes-page.html" title="">Single Class</a></li>
+            </ul>
+        </li>
+        <li><a href="blog.html" title="">Blog</a></li>
+        <li>
+            <a href="#" title="">Shortcodes</a>
+            <ul>
+                <li><a href="accordions.html" title="">Accordions</a></li>
+                <li><a href="tabs.html" title="">Tabs</a></li>
+                <li><a href="counters.html" title="">Counters</a></li>
+                <li><a href="fancy-box.html" title="">Fancy Boxes</a></li>
+                <li><a href="background-videos.html" title="">Background Videos</a></li>
+                <li><a href="buttons.html" title="">Buttons</a></li>
+                <li><a href="classes.html" title="">Classes</a></li>
+                <li><a href="team.html" title="">Team</a></li>
+                <li><a href="recent-posts.html" title="">Recent Posts</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" title="">Shop</a>
+            <ul>
+                <li><a href="shop.html" title="">Shop</a></li>
+                <li><a href="cart.html" title="">Cart</a></li>
+                <li><a href="checkout.html" title="">Checkout</a></li>
+                <li><a href="product-details.html" title="">Product Details</a></li>
+            </ul>
+        </li>
+        <li><a href="contact.html" title="">Contact</a></li>
+    </ul>
+</div><!--responsive-mobile-menu end-->
+<section class="pager-section">
+    <div class="fixed-bg bg10"></div>
+    <div class="container">
+        <div class="pager-cont">
+            <div class="page_details">
+                <h3>My Products</h3>
+            </div><!--page_details end-->
+            <div class="page_links">
+                <ul class="user-acc wt">
+                    <li><a href="#" title="">Home</a></li>
+                    <li><span>Products</span></li>
+                </ul>
+            </div><!--page_links end-->
+        </div><!--pager-cont end-->
+    </div>
+</section><!--pager-section end-->
+
+<section class="block">
+    <div class="fixed-bg bg-light2"></div>
+    <div class="sp-section">
+
+
+        <div class="container">
+
+            <div class="row">
+
+                @if (Model == null)
+            {
+                    <h1>You don't have Any Product </h1>
+                }
+                else
+                {
+
+                    foreach (var item in Model.Reverse())
+                    {
+                        <div class="containerMO">
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                                <p class="titleMO">added on :@item.DateAddition.ToString("dd MMM yyyy")  </p>
+                                @{
+                                    var base64 = Convert.ToBase64String(item.Img1);
+                                    var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+                                }
+
+                                <img src="@imgsrc" class="imgMO" />
+
+                                @*<img class="imgMO" src="@item.imagePath" alt="">*@
+                                <div class="buttonMO">
+                                    <a href="@Url.Action("Edit", "Product", new { id = item.Id })">
+                                        <img src="https://img.icons8.com/cute-clipart/64/000000/edit-property.png">
+                                    </a>
+
+                                    @*<a href="@Url.Action("Delete", "Product", new { id = item.Id })">
+                                        <img src="https://img.icons8.com/cute-clipart/64/000000/delete-forever.png"> </a>*@
+                                    <a href="#" class="deleteLink" id="@item.Id"> <img src="https://img.icons8.com/cute-clipart/64/000000/delete-forever.png"> </a>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                                        }
+                                    }
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title" id="deleteModalLabel">Delete Item</h4>
+                            </div>
+                            <div id="deleteModalBody" class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger deletebtn" data-dismiss="modal">Confirm</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!--sp-section end-->
+</section>
+<a href="#" title="" class="scrollTop"><i class="fa fa-arrow-up"></i></a>
+
+@section scripts{
+    <script>
+        $("#deleteModal").modal("hide");  // initially hides the modal pop-up until needed
+        var id;
+        $(".deletebtn").on("click", function () {
+
+            $.get('@Url.Action("Delete")', { id: id }, function (data) {
+                //$("#deleteModalBody").html(data);
+                $("#deleteModal").modal("hide");
+                location.reload();
+
+            });
+
+        });
+        $(".deleteLink").on("click", function () {
+            id = $(this).prop("id");
+
+            $("#deleteModal").modal("show");  // shows the modal pop-up now that we have our partial view
+
+
+        });
+    </script>
+}

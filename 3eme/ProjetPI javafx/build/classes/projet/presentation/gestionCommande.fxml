@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" stylesheets="@../style/backcss.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.GestionCommandeController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" styleClass="content-page" stylesheets="@../style/gestionproduit.css">
+         <children>
+            <HBox prefHeight="85.0" prefWidth="1015.0" styleClass="header-title" stylesheets="@../style/backcss.css">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="504.0">
+                     <children>
+                        <Button mnemonicParsing="false" styleClass="title-button">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="BULLHORN" styleClass="title-button-icon" />
+                           </graphic>
+                        </Button>
+                        <Label prefHeight="48.0" prefWidth="456.0" styleClass="title-label" text="Commande">
+                           <font>
+                              <Font name="Century Gothic" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="513.0" layoutY="10.0" prefHeight="100.0" prefWidth="523.0">
+                     <children>
+                        <Label prefHeight="48.0" prefWidth="522.0" styleClass="title-right" text="  /  Commande">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="HOME" />
+                           </graphic>
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <VBox styleClass="content-gproduit">
+               <children>
+                  <TableView fx:id="table" prefHeight="502.0" prefWidth="925.0">
+                    <columns>
+                        <TableColumn fx:id="total" prefWidth="203.0" text="Total" />
+                        <TableColumn fx:id="payer" prefWidth="214.0" text="Payer" />
+                        <TableColumn fx:id="file" minWidth="0.0" prefWidth="209.0" text="File" />
+                        <TableColumn fx:id="created" maxWidth="300.0" prefWidth="213.0" text="Created" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

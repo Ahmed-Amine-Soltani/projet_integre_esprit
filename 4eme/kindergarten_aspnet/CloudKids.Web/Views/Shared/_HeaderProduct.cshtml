@@ -1,0 +1,101 @@
+﻿<header class="nopd">
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-left">
+                <ul class="social-links">
+                    <li><a href="#" title=""><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#" title=""><i class="fa fa-instagram"></i></a></li>
+                </ul><!--social-links end-->
+                <ul class="contact-add">
+                    <li><span>info@little-people.co.uk</span></li>
+                    <li><span>Call Us: 123-456-7980</span></li>
+                </ul>
+            </div><!--top-left end-->
+            <div class="top-right">
+                <div class="cart-opt">
+                         <li><a href='@Url.Action("DetailsCart", "Product")' title=""><i class="fa fa-cart-plus"></i> Your Cart</a>
+                </div><!--cart-opt end-->
+            </div><!--top-right end-->
+        </div>
+    </div><!--top-bar end-->
+    <div class="bottom-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#" title=""><img src="~/Content/images/logo3.png" alt=""></a>
+            </div><!--logo end-->
+            <nav>
+                <ul>
+                    <li>
+                        <a href="index.html" title="">Home</a>
+                        <ul>
+                            <li><a href="index.html" title="">Home 1</a></li>
+                            <li><a href="index2.html" title="">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" title="">Pages</a>
+                        <ul>
+                            <li><a href="butterfly-room.html" title="">Butterfly Room</a></li>
+                            <li><a href="daisy-room.html" title="">Daisy Room</a></li>
+                            <li><a href="pricingtables.html" title="">Pricing Tables</a></li>
+                            <li><a href="gallery-masonary.html" title="">Gallery - Masonary</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" title="">Classes</a>
+                        <ul>
+                            <li><a href="session-rooms.html" title="">Sessions & Rooms</a></li>
+                            <li><a href="classes-page.html" title="">Single Class</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html" title="">Blog</a></li>
+                    <li>
+                        <a href="#" title="">Shortcodes</a>
+                        <ul>
+                            <li><a href="accordions.html" title="">Accordions</a></li>
+                            <li><a href="tabs.html" title="">Tabs</a></li>
+                            <li><a href="counters.html" title="">Counters</a></li>
+                            <li><a href="fancy-box.html" title="">Fancy Boxes</a></li>
+                            <li><a href="background-videos.html" title="">Background Videos</a></li>
+                            <li><a href="buttons.html" title="">Buttons</a></li>
+                            <li><a href="classes.html" title="">Classes</a></li>
+                            <li><a href="team.html" title="">Team</a></li>
+                            <li><a href="recent-posts.html" title="">Recent Posts</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href='@Url.Action("Index", "Product")' title="" class="hm">
+                            <b>Shop</b>
+                        </a>
+                            <ul>
+                                <li><a href='@Url.Action("Index", "Product")' title="">Product List</a></li>
+                                <li><a href='@Url.Action("Create", "Product")' title="">add Product</a></li>
+                                <li><a href='@Url.Action("MyProducts", "Product")' title="">My Products</a></li>
+                                <li><a href='@Url.Action("DetailsCart", "Product")' title="">My Cart</a></li>
+                           
+                               
+                            </ul>
+</li>
+                    <li><a href="contact.html" title="">Contact</a></li>
+                    <li>
+                        @Html.Partial("_LoginPartial")
+                    </li>
+                </ul>
+            </nav><!--nav end-->
+            <div class="menu-btn">
+                <span class="bar1"></span>
+                <span class="bar2"></span>
+                <span class="bar3"></span>
+            </div><!--menu-btn end-->
+        </div>
+    </div><!--bottom-header end-->
+
+   
+     
+
+
+
+
+</header><!--header end-->

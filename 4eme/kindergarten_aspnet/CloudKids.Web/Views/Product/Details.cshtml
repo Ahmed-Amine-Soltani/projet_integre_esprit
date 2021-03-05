@@ -1,0 +1,578 @@
+﻿@model CloudKids.Domain.Entities.Product
+@{
+    ViewBag.Title = "Product Details";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+
+<head>
+    <link type="text/css" rel="stylesheet" href="~/Content/lightSlider/css/lightslider.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <style>
+        #taille {
+            width: 50px;
+            margin: 40px auto;
+        }
+
+
+
+        .demo {
+            width: 650px;
+            margin-left: 10%;
+        }
+
+        .ulSL {
+            list-style: none outside none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .liSL {
+            display: block;
+            float: left;
+            margin-right: 6px;
+            cursor: pointer;
+        }
+
+        .imgSL {
+            display: block;
+            height: 600px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+@*
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProfilDirecteur.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProfilDirecteur.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateAddition)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateAddition)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StockStatus)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StockStatus)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+*@
+
+
+
+<section class="pager-section style2">
+    <div class="container">
+        <div class="pager-cont">
+            <div class="page-search">
+                <form>
+                    <input type="text" name="search" placeholder="Search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div><!--page_details end-->
+            <div class="page_links">
+                <ul class="user-acc">
+                    <li><a href="#" title="">Home</a></li>
+                    <li><span>HIGHLIGHTER PENS</span></li>
+                </ul>
+            </div><!--page_links end-->
+        </div><!--pager-cont end-->
+    </div>
+</section><!--pager-section end-->
+
+<section class="block">
+    <div class="fixed-bg zd bg5"></div>
+
+    <div class="product-details">
+        <div class="row">
+            <div class="col-lg-6">
+                @* <div class="product-img">
+                        <img src="@Html.DisplayFor(model => model.imagePath)" alt="">
+                    </div><!--product-img end--> *@
+
+
+
+                <div class="demo">
+                    <ul class="ulSL" id="lightSlider">
+                        @{
+                            var item1 = Model;
+                            var base64 = Convert.ToBase64String(item1.Img1);
+                            var imgsrc1 = string.Format("data:image/gif;base64,{0}", base64);
+
+                            var item2 = Model;
+                            base64 = Convert.ToBase64String(item2.Img2);
+                            var imgsrc2 = string.Format("data:image/gif;base64,{0}", base64);
+
+                            var item3 = Model;
+                            base64 = Convert.ToBase64String(item3.Img3);
+                            var imgsrc3 = string.Format("data:image/gif;base64,{0}", base64);
+
+                        }
+
+
+
+                        <li class="liSL" data-thumb="@imgsrc1">
+                            <img class="imgSL" src="@imgsrc1" />
+                        </li>
+                        <li class="liSL" data-thumb="@imgsrc2">
+                            <img class="imgSL" src="@imgsrc2" />
+                        </li>
+                        <li class="liSL" data-thumb="@imgsrc3">
+                            <img class="imgSL" src="@imgsrc3" />
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="product_info">
+
+                    <h3> @Html.DisplayFor(model => model.Name) </h3>
+                    <span>@Html.DisplayFor(model => model.Price) DT</span>
+
+                    @{
+                        var itemId = Model;
+
+                    }
+
+                    <a href="@Url.Action("Polly", "Product", new { id = itemId.Id })"  id="myLink" >
+                        <img src="https://img.icons8.com/cute-clipart/64/000000/circled-play.png"/>
+                    </a>
+                    @*@Html.ActionLink("Polly", "Polly", new { id = itemId.Id }, new { @class = "form-btn2 mg", id = "myLink" })*@
+
+
+
+                    @*<div class="prod-rat">
+                        <ul>
+                            <li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star"></span></li>
+                            <li><span class="fa fa-star-half"></span></li>
+                        </ul>*@
+                        @*<a href="#" title=""> (customer reviews)</a>*@
+                    </div><!--prod-rat end-->
+                    <p> product added : @Html.DisplayFor(model => model.DateAddition)  </p>
+
+                    @using (Ajax.BeginForm("AddToCart", "Product", null))
+                    {
+
+                        <div class="col-lg-4">
+                            <div class="prod-counter">
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quant">
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+
+
+                                    @* <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="10">*@
+                                    @Html.TextBox("quant", "1", new { @class = "form-control input-number", @min = "1", @max = "10" })
+
+                                    @Html.TextBox("productId", Model.Id, null, new { @type = "hidden" })
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            @* <button type="submit" class="form-btn2 mg">Add to cart</button>*@
+                            <!--prod-counter end-->
+                        </div>
+                        @*@Html.ActionLink("Add To Cart", "AddToCart", new { productId = Model.Id }, new { @class = "form-btn2 mg", id = "myLink" })*@
+                        <input type="submit" value="Add to cart" class="form-btn2 mg" />
+                    }
+
+
+                    <div class="prod-tabs">
+                        <div class="prod-tab-list">
+                            <ul>
+                                <li data-tab="description" class="current">Description</li>
+                                <li data-tab="reviews">Comments</li>
+                            </ul>
+                        </div><!--prod-tab-list end-->
+                        <div class="prod-tab-details current" id="description">
+                            <div class="prod-tab-info">
+                                <p> @Html.DisplayFor(model => model.Description)</p>
+                            </div><!--prod-tab-info end-->
+                        </div><!--prod-tab-details end-->
+                        <div class="prod-tab-details" id="reviews">
+                            <div class="prod-tab-info">
+                                <h4>2 reviews for Highlighter Pens</h4>
+                                <div class="review-list">
+                                    <ul class="reviewer-info">
+                                        <li><i class="fa fa-user"></i><span>Sean Redfearn</span></li>
+                                        <li><i class="fa fa-calendar"></i><span>December 7, 2016</span></li>
+                                    </ul>
+                                    <ul class="rating-st">
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                    </ul>
+                                    <p>Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus. Urna eget lacinia eleifend praesent luctus a arcu quis facilisis venenatis.</p>
+                                </div><!--review-list end-->
+                                <div class="review-list">
+                                    <ul class="reviewer-info">
+                                        <li><i class="fa fa-user"></i><span>Sean Redfearn</span></li>
+                                        <li><i class="fa fa-calendar"></i><span>December 7, 2016</span></li>
+                                    </ul>
+                                    <ul class="rating-st">
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                        <li><span class="fa fa-star"></span></li>
+                                    </ul>
+                                    <p>Praesent arcu gravida vehicula est node maecenas loareet morbi a dosis luctus.</p>
+                                </div><!--review-list end-->
+                                <h5>Write Your Own Review</h5>
+                                <h5 class="mg10">Your Rating</h5>
+                                <fieldset class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                    <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                    <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                    <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                    <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
+                                    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                </fieldset>
+                                <form>
+                                    <textarea placeholder="Review"></textarea>
+                                    <input type="text" name="Name">
+                                    <input type="text" name="Email">
+                                    <button type="submit" class="form-btn2">Submit review</button>
+                                </form>
+                            </div><!--prod-tab-info end-->
+                        </div><!--prod-tab-details end-->
+                    </div><!--prod-tabs end-->
+                </div><!--product-info end-->
+            </div>
+        </div>
+    </div><!--product-details end-->
+
+</section>
+
+<section class="block3">
+    <div class="fixed-bg bg-light2"></div>
+    <div class="heading clr">
+        <h3>Related Products</h3>
+    </div><!--heading end-->
+    <div class="container">
+        <div class="row product-carousel">
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img1.png" alt="">
+                    <h3>Teddy Bear</h3>
+                    <span>£10.99</span>
+
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img2.png" alt="">
+                    <h3>3 Dinosaur Toys</h3>
+                    <span>£14.99</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img3.png" alt="">
+                    <h3>Highlighter Pens</h3>
+                    <span>£3.49</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img1.png" alt="">
+                    <h3>Teddy Bear</h3>
+                    <span>£10.99</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img2.png" alt="">
+                    <h3>3 Dinosaur Toys</h3>
+                    <span>£14.99</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img3.png" alt="">
+                    <h3>Highlighter Pens</h3>
+                    <span>£3.49</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img1.png" alt="">
+                    <h3>Teddy Bear</h3>
+                    <span>£10.99</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+            <div class="col-lg-3">
+                <div class="product-info">
+                    <img src="~/Content/images//resources/pro-img2.png" alt="">
+                    <h3>3 Dinosaur Toys</h3>
+                    <span>£14.99</span>
+                    <a href="#" title="" class="add-to-cart">Add to Cart</a>
+                </div><!--product-info end-->
+            </div>
+        </div>
+    </div>
+</section>
+<a href="#" title="" class="scrollTop"><i class="fa fa-arrow-up"></i></a>
+
+@section scripts{
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="~/Content/lightSlider/js/lightslider.js"></script>
+
+
+    <script>
+
+        $('#lightSlider').lightSlider({
+            gallery: true,
+            item: 1,
+            loop: true,
+            slideMargin: 0,
+            thumbItem: 9
+        });
+
+        $("#myLink").click(function (e) {
+
+            e.preventDefault();
+            $.ajax({
+
+                url: $(this).attr("href"), // comma here instead of semicolon
+                
+
+            });
+
+        });
+
+
+        //couter button
+        $(document).ready(function () {
+            //onchange of rooms-count
+
+            $(document).on('change', '#rooms', function () {
+
+
+
+                var roomsSelected = $('#rooms option:selected').val();
+                var roomsDisplayed = $('[id^="room-"]:visible').length;
+                var roomsRendered = $('[id^="room-"]').length;
+                var orig = $('#peoplerooms').find(roomsSelected);
+
+                //if room count is greater than number displayed - add or show accordingly
+                if (roomsSelected > roomsDisplayed) {
+
+                    for (var i = 1; i <= roomsSelected; i++) {
+                        var r = $('#room-' + i);
+                        if (r.length == 0) {
+
+                            var clone = $('#room-1').clone(); //clone
+                            clone.children(':first').text("Room " + i);
+                            //change ids appropriately
+                            setNewID(clone, i);
+                            clone.children('div').children('select').each(function () {
+                                setNewID($(this), i);
+                            });
+                            $(clone).insertAfter($('#room-' + roomsRendered));
+
+                        } else {
+                            //if the room exists and is hidden
+                            $(r).show();
+                        }
+                    }
+
+                } else {
+                    //else if less than room count selected - hide
+                    for (var i = ++roomsSelected; i <= roomsRendered; i++) {
+                        $('#room-' + i).hide();
+                    }
+                }
+
+            });
+
+            function setNewID(elem, i) {
+                oldID = elem.attr('id');
+                newId = oldID.substring(0, oldID.indexOf('-')) + "-" + i;
+                elem.attr('id', newId);
+            }
+
+        });
+
+
+
+
+
+
+
+        // TOP CONTROLS
+        $('.plus').click(function (e) {
+            e.preventDefault();
+            var sp = parseFloat($(this).prev('span').text());
+            $(this).prev('span').text(sp + 1);
+        });
+
+        $('.minus').click(function (e) {
+            e.preventDefault();
+            var sp = parseFloat($(this).next('span').text());
+            $(this).next('span').text(sp - 1);
+            if (!isNaN(sp) && sp > 0) {
+                $(this).next('span').text(sp - 1);
+            } else {
+                $(this).next('span').text(0);
+            }
+        });
+
+
+
+        //POPOVER CONTROLS
+
+
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
+
+            fieldName = $(this).attr('data-field');
+            type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type == 'minus') {
+
+                    if (currentVal > input.attr('min')) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('min')) {
+                        $(this).attr('disabled', true);
+                    }
+
+                } else if (type == 'plus') {
+
+                    if (currentVal < input.attr('max')) {
+                        input.val(currentVal + 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('max')) {
+                        $(this).attr('disabled', true);
+                    }
+
+                }
+            } else {
+                input.val(0);
+            }
+        });
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function () {
+
+            minValue = parseInt($(this).attr('min'));
+            maxValue = parseInt($(this).attr('max'));
+            valueCurrent = parseInt($(this).val());
+
+            name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if (valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+
+
+        });
+        $(".input-number").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+    </script>
+}

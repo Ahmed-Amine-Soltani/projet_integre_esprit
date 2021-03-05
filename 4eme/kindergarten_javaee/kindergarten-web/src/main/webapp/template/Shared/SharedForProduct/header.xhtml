@@ -1,0 +1,140 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+
+	<header class="nopd">
+		<div class="top-bar">
+			<div class="container">
+				<div class="top-left">
+
+					<ul class="contact-add">
+
+						<c:if
+							test="${not empty  productBean.GetPointsLoyalty().getPoints()}">
+							<li><span> You have <h:outputText
+										value="#{productBean.GetPointsLoyalty().getPoints()}"></h:outputText>
+									points 
+							</span></li>
+						</c:if>
+
+						<c:if test="${empty  productBean.GetPointsLoyalty().getPoints()}">
+							<li><span> You have 0 points
+							</span></li>
+						</c:if>
+
+					</ul>
+				</div>
+				<!--top-left end-->
+				<div class="top-right">
+					<div class="cart-opt">
+						<a href="#" title=""><i class="fa fa-cart-plus"></i>Your Cart</a>
+					</div>
+					<!--cart-opt end-->
+				</div>
+				<!--top-right end-->
+			</div>
+		</div>
+		<!--top-bar end-->
+		<div class="bottom-header">
+			<div class="container">
+				<div class="logo">
+					<a href="#" title=""><img src="content/images/logo3.png" alt="" /></a>
+				</div>
+				<!--logo end-->
+				<nav>
+					<ul>
+						<li><a href="index.html" title="">Home</a>
+							<ul>
+								<li><a href="index.html" title="">Home 1</a></li>
+								<li><a href="index2.html" title="">Home 2</a></li>
+							</ul></li>
+						<li><a href="#" title="">Pages</a>
+							<ul>
+								<li><a href="butterfly-room.html" title="">Butterfly
+										Room</a></li>
+								<li><a href="daisy-room.html" title="">Daisy Room</a></li>
+								<li><a href="pricingtables.html" title="">Pricing
+										Tables</a></li>
+								<li><a href="gallery-masonary.html" title="">Gallery -
+										Masonary</a></li>
+							</ul></li>
+						<li><a href="#" title="">Classes</a>
+							<ul>
+								<li><a href="session-rooms.html" title="">Sessions and
+										Rooms</a></li>
+								<li><a href="classes-page.html" title="">Single Class</a></li>
+							</ul></li>
+						<li><a href="blog.html" title="">Blog</a></li>
+						<li><a href="#" title="">Shortcodes</a>
+							<ul>
+								<li><a href="accordions.html" title="">Accordions</a></li>
+								<li><a href="tabs.html" title="">Tabs</a></li>
+								<li><a href="counters.html" title="">Counters</a></li>
+								<li><a href="fancy-box.html" title="">Fancy Boxes</a></li>
+								<li><a href="background-videos.html" title="">Background
+										Videos</a></li>
+								<li><a href="buttons.html" title="">Buttons</a></li>
+								<li><a href="classes.html" title="">Classes</a></li>
+								<li><a href="team.html" title="">Team</a></li>
+								<li><a href="recent-posts.html" title="">Recent Posts</a></li>
+							</ul></li>
+						<li><a href="#{productBean.DisplayProductHomePage()}"
+							title="">Shop</a>
+							<ul>
+								<li><a href='#{productBean.DisplayMyCartHistory()}'
+									title=""> Purchase History </a></li>
+								<li><a href='#{productBean.DisplayMyCart()}' title="">
+										My Cart </a></li>
+								<li><a href='#' title="">Product Details</a></li>
+								<li><a href='#' title="">add Product</a></li>
+							</ul></li>
+						<li><a href="contact.html" title="">Contact</a></li>
+
+
+						<!--  login / logoff treatment -->
+						<ui:fragment rendered="#{loginBean.jsfTest eq false}">
+							<li><a href='#' title="" class="hm"> <i
+									class="fa fa-plus-circle"></i> <b>Register</b></a></li>
+							<li><a href='/kindergarten-web/template/login.jsf' title=""
+								class="hm"> <i class="fa fa-user-o" aria-hidden="true"></i>
+									<b>Log in</b></a></li>
+						</ui:fragment>
+						<li><h:form>
+								<h:commandLink styleClass="hm" action="#{loginBean.logoff()}"
+									rendered="#{loginBean.jsfTest}">
+									<i class="fa fa-power-off"></i>
+									<b>Logout</b>
+								</h:commandLink>
+							</h:form></li>
+						<!--  end login / logoff treatment -->
+					</ul>
+
+					<h:outputText value="#{loginBean.email}"
+						rendered="#{loginBean.jsfTest}" />
+
+				</nav>
+				<!--nav end-->
+				<div class="menu-btn">
+					<span class="bar1"></span> <span class="bar2"></span> <span
+						class="bar3"></span>
+				</div>
+				<!--menu-btn end-->
+			</div>
+		</div>
+		<!--bottom-header end-->
+	</header>
+	<!--header end-->
+
+
+
+</ui:composition>
+

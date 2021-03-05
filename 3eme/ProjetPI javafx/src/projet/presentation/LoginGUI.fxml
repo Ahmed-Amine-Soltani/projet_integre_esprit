@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox style="-fx-background-color: transparent;" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.LoginController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="GUI" maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" onMouseDragged="#dragged" onMousePressed="#pressed" prefHeight="600.0" prefWidth="900.0" styleClass="back">
+          <children>
+            <HBox layoutX="126.0" layoutY="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <ImageView fitHeight="62.0" fitWidth="262.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo2.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#connexionLoad" style="-fx-background-color: rgba(255,255,255,0.2); -fx-border-width: 2; -fx-background-radius: 25; -fx-border-color: white; -fx-border-radius: 25; -fx-text-fill: #f1f1f1;" text="Connexion">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Century Gothic Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="8.0" left="17.0" right="17.0" top="8.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#CreerCompte" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-width: 2; -fx-border-color: white; -fx-background-radius: 25; -fx-border-radius: 25;" text="Inscription">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Century Gothic Bold" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="8.0" left="17.0" right="17.0" top="8.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#quitter" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: transparent;">
+                           <font>
+                              <Font name="Century Gothic Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/out.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <VBox layoutX="341.0" layoutY="195.0" prefHeight="200.0" prefWidth="250.0" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="341.0" AnchorPane.rightAnchor="309.0" AnchorPane.topAnchor="195.0">
+               <children>
+                  <HBox alignment="CENTER" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
+                     <children>
+                        <TextField fx:id="login_nom_utilisateur_fx" prefHeight="40.0" promptText="Nom d'utilisateur" style="-fx-background-color: transparent;" styleClass="text-field-login" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Century Gothic" size="21.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" style="-fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;">
+                     <children>
+                        <PasswordField fx:id="login_mot_de_passe_utilisateur_fx" prefHeight="40.0" prefWidth="250.0" promptText="Mot de passe" style="-fx-background-color: transparent;" styleClass="text-field-login">
+                           <font>
+                              <Font name="Century Gothic" size="21.0" />
+                           </font>
+                        </PasswordField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#connexionUtilisateur" prefWidth="283.0" style="-fx-background-color: #2f2f2fa3;" styleClass="buttonLogin" text=" Connexion">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                     <graphic>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+          </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.FilterProduitController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1350.0" style="-fx-background-color: #fff;" styleClass="content-produit">
+         <children>
+            <VBox>
+               <children>
+                  <Label fx:id="title_filter">
+                     <padding>
+                        <Insets bottom="10.0" left="6.0" top="15.0" />
+                     </padding>
+                     <font>
+                        <Font name="Century Gothic" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox prefWidth="1316.0" styleClass="hbox-filter">
+                     <children>
+                        <JFXComboBox fx:id="classement_combo" focusColor="WHITE" onAction="#classementEvent" prefHeight="28.0" prefWidth="312.0" promptText="Classements" unFocusColor="WHITE" />
+                        <JFXComboBox fx:id="categorie_combo" focusColor="WHITE" onAction="#CagetorieEvent" prefHeight="28.0" prefWidth="292.0" promptText="Categorie" unFocusColor="WHITE" />
+                        <JFXComboBox fx:id="souscategorie_combo" focusColor="WHITE" layoutX="325.0" layoutY="25.0" onAction="#SousCategorieEvent" prefHeight="28.0" prefWidth="292.0" promptText="Sous categorie" unFocusColor="WHITE" />
+                        <JFXComboBox fx:id="tri_combo" focusColor="WHITE" layoutX="625.0" layoutY="25.0" onAction="#TriEvent" prefHeight="28.0" prefWidth="292.0" promptText="Tri par" unFocusColor="WHITE" />
+                     </children>
+                  </HBox>
+                  <JFXButton onMouseClicked="#reinitialiser" style="-fx-background-color: #CCCCCC;" text="Réinitialiser les filtres">
+                     <font>
+                        <Font name="Century Gothic" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="3.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                     </padding>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <VBox fx:id="content_product" prefHeight="200.0" prefWidth="100.0">
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

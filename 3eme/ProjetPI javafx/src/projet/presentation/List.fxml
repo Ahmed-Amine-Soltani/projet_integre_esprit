@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderpane" prefHeight="600.0" prefWidth="260.0" styleClass="scroll-pane" stylesheets="@../style/listposts.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.ListController">
+    <left>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="260.0" styleClass="content-page" stylesheets="@../style/ajouterposts.css">
+         <children>
+            <VBox styleClass="content-gproduit">
+               <children>
+                  <TableView fx:id="listeCategorie" prefHeight="600.0" prefWidth="260.0">
+                     <columns>
+                        <TableColumn fx:id="id" prefWidth="44.0" text="ID" visible="false" />
+                        <TableColumn fx:id="nom" prefWidth="120.0" text="Categories" />
+                        
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   
+   
+   <center>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="998.0" styleClass="content-page" stylesheets="@../style/ajouterposts.css">
+         <children>
+            <HBox prefHeight="12.0" prefWidth="938.0" styleClass="header-title" stylesheets="@../style/listposts.css">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="504.0">
+                     <children>
+                        <JFXTextField focusColor="#1544d1" text="Tout les Questions" unFocusColor="#1e1919" />
+                     </children></HBox>
+                  <HBox layoutX="513.0" layoutY="10.0" prefHeight="100.0" prefWidth="523.0" />
+               </children>
+            </HBox>
+            <VBox prefHeight="600.0" prefWidth="885.0" styleClass="content-gproduit">
+               <children>
+                  <HBox prefHeight="42.0" prefWidth="985.0">
+                     <children>
+                        <HBox prefHeight="42.0" prefWidth="869.0">
+                           <children>
+                              <JFXButton onAction="#ajouter" prefHeight="38.0" prefWidth="149.0" style="-fx-background-color: #234b86;" text="Poser une question" textFill="WHITE">
+                                 
+                              </JFXButton>
+                              <JFXButton onAction="#supprimer" prefHeight="41.0" prefWidth="103.0" style="-fx-background-color: #e74c3c;" text="Supprimer" textFill="WHITE">
+                                 
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <JFXButton onAction="#modifier" prefHeight="41.0" prefWidth="146.0" style="-fx-background-color: #e1e1ef;" text="Modifier">
+                           
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="58.0" prefWidth="985.0" styleClass="hbox-search">
+                     <children>
+                        <JFXTextField fx:id="rechercheBar" focusColor="#d1d1d1" onKeyPressed="#rechercher" onKeyReleased="#rechercher" prefHeight="41.0" prefWidth="283.0" promptText="Recherche Ici....." unFocusColor="#d1d1d1">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="listPostss" stylesheets="@../style/listposts.css">
+                     <columns>
+                        
+                        
+                        <TableColumn fx:id="title" prefWidth="128.0" text="Title" />
+                        <TableColumn fx:id="description" prefWidth="349.0" text="Questions" />
+                        <TableColumn fx:id="date" prefWidth="237.0" text="Date" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+   
+   
+</BorderPane>

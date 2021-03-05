@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="969.0" styleClass="content-dialog" stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.ModifierProduitController">
+   <children>
+      <HBox prefHeight="32.0" prefWidth="937.0" styleClass="top-dialog">
+         <VBox.margin>
+            <Insets left="-15.0" right="-15.0" top="-15.0" />
+         </VBox.margin>
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#closeDialog" prefHeight="31.0" prefWidth="48.0" styleClass="button-dialog-close" text="X">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="69.0" prefWidth="898.0" styleClass="header-dialog">
+         <children>
+            <Label prefHeight="49.0" prefWidth="689.0" text="Modifier PRODUIT" textFill="#234b86">
+               <font>
+                  <Font name="Chrisye" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="466.0" prefWidth="939.0">
+         <children>
+            <VBox prefHeight="436.0" prefWidth="484.0" styleClass="content-dialog-left">
+               <children>
+                  <JFXComboBox fx:id="categorie_Combo" focusColor="#d1d1d1" onAction="#CategorieEvent" prefHeight="31.0" prefWidth="429.0" promptText="Categoire" unFocusColor="#d1d1d1" />
+                  <Label fx:id="errorsCategorie" prefHeight="0.0" prefWidth="413.0" styleClass="label-errors" />
+                  <JFXComboBox fx:id="sousCategorie_Combo" focusColor="#d1d1d1" onAction="#SousCategoireEvent" prefHeight="31.0" prefWidth="426.0" promptText="SousCategorie" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <Label fx:id="errorsSousCategorie" prefHeight="17.0" prefWidth="421.0" styleClass="label-errors" />
+                  <JFXTextField fx:id="libelle" focusColor="#d1d1d1" onKeyPressed="#libelleEvent" prefHeight="40.0" prefWidth="336.0" promptText="Libelle" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorsLibelle" prefHeight="15.0" prefWidth="433.0" styleClass="label-errors" />
+                  <JFXTextField fx:id="prix" focusColor="#d1d1d1" onKeyTyped="#PrixEvent" promptText="Prix" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorsPrix" prefHeight="15.0" prefWidth="442.0" styleClass="label-errors" />
+                  <JFXTextField fx:id="stock" focusColor="#d1d1d1" onKeyTyped="#StockEvent" promptText="Stock" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Label fx:id="errorsStock" prefHeight="15.0" prefWidth="448.0" styleClass="label-errors" />
+                  <JFXColorPicker fx:id="color" prefHeight="36.0" prefWidth="417.0">
+                     <VBox.margin>
+                        <Insets top="21.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="1.0" />
+                     </padding>
+                  </JFXColorPicker>
+                  <JFXTextArea fx:id="description" focusColor="#d1d1d1" onKeyPressed="#descriptionEvent" prefHeight="80.0" prefWidth="339.0" promptText="Description" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXTextArea>
+                  <Label fx:id="errorsDescription" prefHeight="15.0" prefWidth="428.0" styleClass="label-errors" />
+               </children>
+            </VBox>
+            <VBox prefHeight="436.0" prefWidth="496.0" styleClass="content-dialog-right">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="333.0" text="First Image">
+                           <font>
+                              <Font name="Century Gothic" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="79.0" prefWidth="333.0" styleClass="content-h-uplaod">
+                           <children>
+                              <JFXButton onMouseClicked="#uploadFirst" prefHeight="44.0" prefWidth="156.0" styleClass="button-upload" text="Upload a File">
+                                 <font>
+                                    <Font name="Britannic Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="18.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <ImageView fx:id="firstImage" disable="true" fitHeight="78.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="image-upload">
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="errorsFirstImg" prefHeight="10.0" prefWidth="365.0" styleClass="label-errors" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="25.0" layoutY="25.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="333.0" text="Second Image">
+                           <font>
+                              <Font name="Century Gothic" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="79.0" prefWidth="333.0" styleClass="content-h-uplaod">
+                           <children>
+                              <JFXButton onMouseClicked="#uploadSecond" prefHeight="44.0" prefWidth="156.0" styleClass="button-upload" text="Upload a File">
+                                 <font>
+                                    <Font name="Britannic Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="18.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <ImageView fx:id="secondImage" fitHeight="78.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="image-upload">
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="errorsSecondImg" prefHeight="1.0" prefWidth="365.0" styleClass="label-errors" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="25.0" layoutY="25.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="333.0" text="Third Image">
+                           <font>
+                              <Font name="Century Gothic" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="79.0" prefWidth="333.0" styleClass="content-h-uplaod">
+                           <children>
+                              <JFXButton onMouseClicked="#uploadThird" prefHeight="44.0" prefWidth="156.0" styleClass="button-upload" text="Upload a File">
+                                 <font>
+                                    <Font name="Britannic Bold" size="16.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="18.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <ImageView fx:id="ThirdImage" fitHeight="78.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true" styleClass="image-upload">
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label fx:id="errorsThirdImg" prefHeight="0.0" prefWidth="365.0" styleClass="label-errors">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="70.0" prefWidth="939.0" styleClass="dialog-group-button">
+         <children>
+            <JFXButton onMouseClicked="#closeDialog" prefHeight="50.0" prefWidth="120.0" styleClass="button-close" text="Fermer">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="11.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton onMouseClicked="#modifier" prefHeight="49.0" prefWidth="120.0" styleClass="button-save" text="Modifier">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>

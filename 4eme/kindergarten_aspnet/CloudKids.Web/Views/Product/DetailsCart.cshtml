@@ -1,0 +1,239 @@
+﻿@model IEnumerable<CloudKids.Web.Models.ComplexProductObject>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_LayoutProduct.cshtml";
+}
+
+<style>
+    .imgMO {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+@*
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MyHistory.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfilParent.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MyHistory.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfilParent.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@
+
+
+<div class="wrapper bg-light2">
+
+    <div class="responsive-mobile-menu">
+        <ul>
+            <li>
+                <a href="index.html" title="">Home</a>
+                <ul>
+                    <li><a href="index.html" title="">Home 1</a></li>
+                    <li><a href="index2.html" title="">Home 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" title="">Pages</a>
+                <ul>
+                    <li><a href="butterfly-room.html" title="">Butterfly Room</a></li>
+                    <li><a href="daisy-room.html" title="">Daisy Room</a></li>
+                    <li><a href="pricingtables.html" title="">Pricing Tables</a></li>
+                    <li><a href="gallery-masonary.html" title="">Gallery - Masonary</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="classes.html" title="">Classes</a>
+                <ul>
+                    <li><a href="session-rooms.html" title="">Sessions & Rooms</a></li>
+                    <li><a href="classes-page.html" title="">Single Class</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html" title="">Blog</a></li>
+            <li>
+                <a href="#" title="">Shortcodes</a>
+                <ul>
+                    <li><a href="accordions.html" title="">Accordions</a></li>
+                    <li><a href="tabs.html" title="">Tabs</a></li>
+                    <li><a href="counters.html" title="">Counters</a></li>
+                    <li><a href="fancy-box.html" title="">Fancy Boxes</a></li>
+                    <li><a href="background-videos.html" title="">Background Videos</a></li>
+                    <li><a href="buttons.html" title="">Buttons</a></li>
+                    <li><a href="classes.html" title="">Classes</a></li>
+                    <li><a href="team.html" title="">Team</a></li>
+                    <li><a href="recent-posts.html" title="">Recent Posts</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" title="">Shop</a>
+                <ul>
+                    <li><a href="shop.html" title="">Shop</a></li>
+                    <li><a href="cart.html" title="">Cart</a></li>
+                    <li><a href="checkout.html" title="">Checkout</a></li>
+                    <li><a href="product-details.html" title="">Product Details</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html" title="">Contact</a></li>
+        </ul>
+    </div><!--responsive-mobile-menu end-->
+    <section class="pager-sec">
+        <div class="container">
+            <div class="pager-pag">
+               @if (Model == null)
+            {
+                <h1 class="no-mg">
+                    Your cart is currently empty
+                </h1>
+               }
+               else
+               {
+                <h1 class="no-mg">
+                    Your cart 
+                </h1>
+               }
+
+            </div><!--pager-pag end-->
+        </div>
+    </section><!--pager-sec end-->
+
+
+
+    <section class="block5 bdr-bfr">
+        <div class="container">
+            <div class="more-services st2">
+                <div class="row">
+                    @if (Model == null)
+            {
+                        <h1>Your cart is currently empty</h1>
+                    }
+                    else
+                    {
+
+                        foreach (var item in Model)
+                        {
+
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="services_details">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="srvc-img">
+                                                @*<img class="imgMO" src="@Html.DisplayFor(modelItem => item.imagePath)">*@
+                                                @{
+                                                    var base64 = Convert.ToBase64String(item.Img1);
+                                                    var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+                                                }
+
+                                                <img src="@imgsrc" class="imgMO" />
+
+
+                                                <div class="specs-fig">
+                                                    <ul>
+                                                        <li>
+                                                            <h3>12-24 <br> Months Old</h3>
+                                                        </li>
+                                                        <li>
+                                                            <h3>12 <br> Class Size</h3>
+                                                        </li>
+                                                    </ul>
+                                                </div><!--specs-fig end-->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="demo srv_det">
+                                                <h3>@Html.DisplayFor(modelItem => item.ProductName)</h3>
+                                                <h5 style="color: white;"> quantity choosed : @Html.DisplayFor(modelItem => item.ChoosedQuantity)</h5>
+                                                <h5 style="color: white;">product price @Html.DisplayFor(modelItem => item.ProductPrice) dinar</h5>
+                                                <h5 style="color: white;">price to pay : @Html.DisplayFor(modelItem => item.TotalCartLinePrice)</h5>
+                                                @*<p>added to cart @Html.DisplayFor(modelItem => item.DateAdded)</p>*@
+                                                <br />
+                                                <a href='@Url.Action("DeleteCartLine", "Product",new { id = item.CartLineId })' title="" class="form-btn2">Remove from cart </a>
+                                            </div><!--srv_det end-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                                    }
+                                                   
+                                                    }
+                  
+
+                </div>
+            </div><!--more-services end-->
+        
+            
+        </div>
+      
+    </section>
+
+    @if (Model == null)
+    {
+        <a href='@Url.Action("Index", "Product")' title="" class="form-btn2">Return to shop</a>
+
+    }
+    else
+    {
+         <a href='@Url.Action("ConfirmPurchaseView", "Product")' title="" class="form-btn2">Confirm Purchase </a>
+        @*<a href='@Url.Action("PaymentWithPaypal", "Product")' title="" class="form-btn2">Confirm Purchase </a>*@
+        <a href='@Url.Action("Index", "Product")' title="" class="form-btn2">Return to shop</a>
+    }
+
+
+    
+   
+
+    <a href="#" title="" class="scrollTop"><i class="fa fa-arrow-up"></i></a>
+</div><!--wrapper end-->
+
+@section scripts{
+    <script>
+        var products = document.getElementsByClassName("demo");
+        var j = 1;
+        for (var i = 0; i < products.length; i++) {
+
+
+            //products[i].className += " clrr" + Math.floor((Math.random() * 4) + 1
+            products[i].className += " clrr" + j;
+            j = j + 1;
+            if (j == 5)
+                j = 1;
+        }
+    </script>
+}

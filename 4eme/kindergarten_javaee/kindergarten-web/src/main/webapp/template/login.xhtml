@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/template/Shared/layout.xhtml">
+	
+
+	<ui:define name="title">Login</ui:define>
+	
+	
+	<ui:define name="myContent">
+		<h2>Login</h2>
+		<section class="pager-sec">
+		    <div class="container">
+		        <div class="pager-pag" style="padding-top: 165px">
+		            <h3>Login</h3>
+		            <h4>Sign in to our website</h4>
+		        </div>
+		    </div>
+		</section>
+		<section class="block6">
+		    <div class="row">
+		        <div class="col-md-8">
+		            <section id="loginForm">
+		                <h:form>
+			                <h4>Use a local account to log in.</h4>
+			                <hr />
+			                
+			                <div class="form-group">
+			                    <LABEL class="col-md-2 control-label">Email</LABEL>
+			                    <div class="col-md-10">
+			                        <h:inputText class="form-control" value="#{loginBean.email}"></h:inputText>
+			                       
+			                    </div>
+			                </div>
+			                <div class="form-group">
+			                    <LABEL class="col-md-2 control-label">Password</LABEL>
+			                    <div class="col-md-10">
+			                        <h:inputSecret class="form-control" type="password" value="#{loginBean.password}"></h:inputSecret>
+			                        
+			                    </div>
+			                </div>
+			                <div class="form-group">
+			                    <div class="col-md-offset-2 col-md-10">
+			                        <div class="checkbox">
+			                            <h:selectBooleanCheckbox /> Remember Me
+			                        </div>
+			                    </div>
+			                </div>
+			                <div class="form-group">
+			                    <div class="col-md-offset-2 col-md-10">
+			                        <h:commandButton type="submit" value="Log in" class="btn btn-default" action="#{loginBean.doLogin()}"></h:commandButton>
+			                    </div>
+			                </div>
+			                <p>
+			                    <h:link>Register</h:link>
+			                </p>
+		                </h:form>
+		            </section>
+		        </div>
+		        <div class="col-md-4">
+		            <section id="socialLoginForm">
+		            </section>
+		        </div>
+		    </div>
+		
+		   
+		</section>
+		
+	</ui:define>
+	
+</ui:composition>
+

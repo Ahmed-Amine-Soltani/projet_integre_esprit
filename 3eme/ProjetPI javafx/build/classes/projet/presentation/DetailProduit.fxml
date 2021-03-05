@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane fx:id="scroll" hbarPolicy="NEVER" stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.DetailProduitController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1350.0" style="-fx-background-color: #fff;" styleClass="content-produit" stylesheets="@../style/gestionproduit.css">
+         <children>
+            <HBox prefWidth="600.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <VBox>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fx:id="present_img" fitHeight="395.0" fitWidth="381.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets bottom="25.0" left="30.0" right="30.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onMouseClicked="#firstimg" styleClass="btn-image">
+                                 <graphic>
+                                    <ImageView fx:id="imgView_1" fitHeight="100.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                                 </padding>
+                              </Button>
+                              <Button layoutX="217.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#secondimg" styleClass="btn-image">
+                                 <graphic>
+                                    <ImageView fx:id="imgView_2" fitHeight="100.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button layoutX="217.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#thirdimg" styleClass="btn-image">
+                                 <graphic>
+                                    <ImageView fx:id="imgView_3" fitHeight="100.0" fitWidth="106.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefWidth="702.0">
+                     <children>
+                        <Label fx:id="libelle" prefHeight="44.0" prefWidth="468.0" textFill="#686565">
+                           <font>
+                              <Font name="Century Gothic" size="27.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="prix" contentDisplay="CENTER" prefHeight="27.0" textAlignment="JUSTIFY">
+                           <font>
+                              <Font name="Century Gothic Bold" size="23.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="created" prefHeight="21.0">
+                           <font>
+                              <Font name="Century Gothic" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="4.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Text fx:id="description" fill="#2f2929" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="678.13671875">
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Text>
+                        <HBox>
+                           <children>
+                              <Label prefHeight="17.0" text="Taille">
+                                 <font>
+                                    <Font name="Century Gothic" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="taille">
+                                 <HBox.margin>
+                                    <Insets left="37.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets top="28.0" />
+                           </padding>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="211.0">
+                           <children>
+                              <Label prefHeight="17.0" text="Couleur">
+                                 <font>
+                                    <Font name="Century Gothic" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Rectangle fx:id="color" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" stroke="#080808" strokeType="INSIDE" width="20.0">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Rectangle>
+                           </children>
+                           <padding>
+                              <Insets top="28.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="238.0">
+                           <children>
+                              <Label prefHeight="17.0" text="Quantité">
+                                 <font>
+                                    <Font name="Century Gothic" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="quantite" onKeyTyped="#QteEvent" prefHeight="42.0" prefWidth="50.0" text="1">
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="-7.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="Century Gothic" size="24.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets bottom="10.0" left="7.0" top="10.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets top="28.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <Label fx:id="errorsQte" prefHeight="25.0" prefWidth="248.0" styleClass="label-errors" />
+                        <JFXButton onMouseClicked="#ajouterPanier" prefHeight="50.0" prefWidth="261.0" styleClass="button-panier" text="Ajouter au panier">
+                           <VBox.margin>
+                              <Insets bottom="19.0" top="40.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/shopping.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Century Gothic" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <Label text="In stock" textFill="#2ec935">
+                           <graphic>
+                              <ImageView fitHeight="14.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/check.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Calibri Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <JFXTabPane prefHeight="119.0" prefWidth="1320.0">
+               <tabs>
+                  <Tab text="Description">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                     <content>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </content>
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Text fx:id="description_more" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="1002.0" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="70.0">
+                                 <font>
+                                    <Font name="Century Gothic" size="17.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+               <VBox.margin>
+                  <Insets bottom="70.0" top="79.0" />
+               </VBox.margin>
+            </JFXTabPane>
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" top="50.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

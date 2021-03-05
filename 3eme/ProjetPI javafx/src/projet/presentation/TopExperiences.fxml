@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderpane" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.TopExperiencesController">
+   <center>
+      <ScrollPane hbarPolicy="NEVER" stylesheets="@../style/backcss.css">
+         <content>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" styleClass="content-page" stylesheets="@../style/gestionproduit.css">
+               <children>
+                  <HBox prefHeight="85.0" prefWidth="1015.0" styleClass="header-title" stylesheets="@../style/backcss.css">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="504.0">
+                           <children>
+                              <Button mnemonicParsing="false" styleClass="title-button">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="STAR" styleClass="title-button-icon" />
+                                 </graphic>
+                              </Button>
+                              <Label prefHeight="48.0" prefWidth="456.0" styleClass="title-label" text=" Experience / Publications / Top">
+                                 <font>
+                                    <Font name="Century Gothic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="513.0" layoutY="10.0" prefHeight="100.0" prefWidth="523.0">
+                           <children>
+                              <Label prefHeight="48.0" prefWidth="522.0" styleClass="title-right" text="  /  Experience / Publications">
+                                 <graphic>
+                                    <FontAwesomeIcon glyphName="HOME" />
+                                 </graphic>
+                                 <font>
+                                    <Font name="Century Gothic" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <VBox styleClass="content-gproduit">
+                     <children>
+                        <ScrollPane>
+                           <content>
+                              <VBox fx:id="home" stylesheets="@../style/homeExp.css" />
+                           </content>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

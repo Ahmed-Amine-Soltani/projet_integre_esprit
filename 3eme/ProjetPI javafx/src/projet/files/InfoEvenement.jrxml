@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InfoEvenement" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="prjetdev.xml"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT `id`, `id_user`, `nom_evenement`, `Type`, `type_reservation`, `duree_evenement`, `lieu_evenement`, `capacite_evenement`, `description_evenement`, `Affiche`, `etat_evenement`, `prix_evenement`, `date_debut_evenement`, `date_fin_evenement`, `test` FROM `evenement`]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="id_user" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="id_user"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="nom_evenement" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nom_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="Type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="type_reservation" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="type_reservation"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="duree_evenement" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="duree_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="lieu_evenement" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lieu_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="capacite_evenement" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="capacite_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="description_evenement" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="description_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="Affiche" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Affiche"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="etat_evenement" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="etat_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="prix_evenement" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="prix_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="date_debut_evenement" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="date_debut_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="date_fin_evenement" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="date_fin_evenement"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<field name="test" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="test"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evenement"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="70" backcolor="#000000" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="250" height="66" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Evenement ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="580" y="37" width="200" height="29" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4"/>
+					<textElement textAlignment="Right">
+						<font size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Bienvene chez nous]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="250" y="0" width="340" height="66" forecolor="#0099FF" uuid="415192a1-3c9d-4e0f-8f87-fdd9a6439e9f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Times New Roman" size="50"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nom_evenement}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="50" forecolor="#000000" backcolor="#0099FF" uuid="b0c895f6-6dbd-477d-9858-9ad66af087e1"/>
+				<staticText>
+					<reportElement x="28" y="5" width="747" height="40" forecolor="#FFFFFF" uuid="da019e97-5cbc-4202-afc5-207702b5314c"/>
+					<textElement textAlignment="Center">
+						<font size="29" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Bienvenue Monsieur]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="158" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="158" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<staticText>
+					<reportElement x="0" y="18" width="460" height="30" uuid="73e044c4-843c-43a8-9e25-8cb7963bc984"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<text><![CDATA[Information sur l'évenement : L'événement aura lieu à ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="420" y="18" width="160" height="30" forecolor="#0099FF" uuid="9dda86b7-d743-4a41-ad78-78904b40ac37">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6c8b4de0-582f-44ff-bc91-4bfd7d96cdc3"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{lieu_evenement}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="48" width="28" height="30" uuid="b861a745-94b1-4c5a-b14e-88115bc9e7c5"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<text><![CDATA[du]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="30" y="48" width="169" height="30" forecolor="#0099FF" uuid="42378d73-57a7-4332-89e0-50484d67431a"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{date_debut_evenement}.getDate()+"/"+$F{date_debut_evenement}.getMonth()+"/"+($F{date_debut_evenement}.getYear()+1900)]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="199" y="48" width="31" height="30" uuid="33a305f5-a5c5-4032-b4c7-e331fb2d7987"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<text><![CDATA[au]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="230" y="48" width="160" height="30" forecolor="#0099FF" uuid="eb67537e-84be-4097-8245-ed6064284f9c"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{date_fin_evenement}.getDate()+"/"+$F{date_fin_evenement}.getMonth()+"/"+($F{date_fin_evenement}.getYear()+1900)]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="390" y="48" width="80" height="30" uuid="0f996eb9-491e-4f5c-ab16-ef15812c982e"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<text><![CDATA[, il reste]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="460" y="48" width="50" height="30" forecolor="#0099FF" uuid="9e21e0d8-a2c0-4650-8105-763d0a976561"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{capacite_evenement}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="510" y="48" width="80" height="30" uuid="a91e2201-62db-455c-86c5-eeb23c699d3f"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<text><![CDATA[place]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="80" width="130" height="30" uuid="c2a71261-76b9-469e-8b6c-1b82a58d0616"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<text><![CDATA[Description :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="130" y="80" width="615" height="70" forecolor="#0099FF" uuid="3c45e216-cfd5-41ab-9b2b-0c0848d0a56d"/>
+					<textElement>
+						<font fontName="Arial" size="22"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{description_evenement}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="501ac6c4-e9d4-43cb-ba6b-7f2f44394cf3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="17" forecolor="#0099FF" uuid="0c9f7e91-d3f5-47f9-82b7-0b2b3a43a5d6"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

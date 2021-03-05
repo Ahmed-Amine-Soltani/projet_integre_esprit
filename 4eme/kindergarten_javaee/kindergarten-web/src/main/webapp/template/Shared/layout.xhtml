@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+   	<title><ui:insert name="title"></ui:insert></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<h:outputStylesheet name="content/css/animate.css" />
+	<h:outputStylesheet name="content/css/bootstrap.min.css" />
+	<h:outputStylesheet library="content" name="css/font-awesome.min.css" />
+	<h:outputStylesheet name="content/css/jquery.range.css" />
+	<h:outputStylesheet name="content/css/line-awesome.css" />
+	<h:outputStylesheet name="content/css/line-awesome-font-awesome.min.css" />
+	<h:outputStylesheet name="content/css/responsive.css" />
+	<h:outputStylesheet name="content/css/select2.css" />
+	<h:outputStylesheet name="content/css/style.css" />
+	
+	<h:outputStylesheet name="content/revolution/css/settings.css" />
+	<h:outputStylesheet name="content/revolution/css/navigation" />
+		
+	<h:outputStylesheet name="content/lib/slick/slick.css" />
+	<h:outputStylesheet name="content/lib/slick/slick-theme.css" />
+
+	<link><ui:insert name="css"></ui:insert></link>
+
+	
+</h:head>
+
+<h:body>
+    
+  <ui:include src="/template/Shared/header.xhtml"></ui:include>
+    
+	<div class="wrapper">	 	
+		<ui:insert name="myContent"></ui:insert>
+		
+		<hr />
+	</div>
+	
+	
+  <ui:include src="/template/Shared/footer.xhtml"></ui:include>
+  
+<a href="#" title="" class="scrollTop"><i class="fa fa-arrow-up"></i></a>	
+
+
+<!--  Scripts  -->
+	<h:outputScript name="scripts/js/bootstrap.min.js"/> 
+	<h:outputScript name="scripts/js/counter.js"/> 
+	<h:outputScript name="scripts/js/handleCounter.js"/> 
+	<h:outputScript name="scripts/js/html5lightbox.js"/> 
+	<h:outputScript name="scripts/js/isotope.js"/> 
+    <h:outputScript name="scripts/js/jquery.min.js"/> 
+	<h:outputScript name="scripts/js/jquery.range-min.js"/> 
+	<h:outputScript name="scripts/js/map.js"/> 
+	<h:outputScript name="scripts/js/popper.js"/> 
+	<h:outputScript name="scripts/js/script.js"/> 
+	<h:outputScript name="scripts/js/select2.min.js"/> 
+
+	<h:outputScript name="scripts/revolution/js/jquery.themepunch.tools.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/jquery.themepunch.revolution.min.js"/> 
+	
+	<h:outputScript name="scripts/revolution/js/revolution.extension.actions.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.carousel.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.kenburn.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.layeranimation.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.migration.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.navigation.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.parallax.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.slideanims.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.extension.video.min.js"/> 
+	<h:outputScript name="scripts/revolution/js/revolution.initialize.js"/> 
+	
+	<h:outputScript name="cotent/lib/slick/slick.min.js"/> 
+
+
+	<ui:insert name="scripts"></ui:insert>
+</h:body>
+</html>

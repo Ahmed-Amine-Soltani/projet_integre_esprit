@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="510.0" styleClass="content-dialog" stylesheets="@../style/gestionproduit.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.controller.AjouterSousCategorieProduitController">
+   <children>
+      <HBox prefHeight="32.0" prefWidth="937.0" styleClass="top-dialog">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#closeDialog" prefHeight="31.0" prefWidth="48.0" styleClass="button-dialog-close" text="X">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="-15.0" right="-15.0" top="-15.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="74.0" prefWidth="564.0" styleClass="header-dialog">
+         <children>
+            <Label prefHeight="49.0" prefWidth="689.0" text="AJOUTER Sous Categorie" textFill="#234b86">
+               <font>
+                  <Font name="Chrisye" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox prefHeight="176.0" prefWidth="510.0">
+         <children>
+            <JFXTextField fx:id="libelle" focusColor="#d1d1d1" onKeyPressed="#libelleEvent" prefHeight="30.0" prefWidth="492.0" promptText="Libelle" unFocusColor="#d1d1d1">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </JFXTextField>
+            <Label fx:id="errorsLibelle" prefHeight="0.0" prefWidth="550.0" styleClass="label-errors" />
+            <VBox>
+               <children>
+                  <JFXComboBox fx:id="categorie" focusColor="#d1d1d1" onAction="#CategorieEvent" prefHeight="30.0" prefWidth="476.0" promptText="Categorie" unFocusColor="#d1d1d1">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <Label fx:id="errorsCategorie" prefHeight="17.0" prefWidth="562.0" styleClass="label-errors" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </VBox>
+      <HBox prefHeight="70.0" prefWidth="939.0" styleClass="dialog-group-button">
+         <children>
+            <JFXButton onMouseClicked="#closeDialog" prefHeight="50.0" prefWidth="120.0" styleClass="button-close" text="Fermer">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="11.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton onMouseClicked="#ajouterSousCategorie" prefHeight="49.0" prefWidth="120.0" styleClass="button-save" text="Ajouter">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+   </children>
+</VBox>
