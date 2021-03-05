@@ -1,0 +1,68 @@
+api_homepage:
+    path:     /
+    defaults: { _controller: ApiBundle:Default:index }
+
+
+api_tsEvenement:
+    path:     /TsEvenementApi
+    defaults: { _controller: ApiBundle:EvenementApi:TsEvenement }
+
+api_affichesEvenement:
+    path:     /Affiche
+    defaults: { _controller: ApiBundle:EvenementApi:Affiche }
+
+api_affichesMesEvenements:
+    path:     /mesEvenementsApi
+    defaults: { _controller: ApiBundle:EvenementApi:mesEvenements }
+
+api_chercherEvenementId:
+    path:     /chercherEvenementIdApi
+    defaults: { _controller: ApiBundle:EvenementApi:chercherEvenementId }
+
+api_ajouterEvenement:
+    path:     /ajouterEvenementApi
+    defaults: { _controller: ApiBundle:EvenementApi:ajouterEvenement }
+
+api_modifierEvenement:
+    path:     /modifierEvenementApi
+    defaults: { _controller: ApiBundle:EvenementApi:modifierEvenement }
+
+api_supprimerEvenement:
+    path:     /supprimerEvenementApi
+    defaults: { _controller: ApiBundle:EvenementApi:supprimerEvenement }
+
+api_mesReservation:
+    path:     /mesReservationsApi
+    defaults: { _controller: ApiBundle:EvenementApi:mesReservations }
+
+api_reserverEvenement:
+    path:     /reserverEvenementApi
+    defaults: { _controller: ApiBundle:EvenementApi:reserverEvenement }
+
+
+api_annulerReservationEvenement:
+    path:     /annulerReserverEvenementApi
+    defaults: { _controller: ApiBundle:EvenementApi:annulerReservation }
+
+api_ajouterCommentaire:
+    path:     /ajouterCommentaireApi
+    defaults: { _controller: ApiBundle:EvenementApi:ajouterCommentaire }
+
+api_afficherCommentaire:
+    path:     /afficherCommentaireApi
+    defaults: { _controller: ApiBundle:EvenementApi:afficherCommentaire }
+
+api_evenementAutoReservation:
+    path:     /evenementAutoReservationApi
+    defaults: { _controller: ApiBundle:EvenementApi:evenementAutoReservation }
+
+inscription:
+    path:     /registree
+    defaults: { _controller: ApiBundle:EvenementApi:new }
+ma:
+    path:     /alll
+    defaults: { _controller: ApiBundle:EvenementApi:AfficheMobileEvenement }
+
+login:
+    path:     /loginApi
+    defaults: { _controller: ApiBundle:EvenementApi:login }

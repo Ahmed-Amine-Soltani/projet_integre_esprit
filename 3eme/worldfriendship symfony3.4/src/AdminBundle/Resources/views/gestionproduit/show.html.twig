@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Produit</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ produit.id }}</td>
+            </tr>
+            <tr>
+                <th>Libelle</th>
+                <td>{{ produit.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ produit.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ produit.prix }}</td>
+            </tr>
+            <tr>
+                <th>Stock</th>
+                <td>{{ produit.stock }}</td>
+            </tr>
+            <tr>
+                <th>Taille</th>
+                <td>{{ produit.taille }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ produit.color }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{% if produit.created %}{{ produit.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('produit_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('produit_edit', { 'id': produit.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

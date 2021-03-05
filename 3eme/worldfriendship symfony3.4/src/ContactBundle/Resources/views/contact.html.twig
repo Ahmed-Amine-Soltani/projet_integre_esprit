@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <!-- Custom Hero Area -->
+    <section class="custom-hero-area dark-overlay" data-parallax="scroll" data-speed="0.6" data-image-src="images/banner/15.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="custom-hero">
+                        <h2>Contact Page</h2>
+                        <ul class="breadcrumbs">
+                            <li><a href="">Home</a></li>
+                            <li>&mdash;</li>
+                            <li>Contact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Custom Hero Area -->
+
+    <!-- Contact Form -->
+    <section class="contact-form-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2>Say Something!</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-2 col-md-8">
+                    <div class="contact-form">
+                        <form name="sentMessage" id="contactForm" novalidate>
+                            <div class="col-sm-6">
+                                <div class="floating-label-form-group input-controls control-group">
+                                    <input type="text" placeholder="Name" id="name" required data-validation-required-message="Please enter your name." />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="floating-label-form-group input-controls control-group">
+                                    <input type="email" placeholder="Email" id="email" required data-validation-required-message="You must enter your email address." />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="floating-label-form-group input-controls control-group">
+                                    <textarea id="message" required data-validation-required-message="Please leave a message." placeholder="Write your Message"></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div id="success"></div>
+                                <button type="submit">Send Message!</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Contact Form -->
+
+    <section id="map" class="map-area">
+
+    </section><!-- /Map Area -->
+
+{% endblock %}

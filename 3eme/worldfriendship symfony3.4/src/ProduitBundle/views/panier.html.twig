@@ -1,0 +1,250 @@
+{% extends '@Produit/layouts/nav.html.twig' %}
+
+{% block wraptt %}
+
+    <div class="wrap-tt">
+        <a href="/home">Home <i class="fa fa-angle-right"></i> </a>
+        <a href="/product">Product <i class="fa fa-angle-right"></i></a>
+        Panier
+
+    </div>
+
+{% endblock %}
+
+{% block sectionpp %}
+
+    <div class="section-panier">
+        <div class="card card-panier">
+            <div class="card-header">
+                <h1 class="card-title">
+                    SHOPPING CART
+                </h1>
+            </div>
+            <div class="card-body">
+            </div>
+        </div>
+
+        <div class="card-totalpanier">
+
+        </div>
+
+        <div class="col-md-12 groupbtn-panier">
+            <div class="row">
+                <button class="btn-command">Proceed to checkout</button>
+                <a href="/" class="shop-continue"><i class="fa fa-angle-left"></i> Continue shopping</a>
+            </div>
+        </div>
+
+        <div class="service-security col-md-12">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="col-md-3">
+                        <img src="../assets/img/service/protected.png">
+                    </div>
+                    <div class="col-md-8">
+                        <p class="serv-name">Security policy</p>
+                        <p class="serv-detail">
+                            All your personal data is protected.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-3">
+                        <img src="../assets/img/service/free.png">
+                    </div>
+                    <div class="col-md-8">
+                        <p class="serv-name">Delivery policy</p>
+                        <p class="serv-detail">
+                            Free Delivery if you're ordering eligible items.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-md-3">
+                        <img src="../assets/img/service/return.png">
+                    </div>
+                    <div class="col-md-8">
+                        <p class="serv-name">Return policy</p>
+                        <p class="serv-detail">Not satisfied with your order? Return it in-store</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+{%  block javascripts %}
+
+
+    <script>
+        $(document).ready(function() {
+
+            getPanier();
+
+            function  getPanier() {
+                var path = "{{ path('get_panierAjax') }}";
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    success: function (data) {
+                        $(".section-panier .card-body").empty();
+                        $(".section-panier .card-totalpanier").empty();
+                        if(data['lignedepaniers'].length){
+                            $("#countpanier").text(data['nbrProduit']);
+                            $("#countpanier").fadeIn();
+                            $(".section-panier .card-totalpanier").append('<div class="detail-totals">'+
+                                '<p class="detail-block">'+
+                                '<span class="detail-label">'+data['nbrProduit']+' articles</span>'+
+                                '<span class="detail-price">'+(data['total']-7)+' TND</span>'+
+                                '</p>'+
+                                '<p class="detail-block">'+
+                                '<span class="detail-label">Livraison</span>'+
+                                '<span class="detail-price">7,00 TND</span>'+
+                                '</p>'+
+                                '</div>'+
+                                '<div class="panier-total">'+
+                                '<p class="total-block">'+
+                                '<span class="total-label">Total(HT)</span>'+
+                                '<span class="total-price">'+data['total']+' TND</span>'+
+                                '</p>'+
+                                '</div>');
+                            $.each(data['lignedepaniers'], function (i, row) {
+                                $(".section-panier .card-body").append(' <div class="item-panier"> ' +
+                                    '<div class="row">' +
+                                    '<div class="col-md-2">' +
+                                    '<img src="../assets/img/product/' + row['produit']['firstimg'] + '">' +
+                                    '</div>' +
+                                    '<div class="col-md-5 prod-info">' +
+                                    '<a class="titleprod" href="">' + row['produit']['libelle'] + '</a>' +
+                                    '<p class="priceprod">'+ row['produit']['prix'] +' TND</p>'+
+                                    '<p class="tailleprod">Taille: ' + row['produit']['taille'] + '</p>' +
+                                    '<p class="colorprod">Couleur: <span style="background: ' + row['produit']['color'] + '" ></p>' +
+                                    '</div>' +
+                                    '<div class="col-md-5">'+
+                                    '<div class="row">'+
+                                    '<div class="col-md-4">'+
+                                    '<div class="inputNbprod">'+
+                                    '<input type="text" value="'+row['quantite']+'" min="1" disabled>'+
+                                    '<div class="vertical-btn">'+
+                                    '<button class="btnincrementprod" value="'+row['id']+'"><i class="fa fa-angle-up"></i></button>'+
+                                    '<button class="btndicrementprod"  value="'+row['id']+'"><i class="fa fa-angle-down"></i></button>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '<div class="col-md-4">'+
+                                    '<span class="priceTotprod">' +(row['quantite']*row['produit']['prix'])+' TND </span>'+
+                                    '</div>'+
+                                    '<div class="col-md-1">'+
+                                    '<button class="btn-delete deletelignedePanier" value="'+row['id']+'"><img src="../assets/img/icons/trash.png"></button>' +
+                                    '</div>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '</div>');
+
+
+                            })
+                        }
+                        else {
+                            $(".section-panier .card-body").append('<h2 class="no-item"> There are no more items in your cart</h2>');
+                            $(".section-panier .card-totalpanier").append('<div class="detail-totals">'+
+                                '<p class="detail-block">'+
+                                '<span class="detail-label">0 articles</span>'+
+                                '<span class="detail-price">0 TND</span>'+
+                                '</p>'+
+                                '<p class="detail-block">'+
+                                '<span class="detail-label">Livraison</span>'+
+                                '<span class="detail-price">7,00 TND</span>'+
+                                '</p>'+
+                                '</div>'+
+                                '<div class="panier-total">'+
+                                '<p class="total-block">'+
+                                '<span class="total-label">Total(HT)</span>'+
+                                '<span class="total-price">0 TND</span>'+
+                                '</p>'+
+                                '</div>');
+                        }
+                    }
+                });
+            }
+
+
+            $(document).on("click", ".deletelignedePanier", function() {
+
+                var path = "{{ path('delete_panierAjax') }}";
+                var id = $(this).val();
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    data: {
+                        "id": id
+                    },
+                    success: function(data){
+                        getPanier();
+                    }});
+
+            });
+
+
+            $(document).on("click", ".btnincrementprod", function() {
+
+                var path = "{{ path('increment_panierAjax') }}";
+                var id = $(this).val();
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    data: {
+                        "id": id
+                    },
+                    success: function(data){
+                        if(data == false){
+                            $(".alert-stock").fadeIn(250);
+                        }else {
+                            getPanier();
+                        }
+                    }});
+
+            });
+
+            $(document).on("click", ".btndicrementprod", function() {
+
+                var path = "{{ path('dicrement_panierAjax') }}";
+                var id = $(this).val();
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    data: {
+                        "id": id
+                    },
+                    success: function(data){
+                        if(data != false){
+                            getPanier();
+                        }
+                    }});
+
+            });
+
+
+
+
+
+
+        })
+
+
+
+    </script>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+produit_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:GestionProduit:index" }
+    methods:  GET
+
+produit_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:GestionProduit:show" }
+    methods:  GET
+
+produit_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:GestionProduit:new" }
+    methods:  [GET, POST]
+
+produit_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:GestionProduit:edit" }
+    methods:  [GET, POST]
+
+produit_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:GestionProduit:delete" }
+
+
+check_produitPanier:
+    path:     checkproduitPanier
+    defaults: { _controller: "AdminBundle:GestionProduit:checkProduitPanier" }
+    methods:  POST
+
+
+produit_exportCsv:
+    path:     /exportCsv
+    defaults: { _controller: "AdminBundle:GestionProduit:exportCsv" }
+    methods: GET
+
+produit_exportExcel:
+    path:     /exportExcel
+    defaults: { _controller: "AdminBundle:GestionProduit:exportExcel" }
+    methods: GET

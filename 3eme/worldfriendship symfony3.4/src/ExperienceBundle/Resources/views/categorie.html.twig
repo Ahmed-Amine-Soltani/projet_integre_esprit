@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Custom Hero Area -->
+    <section class="site-footer footer" data-parallax="scroll" data-speed="0.1"
+             data-image-src="/assets/img/experience/img4.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="custom-hero">
+                        <div class="section-title">
+                            {% for c in nom_cat %}
+                            <h2><span>Categorie</span> {{ c.nom }} </h2>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Custom Hero Area -->
+
+    <!-- Bitcoin Price area -->
+    <div class="current-pricing table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+
+            </tr>
+            </thead>
+        </table>
+    </div>
+    <!-- END Bitcoin Price area -->
+
+    <!-- News Area -->
+    <section class="news-area ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="section-title">
+                        <h2>Publications <span>Récentes</span></h2>
+                    </div>
+                </div>
+                {% for p in experience | reverse %}
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="single-service-elements">
+                            <div class="single-serv-element">
+                                <img src="{{ vich_uploader_asset(p, 'imageFile') }}"/>
+                                <a href="{{ path('postDetail',{'id':p.id}) }}">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                            </div>
+                            <div class="single-service-content">
+                                <h2>{{ p.nomExp }}</h2>
+                                <p>{{ p.descExp }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {# display navigation #}
+    <div class="navigation text-center">
+        {{ knp_pagination_render(experience) }}
+    </div>
+
+    <!-- /News Area -->
+
+    <!-- POST -->
+    <!-- line modal -->
+    <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                    <h3 class="modal-title" id="lineModalLabel"><i class="ti-sharethis"> <b>Partager</b></i></h3>
+                </div>
+
+                <div class="modal-body" align="center">
+                    <!-- content goes here -->
+                    {{ form_start(form) }}
+                    <h2>Créez votre publication</h2>
+                    <div class="form-group">
+                        <label for="title">Titre <span class="require">*</span></label>
+                        <ul>{{ form_widget(form.nomExp) }}</ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description<span class="require">*</span></label>
+                        <ul>{{ form_widget(form.descExp) }}</ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lieu">Lieu<span class="require">*</span></label>
+                        <ul>{{ form_widget(form.lieuExp) }}</ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categorie">Categorie<span class="require">*</span></label>
+                        <ul> {{ form_widget(form.categorie) }}</ul>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image<span class="require">*</span></label>
+                        <ul>{{ form_widget(form.imageFile) }}</ul>
+                    </div>
+
+                    <br>
+                    {{ form_widget(form.Partager, {'attr': {'class': 'btn-default btn-small btn-fill'}}) }}
+                    {{ form_end(form) }}
+                    <br>
+                    <div class="form-group">
+                        <p><span class="require">(<b>*</b>)</span> Champs obligatoires</p>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" role="button">Fermer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /POST -->
+    <a class="float">
+        <i data-toggle="modal"
+           data-target="#squarespaceModal" class="fa fa-share-alt my-float"></i>
+    </a>
+
+{% endblock %}
+
+

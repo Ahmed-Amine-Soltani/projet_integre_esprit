@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/cengizhancaliskan/views-counter-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/cmen/google-charts-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/egyg33k/csv-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/endroid/qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofsymfony/message-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/khanamiryan/qrcode-detector-decoder" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/csv" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/liuggio/ExcelBundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/myclabs/php-enum" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nomaya/social-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpoffice/phpexcel" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="jquery.dataTables" level="application" />
+    <orderEntry type="library" name="jquery.slimscroll" level="application" />
+    <orderEntry type="library" name="less" level="application" />
+    <orderEntry type="library" name="dataTables.bootstrap4" level="application" />
+  </component>
+</module>

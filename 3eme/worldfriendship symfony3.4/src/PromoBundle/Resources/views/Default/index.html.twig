@@ -1,0 +1,61 @@
+{% extends 'dashboard.html.twig' %}
+{% block content %}
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+        {% if is_granted('ROLE_ADMIN') %}
+        <h2>w</h2>
+        <center><h2>Promotion Service</h2></center>
+
+
+        <div align=right><a href="{{ path('ajout') }}"><img src="{{ asset ("../assets/img/product/aj.png")}}"height="50" width="50"  > ajouter une promotion</a></div>
+        <div align=left><a href="{{ path('stat') }}"><img src="{{ asset ("../assets/img/product/stat.png")}}"height="50" width="50"  > Statistique</a></div>
+
+        </br>
+        </br>
+
+
+        <table border="1">
+            <tr>
+                <th>nom de promotion </th>
+                <th>Date de Debut</th>
+                <th>Date fin </th>
+                <th>pourcentage de promotion</th>
+                <th>prix avant reduction</th>
+                <th>prix apres reduction</th>
+                <th>modifier une promotion</th>
+                <th>supprimer une promotion</th>
+
+            </tr>
+
+            {% for var in d %}
+                <tr>
+                    <td>{{ var.nomPromotion }}</td>
+                    <td>{{ var.dateDebut|date }}</td>
+                    <td>{{ var.dateFin|date}}</td>
+                    <td>{{ var.pourcentage}}%</td>
+                    <td>{{ var.prixInitiale}}</td>
+                    <td>{{ var.prixPromo}}</td>
+                    <td><center><a href="{{ path('modifier',{'id':var.id}) }}"><img src="{{ asset ("../assets/img/product/moc.jpg")}}"height="50" width="50"  ></a></center></td>
+                    <td><center><a href="{{ path('supprimer',{'id':var.id}) }}"><img src="{{ asset ("../assets/img/product/l.png")}}"height="50" width="50"  ></a></center></td>
+
+
+
+                </tr>
+            {% else %}
+                <tr><td>tableau vide</td></tr>
+            {% endfor %}
+
+        </table>
+        <div class="navigation text-center">
+            {{ knp_pagination_render(d) }}
+        </div>
+        {% else %}
+            <div class="container">
+                <h2>w</h2>
+                <center><h2>Promotion</h2></center>
+                il faut connecter
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<section class="section-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h2 class="title-form">Create an account</h2>
+                <div class="form-login">
+                    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.email, 'E-mail') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.username, 'Username') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.username) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.plainPassword.first, 'Password') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.plainPassword.first) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.plainPassword.second, 'Repeat password') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.plainPassword.second) }}
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" >Register</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+                <p><a href="/login">Do you have an account already?</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

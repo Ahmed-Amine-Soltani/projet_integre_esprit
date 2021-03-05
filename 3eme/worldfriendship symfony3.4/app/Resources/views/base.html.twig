@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+
+
+        <link rel="stylesheet" href="{{ asset ('Evenement/css/jquery.dataTables.min.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/themify-icons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/meanmenu.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/swiper.min.css') }}">
+
+
+    </head>
+    <body>
+        <!-- Preloader-->
+        <!-- <div id="overlay">
+             <div class="spinner"></div>
+         </div>
+         <!-- /Preloader -->
+           <!--<div class="section-header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <p>Bienvenue</p>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <div class="top-social">
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                                <a href=""><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="../assets/img/he.jpg" />
+                        </div>
+                        <div class="col-md-6 bl-search">
+
+                        </div>
+                        <div class="col-md-3 bl-right">
+                            <div class="user-menu dropdown">
+                                <a href="" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <img src="../assets/img/icons/iconuser.png">
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <ul>
+                                        <li>
+                                            <div>
+                                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                                    <a href="/profile" >
+                                                     <i class="fa fa-user"></i>
+                                                     {{  app.user.username }}
+                                                    </a>
+                                                    <a href="{{ path('fos_user_security_logout') }}">
+                                                        <i class="fa fa-power-off"></i>
+                                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                                    </a>
+                                                {% else %}
+                                                    <a href="{{ path('fos_user_security_login') }}">
+                                                        <i class="fa fa-user"></i>
+                                                        {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <div class="mycart">
+                                  <img src="../assets/img/icons/market.png">
+                                  <span class="countprice">0,00 TND</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>-->
+        <div class="header-search">
+            <div class="container">
+                <div class="row">
+                    <div class="bl-search col-md-offset-2 col-md-8">
+                        {% block search %} {%  endblock %}
+                    </div>
+                    <span class="close-search"><i class="fa fa-close"></i> </span>
+                </div>
+            </div>
+        </div>
+
+        <header class="navbar navbar-default nav-sticky">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">
+                        <img src="../../../assets/img/logow.png" />
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('experience_homepage') }}"> Accueil <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul>
+                                <li><a href="{{ path('allPosts') }}">Experiences</a></li>
+                                <li><a href="#">Mes experiences</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="/product">Product <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="nav_menuproduct">
+                                <li><a href="{{ path('Produit_solde') }}">produit soldé</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/group">Forum <i class="fa fa-angle-down" aria-hidden="true"></i> </a>
+                            <ul>
+                                <li><a href="/message">Message</a></li>
+
+                            </ul>
+
+                        </li>
+                        <li><a href="{{ path('accueil_evenement') }}"> Evenement <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul>
+                                <li><a href="{{ path('accueil_evenement') }}">Accueil</a></li>
+                                <li><a href="{{ path('afficher_mes_evenements') }}">Mes Evénement </a></li>
+                                <li><a href="{{ path('afficher_mes_reservation') }}"> Mes reservations  </a></li>
+                                <li><a href="{{ path('ajouter_evenement') }}">Ajouter un Evénement </a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" class="searchbtn btnopen">
+                                <img src="../../../assets/img/icons/search.png">
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <img src="../../../assets/img/icons/user.png">
+                            </a>
+                            <ul class="dropdown-menu user-setting">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                  <li><a href="/profile" >
+                                        <i class="fa fa-user"></i>
+                                        {{  app.user.username }}</a>
+                                  </li>
+                                  <li><a href="/product/mywishlist" ><i class="fa fa-heart-o"></i>Wishlist</a>
+
+                                  <li><a href="{{ path('fos_user_security_logout') }}">
+                                        <i class="fa fa-power-off"></i>
+                                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                      </a>
+                                  </li>
+                                {% else %}
+                                    <li><a href="{{ path('fos_user_security_login') }}">
+                                        <i class="fa fa-user"></i>
+                                        {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                                         </a>
+                                    </li>
+                                {% endif %}
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="mypanier">
+                                <img src="../../../assets/img/icons/shopmarket.png">
+                                <span id="countpanier"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </header>
+
+
+        <div class="page-wrapper">
+
+            {% block content %}{% endblock %}
+
+            <!-- Footer Area -->
+            <footer class="site-footer footer-v2 footer-overlay" style="background:url({{ asset('assets/img/11.jpg') }}) no-repeat fixed;">
+                <div class="container">
+                    <div class="row">
+                        <!-- .site-bottom -->
+                        <div class="bottom-footer">
+                            <div class="col-md-6 col-sm-4 pull-right">
+                                <div class="socials">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-8">
+                                <div class="copyright">
+                                    <p>&copy; 2018 All Rights Reserved Buckion.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .row -->
+                </div>
+            </footer><!-- /Footer Area -->
+
+
+
+
+            <div class="section-panier-right">
+                <div class="content-panier">
+                    <div class="header-title">
+                        <h1>shopping cart</h1>
+                        <span class="close-panier">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                    <div class="body-panier"></div>
+                    <div class="footer-panier">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="{{ asset('assets/js/teckdevs/plugins.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/SmoothScroll.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/jquery.easing.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/jquery.meanmenu.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/jquery.scrollToTop.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/jqBootstrapValidation.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/isotope.pkgd.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/parallax.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/converter.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/contact.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/waypoints.min.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/jquery.counterup.js') }}"></script>
+        <script src="{{ asset('assets/js/teckdevs/main.js') }}"></script>
+
+        <script>
+            $(document).ready(function(){
+
+
+                //getProduitModal
+
+                function getproduct(id){
+                    var path = "{{ path('get_produitAjax') }}";
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: path,
+                        data: {
+                            "id": id,
+                        },
+                        success: function (data) {
+
+
+                            $(".modal-product .prodimg1").attr('src','../../../assets/img/product/'+data.firstimg)
+                            $(".modal-product .prodimgitem1").attr('src','../../../assets/img/product/'+data.firstimg)
+                            $(".modal-product .prodimg2").attr('src','../../../assets/img/product/'+data.secondimg)
+                            $(".modal-product .prodimgitem2").attr('src','../../../assets/img/product/'+data.secondimg)
+                            $(".modal-product .prodimg3").attr('src','../../../assets/img/product/'+data.thirdimg)
+                            $(".modal-product .prodimgitem3").attr('src','../../../assets/img/product/'+data.thirdimg)
+                            $(".modal-product .title-prod").append(data.libelle)
+                            $(".modal-product .priceprod").append(data.prix+" TND")
+                            $(".modal-product .descprod").append(data.description)
+                            $(".modal-product .taillprod span").append(data.taille)
+                            $(".modal-product .colorprod span").css("background",data.color)
+                            $(".modal-product .btn-livraison").attr("value",data.id)
+
+
+                        }
+
+                    });
+                }
+
+
+                $(".btn-view").click(function(){
+                    var id = $(this).val()
+                    getproduct(id);
+
+                    $(".wr-loading").show();
+                    $(".modal-product").show();
+                    $(".modal-content").slideUp( 300 ).delay( 1000 ).fadeIn(350);
+                    $(".wr-loading").delay( 1000 ).fadeOut(350);
+                    $('html, body').css('overflow-y', 'hidden');
+
+
+                });
+
+                $(".modal-close").click(function(){
+                    $(".modal-product").hide();
+                    $(".modal-content").hide();
+                    $('html, body').css('overflow-y', 'auto');
+
+
+
+                });
+
+
+
+
+                //searchAjax
+
+                $(".btnopen").click(function(){
+                    $(".header-search").fadeIn(350);
+                });
+
+                $(".close-search").click(function(){
+                    $(this).addClass("btnopen")
+                    $(".header-search").fadeOut(350);
+                    $("#inp_search_produit").val('');
+                    $(".pop-search").fadeOut();
+                });
+
+
+                $("#inp_search_produit").keyup(function () {
+                    searchProduct();
+                });
+
+                $("#cagetorie_prod").change(function () {
+                    searchProduct();
+                });
+
+                function searchProduct(){
+
+                    $(".pop-search ul").empty();
+
+                    var key_search = $("#inp_search_produit").val();
+                    $("#keysearch").text(key_search)
+
+                    if(key_search.length){
+                        $(".pop-search").fadeIn(350);
+                    }else {
+                        $(".pop-search").fadeOut(350);
+                    }
+
+                    var selected = $("#cagetorie_prod").find('option:selected');
+                    var name_Categorie = selected.data('name');
+                    var code_Categorie = selected.data('code');
+
+                    var url =  '{{ path("produit_search", {'c':'ctt','n':'nt','q':'qt'}) }}';
+                    url = url.replace("ctt",name_Categorie).replace("nt",code_Categorie).replace('&amp;','&').replace("qt",key_search).replace('&amp;','&');
+
+                    $(".btn-searchProd").attr("href", url);
+                    $(".link-all").attr("href", url);
+
+                    var path = "{{ path('search_produitAjax') }}";
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: path,
+                        data: {
+                            "name": name_Categorie,
+                            "code": code_Categorie,
+                            "key": key_search,
+                        },
+                        success: function (data) {
+                            $(".pop-search ul").empty();
+
+                            if(data.length){
+
+                                $.each(data, function (i, row) {
+                                    var id= row['id'] ;
+                                    var url =  '{{ path("produit_produit", {'id': 'id'}) }}';
+                                    url = url.replace("id", id);
+
+                                    $(".pop-search ul").append('<li class="item-prod">' +
+
+                                        '<a href="'+url+'">' +
+                                        '<div class="row">' +
+                                        '<div class="col-md-3">' +
+                                        '<img src="../../../assets/img/product/'+row['firstimg']+'">' +
+                                        '</div>' +
+                                        '<div class="col-md-9 info-prod">' +
+                                        '<h2 href="#" class="ttprod">' + row['libelle'] + '</h2>' +
+                                        '<p class="starprod">' +
+                                        '<i class="fa fa-star-o"></i>' +
+                                        '<i class="fa fa-star-o"></i>' +
+                                        '<i class="fa fa-star-o"></i>' +
+                                        '<i class="fa fa-star-o"></i>' +
+                                        '<i class="fa fa-star-o"></i>' +
+                                        '</p>' +
+                                        '<p class="priceprod">' + row['prix'] + ' TND</p>' +
+                                        '</div>' +
+                                        '</div>' +
+
+                                        '</a>' +
+                                        '</li >')
+                                    return i<2;
+                                })
+                            }else {
+                                $(".pop-search ul").append('<li><a class="link-search">'+
+                                    '<i class="fa fa-search"></i> No found any item!'+
+                                    '</a></li>');
+                            }
+
+                        }
+
+                    });
+
+                }
+
+
+
+                //GetPanier
+                getPanier();
+
+                function getPanier(){
+
+                    var path = "{{ path('get_panierAjax') }}";
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: path,
+                        success: function(data){
+                            $(".body-panier").empty();
+                            $(".footer-panier").empty();
+
+                            $.each(data['lignedepaniers'], function(i, row){
+                                var id= row['produit']['id'] ;
+                                var url =  '{{ path("produit_produit", {'id': 'id'}) }}';
+                                url = url.replace("id", id);
+                                $(".body-panier").prepend(' <div class="item-panier"> ' +
+                                    '<div class="row">' +
+                                    '<div class="col-md-4">' +
+                                    '<img src="../../../assets/img/product/'+row['produit']['firstimg']+ '">' +
+                                    '</div>' +
+                                    '<div class="col-md-8 prod-info">' +
+                                    '<button class="btn-delete deletePanier" value="'+row['id']+'"><img src="../../../assets/img/icons/trash.png"></button>' +
+                                    '<a class="titleprod" href="'+url+'">'+row['produit']['libelle']+ '</a>' +
+                                    '<p class="tailleprod">Taille: '+row['produit']['taille']+ '</p>' +
+                                    '<p class="colorprod">Couleur: <span style="background: '+row['produit']['color']+'" ></p>' +
+                                    '<p class="priceprod">'+row['produit']['prix']+' TND <span class="countprod">X '+row['quantite']+'</span></p>' +
+                                    '</div>' +
+                                    '</div>'+
+                                    '</div>');
+                            })
+                            if(data['lignedepaniers']){
+                                $("#countpanier").text(data['nbrProduit']);
+                                $("#countpanier").fadeIn();
+                                $(".footer-panier").append('<div class="detail-totals">'+
+                                    '<p class="detail-block"> ' +
+                                    '<span class="detail-label">'+data['nbrProduit']+' articles</span>' +
+                                    '<span class="detail-price">'+(data['total']-7)+' TND</span>' +
+                                    '</p>' +
+                                    '<p class="detail-block"> ' +
+                                    '<span class="detail-label">Livraison</span>' +
+                                    '<span class="detail-price">7,00 TND</span>' +
+                                    ' </p>'+
+                                    '</div>'+
+                                    '<div class="panier-total">'+
+                                    '<p class="total-block"> ' +
+                                    '<span class="total-label">Total(HT)</span>' +
+                                    '<span class="total-price">'+data['total']+'  TND</span>' +
+                                    '</p>'+
+                                    '</div>' +
+                                    '<a href="{{ path('produit_panier') }}" class="btn-command">Proceed to checkout</a>');
+
+
+
+
+                            }
+                            else {
+                                $("#countpanier").fadeOut();
+
+                                $(".footer-panier").append('<div class="detail-totals">'+
+                                    '<p class="detail-block"> ' +
+                                    '<span class="detail-label">0 articles</span>' +
+                                    '<span class="detail-price">0 TND</span>' +
+                                    '</p>' +
+                                    '<p class="detail-block"> ' +
+                                    '<span class="detail-label">Livraison</span>' +
+                                    '<span class="detail-price">7,00 TND</span>' +
+                                    '</p>' +
+                                    '</div>' +
+                                    '<div class="panier-total">'+
+                                    '<p class="total-block"> ' +
+                                    '<span class="total-label">Total(HT)</span>' +
+                                    '<span class="total-price">0 TND</span>' +
+                                    '</p>'+
+                                    '</div>' +
+                                    '<a href="{{ path('produit_panier') }}" class="btn-command">Proceed to checkout</a>');
+                            }
+
+                        }});
+                }
+
+
+                //deleteProduitPanier
+                $(document).on("click", ".deletePanier", function() {
+
+                    var path = "{{ path('delete_panierAjax') }}";
+                    var id = $(this).val();
+
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: path,
+                        data: {
+                            "id": id
+                        },
+                        success: function(data){
+                            getPanier();
+                        }});
+
+                });
+
+
+
+
+
+                //openPanierRight
+                $(".mypanier").click(function(){
+                    openPanier();
+                });
+
+                function openPanier(){
+                    getPanier();
+                    $(".section-panier-right").css({"opacity":1,"visibility":"visible","right":0,"transition":".3s",'overflow-x':'hidden'});
+                    $('html, body').css({'overflow-y':'hidden'});
+
+                }
+
+
+
+                //closePanier
+
+                $(".close-panier").click(function () {
+                    closePanier();
+                });
+
+                function closePanier() {
+                    $(".section-panier-right").css({
+                        "opacity": 0,
+                        "visibility": "hidden",
+                        "right": "-200px",
+                        "transition": ".2s"
+                    });
+                    $('html, body').css({'overflow-y': 'visible'});
+                }
+
+
+
+
+
+                $(".alert-stock .btn-closeAlert").click(function () {
+                    $(".alert-stock").fadeOut(250);
+                })
+
+
+
+                //AddToPanier
+
+                $(".btn-panier").click(function () {
+
+                    var path = "{{ path('create_panier') }}";
+                    var id = $(this).val();
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: path,
+                        data: {
+                            "id": id,
+                            "qte":1
+                        },
+                        success: function(data){
+                            if(data.stock==false){
+                                $(".alert-stock").fadeIn(250);
+                            }
+
+                            if(data.check){
+                                openPanier();
+                            }
+                            if(data.check==false){
+                                var route = "{{ path('fos_user_security_login')|escape('js') }}";
+                                window.location = route;
+                            }
+
+
+                        }});
+
+                })
+
+
+                //IncProduit
+
+                $("#incprod").click(function(){
+                    var nb =  parseInt($("#inpNbprod").val());
+                    $("#inpNbprod").val(nb + 1);
+                });
+
+
+                //DicProduit
+                $("#dicprod").click(function(){
+                    var nb =  parseInt($("#inpNbprod").val());
+                    if(nb>1){
+                        $("#inpNbprod").val(nb - 1);
+                    }
+                });
+
+
+
+                $(".btn-livraison").click(function () {
+
+                    var nb =  parseInt($("#inpNbprod").val());
+                    if(nb>0){
+                        var path = "{{ path('create_panier') }}";
+                        var id = $(this).val();
+                        $.ajax({
+                            type: "POST",
+                            dataType: "json",
+                            url: path,
+                            data: {
+                                "id": id,
+                                "qte":nb,
+                            },
+                            success: function(data){
+                                if(data.stock==false){
+                                    $(".alert-stock").fadeIn(250);
+                                }
+                                if(data.check){
+                                    $(".modal-product").hide();
+                                    $(".modal-content").hide();
+                                    $('html, body').css('overflow-y', 'auto');
+                                    openPanier();
+                                }
+                                if(data.check==false){
+                                    var route = "{{ path('fos_user_security_login')|escape('js') }}";
+                                    window.location = route;
+                                }
+                            }});
+                    }
+                })
+
+
+
+                //LikeProduit
+
+
+                $(".btn-heart").click(function () {
+
+                    var path = "{{ path('like_produitAjax') }}";
+                    var id = $(this).val();
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: path,
+                        data: {
+                            "id": id,
+                        },
+                        success: function(data){
+                            if(data=='like'){
+                                $(".notify-like").fadeIn(250);
+                            }
+                            if(data.check==false){
+                                var route = "{{ path('fos_user_security_login')|escape('js') }}";
+                                window.location = route;
+                            }
+                        }});
+
+                })
+
+
+
+                $(".notify-like .icon-closelike").click(function () {
+                    $(".notify-like").fadeOut(250);
+                })
+
+
+
+                //getCategorieMenuLeft
+
+                var path = "{{ path('categorieproduit_json') }}";
+                $(".card-categ .menu-cat").empty();
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    success: function(data){
+                        $.each(data, function(i, categorie) {
+
+                            var url =  '{{  path('produit_categorie',{'id':'id','page':'1'})}}';
+                            url = url.replace("id",categorie['id']);
+
+                            $(".card-categ .menu-cat").append('<li>' +
+                                '<a href="'+url+'">' + categorie['libelle']+ '</a>'+
+                                '</li>') ;
+
+                        })
+
+                    }
+                });
+
+
+                //getCategorieNavbar
+
+                var path = "{{ path('categorieproduit_json') }}";
+                $(".card-categ .menu-cat").empty();
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    success: function(data){
+                        $.each(data, function(i, categorie) {
+                            var url =  '{{  path('produit_categorie',{'id':'id','page':'1'})}}';
+                            url = url.replace("id",categorie['id']);
+
+                            $(".nav_menuproduct").append('<div class="col-md-4">' +
+                                '<a href="'+url+'"><h2>' + categorie['libelle'] + '</h2></a>');
+
+                            $(".nav_menuproduct").append('</div>');
+
+
+                        })
+
+                    }
+                });
+
+
+                //getBestSellerProduit
+
+                var path = "{{ path('bestsellerporduit_json') }}";
+                $('.best-seller').empty();
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    success: function(data){
+                        $.each(data, function(i, row) {
+                            var url =  '{{ path("produit_produit",{'id':'id'}) }}';
+                            url = url.replace("id",row['id']);
+
+                            $(".best-seller").append('<li>' +
+                                '<div class="row">'+
+                                '<div class="col-md-4">'+
+                                '<a href="'+url+'">'+
+                                '<img src="../../../assets/img/product/'+row['firstimg']+'">'+
+                                '</a>'+
+                                '</div>' +
+                                '<div class="col-md-8">'+
+                                '<a href="'+url+'" class="ttprod">'+row['libelle']+'</a>'+
+                                '<p class="starprod">'+
+                                '<i class="fa fa-star"></i>'+
+                                '<i class="fa fa-star"></i>'+
+                                '<i class="fa fa-star"></i>'+
+                                '<i class="fa fa-star-o"></i>'+
+                                '<i class="fa fa-star-o"></i>'+
+                                '</p>'+
+                                '<p class="prprod">'+row['prix']+' TND</p>'+
+                                '</div>'+
+                                '</div>' +
+                                '</li>');
+
+                            return i<5
+                        })
+
+                    }
+                });
+
+
+                //getTOPProduit
+
+                var path = "{{ path('topporduit_json') }}";
+                $('.top-produit').empty();
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    success: function(data){
+
+                        $.each(data, function(i, row) {
+
+                            var url =  '{{ path("produit_produit",{'id':'id'}) }}';
+                            url = url.replace("id",row['produit']['id']);
+
+                            $(".top-produit").append('<li>' +
+                                '<div class="row">' +
+                                '<div class="col-md-4">' +
+                                '<a href="'+url+'">' +
+                                '<img src="../../../assets/img/product/' + row['produit']['firstimg'] + '">' +
+                                '</a>' +
+                                '</div>' +
+                                '<div class="col-md-8">' +
+                                '<a href="'+url+'" class="ttprod">' + row['produit']['libelle'] + '</a>' +
+                                '<p class="starprod">' +
+                                '<i class="fa fa-star"></i>' +
+                                '<i class="fa fa-star"></i>' +
+                                '<i class="fa fa-star"></i>' +
+                                '<i class="fa fa-star-o"></i>' +
+                                '<i class="fa fa-star-o"></i>' +
+                                '</p>' +
+                                '<p class="prprod">' + row['produit']['prix'] + ' TND</p>' +
+                                '</div>' +
+                                '</div>' +
+                                '</li>');
+
+                            return i < 5;
+
+                        })
+
+                    }
+                });
+
+
+
+                //getCategorieDropDown
+                var path = "{{ path('categorieproduit_json') }}";
+                $.ajax({
+
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    success: function(data){
+                        $.each(data, function(i, categorie){
+
+                            $("#cagetorie_prod").append($('<option>').text(categorie.libelle).attr({'data-name':'categorie','data-code':categorie.id}));
+
+                            $.each(categorie['souscategorieproduits'], function(i, souscategorie){
+                                $("#cagetorie_prod").append($('<option>').text('--'+souscategorie.libelle).attr({'data-name':'souscategorie','data-code':souscategorie.id,'class':'sub_option'}));
+                            })
+                        })
+
+                    }});
+
+
+
+                $(".fa-th-list").click(function(){
+                    document.getElementById("listprod").classList.add("listprod");
+                    $(this).css("color","#333");
+                    $(".fa-th").css("color","#888888");
+
+                });
+                $(".fa-th").click(function(){
+                    document.getElementById("listprod").classList.remove("listprod");
+                    $(this).css("color","#333");
+                    $(".fa-th-list").css("color","#888888");
+                });
+
+
+
+
+            });
+
+        </script>
+            {% block javascripts %}{% endblock %}
+
+
+    </body>
+</html>

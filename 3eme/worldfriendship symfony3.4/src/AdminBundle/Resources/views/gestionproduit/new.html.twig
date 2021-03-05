@@ -1,0 +1,385 @@
+{% extends 'dashboard.html.twig' %}
+{% block content %}
+
+<div class="main-panel">
+    <div class="content">
+        <div class="container-fluid">
+            <p class="page-title">
+                <a href="/admin">
+                    Home <i class="fa fa-angle-right"></i>
+                </a>
+                <a href="/admin/product">
+                    Product <i class="fa fa-angle-right"></i>
+                </a>
+                Add
+            </p>
+            <div class="row row-card-no-pd product-view">
+                <div class="col-md-12">
+                    <h1>Add Product</h1>
+
+                    {{ form_start(form) }}
+                     <div class="row form-prod">
+                        <div class="col-md-7">
+                            <h2 class="title-add-prod">GENERAL PRODUCT</h2>
+                            <div class="form-group row">
+                                <label class="col-md-3">Categorie :</label>
+                                <div class=" col-md-7">
+                                    <select class="form-control" id="categorieProd" >
+                                        <option value="choice">Select Categorie</option>
+                                    </select>
+                                    <span class="error-required" id="categorie">
+                                         This Category is required
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group row typeProd">
+                                <label class="col-md-3">Sous Categoire :</label>
+                                <div class="col-md-7">
+                                    <select class="form-control" id="souscategorieProd" name="souscategorie">
+
+                                    </select>
+                                    <span class="error-required" id="souscategorie">
+                                        This SubCategory is required
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Libelle :</label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.libelle, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="error-required" id="libelle">
+                                       This Libelle is required
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Prix :</label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="error-required" id="prix">
+                                        This Prix is required
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Stock :</label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.stock, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="error-required" id="stock">
+                                        This Stock is required
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Taille :</label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.taille, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="error-required" id="taille">
+                                        This Taille is required
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Color :</label>
+                                <div class="col-md-7">
+                                    {{ form_widget(form.color, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="error-required" id="color">
+                                        This Color is required
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3">Description :</label>
+                                  <div class="col-md-7">
+                                    {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="error-required" id="description">
+                                        This Description is required
+                                    </span>
+                                 </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-5 img-form">
+                            <h2 class="title-add-prod">Image Product</h2>
+
+                            <div class="form-group">
+                                <label>First Image :</label>
+                                <img src="" id="firstimg" style="display: none">
+                                {{ form_widget(form.imagefileFirst,{ 'attr': {'class': 'imgInp1'} }) }}
+                                <span class="error-required" id="inpfirstimg">
+                                    This First Image is required
+                                </span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Second Image :</label>
+                                <img src="" id="secondimg" style="display: none">
+                                {{ form_widget(form.imagefileSecond,{ 'attr': {'class': 'imgInp2'} }) }}
+                                <span class="error-required" id="inpsecondimg">
+                                    This Second Image is required
+                                </span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Third Image :</label>
+                                <img src="" id="thridimg" style="display: none">
+                                {{ form_widget(form.imagefileThird,{ 'attr': {'class': 'imgInp3'} }) }}
+                                <span class="error-required" id="inpthirdimg">
+                                   This Third Image is required
+                                </span>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <button type="submit" class="btn-addSubmit">Add</button>
+                        </div>
+
+                    </div>
+                  {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+{%  block javascripts %}
+    <script>
+        $(document).ready(function(){
+
+            //getCategorieJson
+            var path = "{{ path('categorieproduit_json') }}";
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: path,
+
+                success: function(data){
+                    $.each(data, function(i, value){
+                        $('#categorieProd').append($('<option>').text(value.libelle).attr('value', value.id));
+                    })
+                }});
+
+
+            //getSousCategorieJson
+            $("select#categorieProd").change(function () {
+                $(".typeProd").css('display','flex');
+                $('#souscategorieProd').empty();
+                var categorie = $(this).val();
+                var path = "{{ path('souscategorieproduit_json') }}";
+
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: path,
+                    data: {
+                        "categorie": categorie
+                    },
+                    success: function(data){
+                        $.each(data, function(i, value){
+                            $('#souscategorieProd').append($('<option>').text(value.libelle).attr('value', value.id));
+
+                        })
+                    }});
+            })
+
+
+            //FileReader
+
+            $(".imgInp1").change(function() {
+
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#firstimg').attr('src', e.target.result);
+                        $('#firstimg').css('display','inline-block');
+
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+
+            });
+
+            $(".imgInp2").change(function() {
+
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#secondimg').attr('src', e.target.result);
+                        $('#secondimg').css('display','inline-block');
+
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+
+            });
+
+            $(".imgInp3").change(function() {
+
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#thridimg').attr('src', e.target.result);
+                        $('#thridimg').css('display','inline-block');
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+
+            });
+
+
+            $('form').submit(function (e) {
+
+                var categorie = $("#categorieProd").val();
+                var souscategorie = $("#souscategorieProd").val();
+                var libelle =$("#produitbundle_produit_libelle").val();
+                var prix = $("#produitbundle_produit_prix").val();
+                var stock = $("#produitbundle_produit_stock").val();
+                var taille = $("#produitbundle_produit_taille").val();
+                var color = $("#produitbundle_produit_color").val();
+                var description = $("#produitbundle_produit_description").val();
+                var firstimg = $("#produitbundle_produit_imagefileFirst").val();
+                var secondimg = $("#produitbundle_produit_imagefileSecond").val();
+                var thirdimg = $("#produitbundle_produit_imagefileThird").val();
+
+
+                if(categorie == 'choice'){
+                    $("#categorieProd").css('border-color','red');
+                    $("#categorie").css('display','block');
+                    e.preventDefault();
+
+                }else if(souscategorie == null){
+                    $("#souscategorieProd").css('border-color','red');
+                    $("#souscategorie").css('display','block');
+                    e.preventDefault();
+
+                }else if(libelle == ''){
+                    $("#produitbundle_produit_libelle").css('border-color','red');
+                    $("#libelle").css('display','block');
+                    e.preventDefault();
+
+                }else if(prix == ''){
+                    $("#produitbundle_produit_prix").css('border-color','red');
+                    $("#prix").css('display','block');
+                    e.preventDefault();
+
+                }else if(stock == ''){
+                    $("#produitbundle_produit_stock").css('border-color','red');
+                    $("#stock").css('display','block');
+                    e.preventDefault();
+
+                }else if(taille == ''){
+                    $("#produitbundle_produit_taille").css('border-color','red');
+                    $("#taille").css('display','block');
+                    e.preventDefault();
+
+                }else if(color == ''){
+                    $("#produitbundle_produit_color").css('border-color','red');
+                    $("#color").css('display','block');
+                    e.preventDefault();
+
+                }else if(description == ''){
+                    $("#produitbundle_produit_description").css('border-color','red');
+                    $("#description").css('display','block');
+                    e.preventDefault();
+
+                }else if(firstimg == ''){
+                    $("#inpfirstimg").css('display','block');
+                    e.preventDefault();
+
+                }else if(secondimg == ''){
+                    $("#inpsecondimg").css('display','block');
+                    e.preventDefault();
+
+                }else if(thirdimg == ''){
+                    $("#inpthirdimg").css('display','block');
+                    e.preventDefault();
+
+                }
+                else {
+                    return
+                }
+
+
+
+            })
+
+            $("#categorieProd").change(function () {
+                $("#categorie").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+                $("#souscategorieProd").css('border-color','#e1e1e1');
+                $("#souscategorie").css('display','none');
+
+            });
+
+            $("#souscategorieProd").change(function () {
+                $("#souscategorie").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_libelle").keyup(function () {
+                $("#libelle").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_prix").keyup(function () {
+                $("#prix").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_stock").keyup(function () {
+                $("#stock").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_taille").change(function () {
+                $("#taille").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_color").change(function () {
+                $("#color").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_description").keyup(function () {
+                $("#description").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+            $("#produitbundle_produit_imagefileFirst").change(function () {
+                $("#inpfirstimg").css('display','none');
+            });
+
+            $("#produitbundle_produit_imagefileSecond").change(function () {
+                $("#inpsecondimg").css('display','none');
+            });
+
+            $("#produitbundle_produit_imagefileThird").change(function () {
+                $("#inpthirdimg").css('display','none');
+            });
+
+           });
+    </script>
+{% endblock %}

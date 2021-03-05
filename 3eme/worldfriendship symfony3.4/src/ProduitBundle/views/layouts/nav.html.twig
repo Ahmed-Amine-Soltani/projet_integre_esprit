@@ -1,0 +1,200 @@
+{% extends 'base.html.twig' %}
+
+{% block search %}
+    <div class="col-md-10">
+       <select id="cagetorie_prod">
+           <option data-name="All_Categorie" data-code="0">All Categorie</option>
+       </select>
+       <input type="text" id="inp_search_produit" placeholder="Que recherchez-vous ?">
+
+       <div class="pop-search">
+            <ul></ul>
+            <a href="" class="link-all">
+                See all results for
+                <i class="fa fa-angle-double-left"></i>
+                <span id="keysearch"></span>
+                <i class="fa fa-angle-double-right"></i>
+            </a>
+
+        </div>
+    </div>
+    <div class="col-md-2">
+        <a href="{{ path('produit_search',{'c':'All_Categorie','n':0,'q':''}) }}"  class="btn-searchProd">Search</a>
+    </div>
+
+
+{% endblock %}
+
+{% block content %}
+
+    <!-- Services Element -->
+    <section class="section-content">
+        <div class="container">
+            {% block wraptt %}
+            {% endblock %}
+
+            <div class="row">
+                <div class="col-md-3 wrapper-left">
+                    <div class="card card-categ">
+                        <div class="card-header">
+                            <div class="bars-menu">
+                                <span class="bar bar-f"></span>
+                                <span class="bar bar-s"></span>
+                                <span class="bar bar-t"></span>
+                            </div>
+                            <h1 class="card-title">ALL CATEGORIE</h1>
+                        </div>
+                        <div class="card-body">
+                            <ul class="menu-cat">
+                            </ul>
+                        </div>
+                    </div>
+
+                    {% block cardservice %}
+
+                    {% endblock %}
+
+                    {% block cardfilter %}
+
+                    {% endblock %}
+
+                    <div class="card">
+                        <div class="card-header">
+                           <h1 class="card-title">BEST-SELLER</h1>
+                        </div>
+                        <div class="card-body">
+                            <ul class="prod-list best-seller">
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card card-img-pub">
+                        <div class="hovereffect">
+                            <img src="../../../../assets/img/blog/publeft.png">
+                            <div class="overlay">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="card-title">TOP-PRODUCT</h1>
+                        </div>
+                        <div class="card-body">
+                            <ul class="prod-list top-produit">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+
+                   {% block sectionpp %}
+
+                   {% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="modal-product" >
+
+            <div class="modal-content">
+              <span class="modal-close">
+                  <i class="fa fa-close"></i>
+              </span>
+
+              <div class="product-view">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="Carousel" class="carousel slide productSlide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <img src="" style="width:100%;" class="prodimg1">
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="" style="width:100%;" class="prodimg2">
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="" style="width:100%;" class="prodimg3">
+                                    </div>
+                                </div>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#Carousel" data-slide-to="0" class="active">
+                                        <img src="" class="prodimgitem1">
+                                    </li>
+                                    <li data-target="#Carousel" data-slide-to="1">
+                                        <img src="" class="prodimgitem2">
+                                    </li>
+                                    <li data-target="#Carousel" data-slide-to="2" >
+                                        <img src="" class="prodimgitem3">
+                                    </li>
+                                </ol>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contentprod">
+                                <h1 class="title-prod"></h1>
+                                <p class="starprod">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </p>
+                                <p class="priceprod"></p>
+                                <p class="descprod"></p>
+                                <p class="taillprod">
+                                    Taille <span></span>
+                                </p>
+                                <p class="colorprod">
+                                    Couleur
+                                    <span>
+
+                                    </span>
+                                </p>
+                                <div class="qteprod">
+                                    Qté
+                                    <div class="inputNbprod">
+                                        <input type="text" value="1" min="1" id="inpNbprod">
+                                        <div class="vertical-btn">
+                                            <button id="incprod"><i class="fa fa-angle-up"></i></button>
+                                            <button id="dicprod"><i class="fa fa-angle-down"></i></button>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn-livraison">Livraison</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="wr-loading">
+                <i class="fa fa-spinner fa-spin"></i>
+            </span>
+
+
+
+
+    </div>
+
+
+    <div class="alert-stock">
+        <h2>Insufficient stock
+            <span class="btn-closeAlert"><i class="fa fa-close"></i></span>
+        </h2>
+    </div>
+
+    <div class="notify-like">
+        <h2>
+            The product was successfully added to your wishlist. <a href="{{ path('produit_wishlist') }}"> View your wishlist.</a>
+            <span class="icon-closelike"><i class="fa fa-close"></i> </span>
+        </h2>
+    </div>
+
+
+{% endblock %}

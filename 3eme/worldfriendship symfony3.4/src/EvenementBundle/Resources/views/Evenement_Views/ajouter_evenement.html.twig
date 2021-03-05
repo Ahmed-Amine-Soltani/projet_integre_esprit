@@ -1,0 +1,263 @@
+{% extends '@Evenement/Evenement_Views/base_evenement.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset ('Evenement/css/bootstrap-datetimepicker.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ asset ('Evenement/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <style type="text/css">
+        label[for="eventbundle_event_nom"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_type"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_typeReservation"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_prix"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_dateEvent"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_duree"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_lieu"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_nombre"] {
+            color: dodgerblue;
+        }
+
+        label[for="eventbundle_event_description"] {
+            color: dodgerblue;
+        }
+
+        label[for="afflab"] {
+            color: dodgerblue;
+        }
+
+
+    </style>
+
+{% endblock %}
+{% block home %}
+    {{ tag }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="form-group">
+                    {{ form_start(ajouter_form) }}
+                    {{ form_label(ajouter_form.nomEvenement,'Titre', {'label_attr':{'class' : 'nomlab'}}) }}
+                    {{ form_widget(ajouter_form.nomEvenement,{'attr': {'class' : 'nom form-control'}}) }}
+                    <div id="nom_err">
+                        {{ form_errors(ajouter_form.nomEvenement,{'label_attr':{'class' : 'nom_err1'}}) }}
+                    </div>
+
+                    {{ form_label(ajouter_form.typeEvenement,'Type d\'événement', {'label_attr':{'class' : 'typelab'}}) }}
+                    {{ form_widget(ajouter_form.typeEvenement,{'attr': {'class' : 'type form-control'}}) }}
+                    {{ form_errors(ajouter_form.typeEvenement) }}
+
+                    {{ form_label(ajouter_form.typeReservation,'Type de réservation', {'label_attr':{'class' : 'reslab'}}) }}
+                    {{ form_widget(ajouter_form.typeReservation) }}
+                    {{ form_errors(ajouter_form.typeReservation) }}
+
+                    {{ form_label(ajouter_form.prixEvenement,'Prix', {'label_attr':{'class' : 'prixlab'}}) }}
+                    {{ form_widget(ajouter_form.prixEvenement,{'attr': {'novalidate': 'novalidate', 'class' : 'prix form-control'}}) }}
+                    <div id="prix_err">
+                        {{ form_errors(ajouter_form.prixEvenement) }}
+                    </div>
+
+                    {{ form_label(ajouter_form.dateDebutEvenement,'Date debut Evénement', {'label_attr':{'class' : 'datedeblab'}}) }}
+                    {{ form_widget(ajouter_form.dateDebutEvenement, { 'id': 'datedeb' }) }}
+                    <div id="date_d_err">
+                        {{ form_errors(ajouter_form.dateDebutEvenement) }}
+                    </div>
+
+                    {{ form_label(ajouter_form.dateFinEvenement,'Date fin Evénement', {'label_attr':{'class' : 'datefinlab'}}) }}
+                    {{ form_widget(ajouter_form.dateFinEvenement , { 'id': 'datefin' }) }}
+                    <div id="date_f_err">
+                        {{ form_errors(ajouter_form.dateFinEvenement) }}
+                    </div>
+
+                    {{ form_label(ajouter_form.lieuEvenement,'Localisation', {'label_attr':{'class' : 'loclab'}}) }}
+                    {{ form_widget(ajouter_form.lieuEvenement,{'attr': {'class' : 'loc form-control'}}) }}
+                    <div id="loc_err">
+                        {{ form_errors(ajouter_form.lieuEvenement) }}
+                    </div>
+
+                    {{ form_label(ajouter_form.capaciteEvenement,'Capacite', {'label_attr':{'class' : 'capacitelab'}}) }}
+                    {{ form_widget(ajouter_form.capaciteEvenement,{'attr': {'class' : 'capacite form-control'}}) }}
+                    <div id="capacite_err">
+                        {{ form_errors(ajouter_form.capaciteEvenement) }}
+                    </div>
+
+                    {{ form_label(ajouter_form.descriptionEvenement,'Description', {'label_attr':{'class' : 'desclab'}}) }}
+                    {{ form_widget(ajouter_form.descriptionEvenement,{'attr': {'class' : 'desc form-control'}}) }}
+                    <div id="des_err">
+                        {{ form_errors(ajouter_form.descriptionEvenement) }}
+                    </div>
+                    {{ form_label(ajouter_form.afficheFile,'Affiche', {'label_attr':{'class' : 'afflab'}}) }}
+                    {{ form_widget(ajouter_form.afficheFile,{'attr': {'class' : 'affiche'}}) }}
+                    <div id="aff_err">
+                        {{ form_errors(ajouter_form.afficheFile) }}
+                    </div>
+
+                    <br>
+                    {{ form_widget(ajouter_form.Ajouter,{'attr': {'class' : 'btn btn-primary'}}) }}
+                </div>
+                {{ form_end(ajouter_form) }}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('Evenement/js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{ asset('Evenement/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.res').on('change', function () {
+                var content = $('.res').val();
+                if (content == "Gratuite") {
+                    $(".prix").hide();
+                    $(".prixlab").hide();
+                }
+                else {
+                    $(".prix").show();
+                    $(".prixlab").show();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.duree').on('keyup', function () {
+                var content = $('.duree').val();
+                var numericReg = /^[a-zA-Z0-9 ]+$/;
+                if (!numericReg.test(content) && content !== "") {
+                    $('#duree_err').show();
+                    $('#duree_err').text("Veuillez choisir une durée valide").css({
+                        "font-size": "0.9em",
+                        "color": "#d85364"
+                    });
+                }
+                else {
+                    $('#duree_err').hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.loc').on('keyup', function () {
+                var content = $('.loc').val();
+                var numericReg = /^[a-zA-Z0-9 ]+$/;
+                if (!numericReg.test(content) && content !== "") {
+                    $('#loc_err').show();
+                    $('#loc_err').text("Veuillez choisir une localisation valide").css({
+                        "font-size": "0.9em",
+                        "color": "#d85364"
+                    });
+                }
+                else {
+                    $('#loc_err').hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.prix').on('keyup', function () {
+                var content = $('.prix').val();
+                var numericReg = /^[+]?\d+([.]\d+)?$/;
+                if (!numericReg.test(content) && content !== "") {
+                    $('#prix_err').show();
+                    $('#prix_err').text("Veuillez choisir un prix valide").css({
+                        "font-size": "0.9em",
+                        "color": "#d85364"
+                    });
+                }
+                else {
+                    $('#prix_err').hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.capacite').on('keyup', function () {
+                var content = $('.capacite').val();
+                var numericReg = /^[+]?\d+([.]\d+)?$/;
+                if (!numericReg.test(content) && content !== "") {
+                    $('#capacite_err').show();
+                    $('#capacite_err').text("Veuillez choisir un entier positif pour votre capacite").css({
+                        "font-size": "0.9em",
+                        "color": "#d85364"
+                    });
+                }
+                else {
+                    $('#capacite_err').hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.desc').on('keyup', function () {
+                var i = $('.desc').val().length;
+                if ($('.desc').val() !== "") {
+                    $('#des_err').show();
+                    var j = 255 - i;
+                    var msg = "Nombre de caractères atteint " + i + " , il vous reste " + j + " caractères sur 255";
+                    $('#des_err').text(msg).css({
+                        "font-size": "0.9em",
+                        "color": "#3851F7"
+                    });
+                }
+                else {
+                    $('#des_err').hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('#datedeb').datetimepicker().on('changeDate', function (ev) {
+                var d = new Date();
+                    if (ev.date.valueOf() < d.valueOf()) {
+                    $('#date_d_err').show();
+                    var msg1 = "Veuillez entrer une date valide pour le début d'évenement";
+                    $('#date_d_err').text(msg1).css({
+                        "font-size": "0.9em",
+                        "color": "#d85364"
+                    });
+                }
+                else {
+                    $('#date_d_err').hide();
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('#datefin').datetimepicker().on('changeDate', function (ev) {
+                var d = new Date();
+                if (ev.date.valueOf() < d.valueOf()) {
+                    $('#date_f_err').show();
+                    var msg1 = "Veuillez entrer une date valide pour la fin d'évenement";
+                    $('#date_f_err').text(msg1).css({
+                        "font-size": "0.9em",
+                        "color": "#d85364"
+                    });
+                }
+                else {
+                    $('#date_f_err').hide();
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('.afflab').css({
+                "color": "#1e90ff"
+            })
+        });
+
+    </script>
+{% endblock %}

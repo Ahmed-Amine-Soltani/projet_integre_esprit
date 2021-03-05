@@ -1,0 +1,46 @@
+api:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+promo:
+    resource: "@PromoBundle/Resources/config/routing.yml"
+    prefix:   /promo
+
+contact:
+    resource: "@ContactBundle/Resources/config/routing.yml"
+    prefix:   /
+
+group:
+    resource: "@GroupBundle/Resources/config/routing.yml"
+    prefix:   /
+
+produit:
+    resource: "@ProduitBundle/Resources/config/routing.yml"
+    prefix:   /product
+
+evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /evenements
+
+experience:
+    resource: "@ExperienceBundle/Resources/config/routing.yml"
+    prefix:   /exp
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix:   /message

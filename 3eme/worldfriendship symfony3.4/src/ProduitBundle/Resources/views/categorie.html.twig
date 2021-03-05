@@ -1,0 +1,98 @@
+{% extends '@Produit/layouts/nav.html.twig' %}
+
+{% block wraptt %}
+
+    <div class="wrap-tt">
+        <a href="/home">Home <i class="fa fa-angle-right"></i> </a>
+        <a href="/product">Product <i class="fa fa-angle-right"></i></a>
+        {{ categorie.libelle }}
+
+    </div>
+
+{% endblock %}
+
+{% block sectionpp %}
+    <div class="top-content">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="fa fa-th"></span>
+                <span class="fa fa-th-list"></span>
+            </div>
+            <div class="col-md-4 text-center">
+                <span class="countprod">Il y a {{ produits.getTotalItemCount  }} produits </span>
+            </div>
+        </div>
+    </div>
+    <div class="section-prod" id="listprod">
+        <div class="row">
+            {% for produit in produits %}
+                <div class="col-md-4">
+                    <div class="card card-prod">
+                        <a href="{{ path('produit_produit',{'id':produit.id}) }}">
+                            <div class="card-img">
+                                <img src="../../assets/img/product/{{ produit.firstimg }}" class="firstimg">
+                                <img src="../../assets/img/product/{{ produit.secondimg }}" class="secondimg">
+                            </div>
+                            <div class="card-body">
+                                <p class="starprod">
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </p>
+                                <a href="{{ path('produit_produit',{'id':produit.id}) }}" class="ttprod">{{ produit.libelle }}</a>
+                                <p class="priceprod">{{ produit.prix }} DNT</p>
+                                <p class="descprod">{{ produit.description }}</p>
+                                <div class="btngroup">
+                                    <button class="btn-panier" value="{{ produit.id }}">
+                                        <img src="../../assets/img/icons/cart.png" class="firstimg">
+                                        <img src="../../assets/img/icons/cartwhite.png" class="secondimg">
+                                    </button>
+                                    <button class="btn-view">
+                                        <img src="../../assets/img/icons/eye.png" class="firstimg">
+                                        <img src="../../assets/img/icons/eyewhite.png" class="secondimg">
+                                    </button>
+                                    <button class="btn-heart">
+                                        <img src="../../assets/img/icons/heart.png" class="firstimg">
+                                        <img src="../../assets/img/icons/heartwhite.png" class="secondimg">
+                                    </button>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="foot-pagination">
+            <div class="row">
+                <div class="col-md-6">
+                    <span class="detail-paginate">
+                        {% set nb = app.request.query.get('page') %}
+                        Affichage
+                        {% if( nb == 1) %}
+                            {{ nb }}
+                        {% else %}
+                            {{ nb * 4 / nb }}
+                        {% endif %} -
+                        {% if( produits.getTotalItemCount < nb*4) %}
+                            {{ produits.getTotalItemCount }}
+                        {% else %}
+                            {{  nb * 4  }}
+                        {% endif %}
+                        De {{ produits.getTotalItemCount}} Article(S)
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    {{ knp_pagination_render(produits) }}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

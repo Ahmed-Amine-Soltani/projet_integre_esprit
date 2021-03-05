@@ -1,0 +1,48 @@
+{% extends '@Produit/layouts/nav.html.twig' %}
+
+{% block wraptt %}
+
+    <div class="wrap-tt">
+        <a href="/home">Home <i class="fa fa-angle-right"></i> </a>
+        <a href="/profile">My Account <i class="fa fa-angle-right"></i></a>
+        My Wishlist
+
+
+    </div>
+
+{% endblock %}
+
+{% block sectionpp %}
+
+    <div class="section-wishlist">
+        <h1 class="title-wish">New Wishlist</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Created</th>
+                    <th>Direct Link</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for like in likes  %}
+
+                <tr>
+                    <td>{{ like.produit.libelle }}</td>
+                    <td><img src="../assets/img/product/{{ like.produit.firstimg }}" class="img-prod"></td>
+                    <td>{{ like.created | date('Y-m-d H:i:s') }}</td>
+                    <td><a href="{{ path('produit_produit',{'id': like.produit.id}) }}">View</a></td>
+                    <td><a href="{{ path('delete_likeproduit',{'id': like.id}) }}"><img src="../assets/img/icons/trash.png" class="icon-trash"></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}
+

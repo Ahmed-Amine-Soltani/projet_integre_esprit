@@ -1,0 +1,28 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% block fos_message_content %}
+
+    <div class="container">
+        <aside class="lg-side">
+            <div class="inbox-head">
+                <h3>{% trans from 'FOSMessageBundle' %}Message envoyé{% endtrans %}</h3>
+                <form action="#" class="pull-right position">
+
+                </form>
+            </div>
+
+            <table class="table table-inbox table-hover">
+                <tbody>
+                <tr class="unread">
+                    {% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+                </tr>
+                </tbody>
+            </table>
+
+        </aside>
+    </div>
+
+
+    <br>
+
+{% endblock %}

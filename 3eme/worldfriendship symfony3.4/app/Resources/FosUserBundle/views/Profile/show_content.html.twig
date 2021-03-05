@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<br><br>
+<div class="container">
+
+    <div class="registration">
+        <div class="registration_left">
+
+            <div class="registration_form">
+                <!-- Form -->
+                <div class="tab1">
+
+                    <div class="form-profil">
+                        <h2 class="title-form">Your Account</h2>
+                        <span class="hr-form"></span>
+                        <div class="row">
+                            <div class="col-md-4 item">
+                                <a href="{{ path ('fos_user_profile_edit')}}">
+                                    <i class="fa fa-user-circle-o"></i>
+                                    <p>Information</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 item">
+                                <a href="{{ path ('fos_user_change_password')}}">
+                                    <i class="fa fa-key"></i>
+                                    <p>Change Password</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 item">
+                                <a href="/wishlists">
+                                    <i class="fa fa-heart-o"></i>
+                                    <p>MY WISHLISTS</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="group-btn">
+                           <a  href="{{ path ('fos_user_security_logout')}}">Log out</a>
+                        </div>
+                     </div>
+                </div>
+                <!-- /Form -->
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

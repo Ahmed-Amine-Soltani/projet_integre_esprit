@@ -1,0 +1,65 @@
+homepage:
+    path:     /
+
+accueil_evenement:
+    path:     /accueil_evenement
+    defaults: { _controller: EvenementBundle:Evenement:afficherEvenement }
+
+#crud evenement
+ajouter_evenement:
+    path:     /ajouter_evenement
+    defaults: { _controller: EvenementBundle:Evenement:ajouterEvenement }
+modifier_evenement:
+    path:     /modifier_evenement
+    defaults: { _controller: EvenementBundle:Evenement:modifierEvenement }
+supprimer_evenement:
+  path:     /supprimer_evenement
+  defaults: { _controller: EvenementBundle:Evenement:supprimerEvenement }
+##############################################################################
+pdf_evenement:
+  path:     /pdf
+  defaults: { _controller: EvenementBundle:Evenement:pdf }
+
+details_evenement:
+  path:     /details_evenement
+  defaults: { _controller: EvenementBundle:Evenement:detailsEvenement }
+
+#mes evenement
+mes_evenements_donnees:
+    path:     /mes_evenements_donnees
+    defaults: { _controller: EvenementBundle:Evenement:mesEvenementsDonnees }
+afficher_mes_evenements:
+  path:     /mes_evenements
+  defaults: { _controller: EvenementBundle:Evenement:mesEvenement }
+
+
+#mes reservation
+mes_reservation_donnees:
+  path:     /mes_reservation_donnees
+  defaults: { _controller: EvenementBundle:Evenement:mesReservationDonnees }
+afficher_mes_reservation:
+  path:     /mes_reservation
+  defaults: { _controller: EvenementBundle:Evenement:mesReservation }
+annuler_reservation:
+  path:     /annuler_reservation
+  defaults: { _controller: EvenementBundle:Evenement:annulerReservation }
+reconfirmer_reservation:
+  path:     /reconfirmer_reservation
+  defaults: { _controller: EvenementBundle:Evenement:reconfirmerReservation }
+
+
+autre_evenement:
+  path:     /autre_evenement
+  defaults: { _controller: EvenementBundle:Evenement:autreEvenement }
+envoyer_ticket:
+    path:     /envoyer_ticket
+    defaults: { _controller: EvenementBundle:Evenement:envoyerTicket }
+
+#mes tests
+envoyer_test:
+    path:     /test2
+    defaults: { _controller: EvenementBundle:Evenement:test }
+envoyer2_test:
+  path:     /test
+  defaults: { _controller: EvenementBundle:Evenement:test2 }
+

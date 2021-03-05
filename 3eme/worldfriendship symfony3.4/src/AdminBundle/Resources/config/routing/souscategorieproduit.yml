@@ -1,0 +1,43 @@
+souscategorieproduit_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:index" }
+    methods:  GET
+
+souscategorieproduit_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:show" }
+    methods:  GET
+
+souscategorieproduit_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:new" }
+    methods:  [GET, POST]
+
+souscategorieproduit_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:edit" }
+    methods:  [GET, POST]
+
+souscategorieproduit_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:delete" }
+
+check_souscategorie:
+    path:     /checkSousCategorie
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:checkSousCategorie" }
+    methods:  POST
+
+souscategorieproduit_json:
+    path:     /souscategorieproduitJson
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:getSousCategorieJson" }
+    methods:  POST
+
+souscategorie_exportCsv:
+    path:     /exportCsv
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:exportCsv" }
+    methods: GET
+
+souscategorie_exportExcel:
+    path:     /exportExcel
+    defaults: { _controller: "AdminBundle:SousCategorieProduit:exportExcel" }
+    methods: GET

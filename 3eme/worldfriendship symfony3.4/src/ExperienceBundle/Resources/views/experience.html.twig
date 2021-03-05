@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!--Slider Area-->
+    <section class="swiper-slider-area">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slide-inner dark-overlay single-swiper-slider"
+                         style="background:url({{ asset('../assets/img/experience/img2.jpg') }})">
+                        <div class="display-table">
+                            <div class="table-cell">
+                                <h1>World Friendship</h1>
+                                <h2>Partager vos expériences</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Slider Area-->
+
+    <!-- How works Area -->
+    <section class="how-works section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2>Comment<span> ça marche?</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="how-to-sec">
+                        <div class="how-to">
+								<span class="how-icon">
+									<i class="fa fa-user"></i>
+								</span>
+                            <h3>Crée votre compte</h3>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                piece of classical Latin.</p>
+                        </div>
+                        <div class="how-to">
+								<span class="how-icon">
+									<i class="fa fa-share"></i>
+								</span>
+                            <h3>Partager vos expérience</h3>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                piece of classical Latin.</p>
+                        </div>
+                        <div class="how-to">
+								<span class="how-icon">
+									<i class="fa fa-shopping-cart"></i>
+								</span>
+                            <h3>Acheter des produits</h3>
+                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
+                                piece of classical Latin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /How works Area -->
+
+    <section class="currency-converter-section section-padding dark-overlay" data-parallax="scroll" data-speed="0.6"
+             data-image-src="../assets/img/experience/img3.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="chart-map">
+                        <img src="../assets/img/experience/map.png" alt=""/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="currency-converter">
+                        <h2 class="title">Partager <span>Exploiter</span></h2>
+                        <p>Partager et explorer des expériences avec tout le monde</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Currency Converter Area -->
+    <!-- /POST -->
+
+    <!-- News area -->
+    <section class="news-area section-padding gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h2>expériences <span>plus regardées</span></h2>
+                    </div>
+                </div>
+            </div>
+
+            {% for e in exp | reverse %}
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <a class="news-box-hover" href="{{ path('postDetail',{'id':e.id}) }}">
+                        <div class="news-box"
+                             style="background:url({{ vich_uploader_asset(e, 'imageFile') }}) no-repeat;">
+                            <div class="news-data">
+                                <p class="news-cat">{{ e.categorie.nom }}</p>
+                                <h2>{{ e.nomExp }}</h2>
+                                <p class="news-meta">
+                                    <span>{{ e.dateExp|date }}</span>
+                                    <span><i class="ti-eye"></i> {{ e.SingularViewCount }}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            {% endfor %}
+        </div>
+        <div class="text-center section-padding">
+            <a class="btn-default btn-big btn-fill mt-10" href="../exp/posts">Voir tout</a>
+        </div>
+
+    </section><!-- /News area -->
+
+    <!--Team Area-->
+    <section class="team-area section-padding blue-bg">
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="section-title">
+                    <h2>Notre <span>Équipe</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="col-md-2 col-sm-6 col-xs-12 ">
+                <div class="single-member">
+                    <div class="single-team-details">
+                        <img src="assets/img/team/1.jpg" alt=""/>
+                        <div class="team-member-name">
+                            IHEB MNASRI
+                        </div>
+                        <div class="team-member-des">
+                            développeur
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="single-member">
+                    <div class="single-team-details">
+                        <img src="assets/img/team/1.jpg" alt=""/>
+                        <div class="team-member-name">
+                            Gheribi Moez
+                        </div>
+                        <div class="team-member-des">
+                            développeur
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="single-member">
+                    <div class="single-team-details">
+                        <img src="assets/img/team/1.jpg" alt=""/>
+                        <div class="team-member-name">
+                            Soltani Ahmed Amine
+                        </div>
+                        <div class="team-member-des">
+                            développeur
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="single-member">
+                    <div class="single-team-details">
+                        <img src="assets/img/team/1.jpg" alt=""/>
+                        <div class="team-member-name">
+                            Marwen Bedhiafi
+                        </div>
+                        <div class="team-member-des">
+                            développeur
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="single-member">
+                    <div class="single-team-details">
+                        <img src="assets/img/team/1.jpg" alt=""/>
+                        <div class="team-member-name">
+                            Yassine lahbib
+                        </div>
+                        <div class="team-member-des">
+                            développeur
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--/Team Area-->
+{% endblock %}

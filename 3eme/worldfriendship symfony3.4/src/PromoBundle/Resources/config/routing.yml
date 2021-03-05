@@ -1,0 +1,21 @@
+promo_homepage:
+    path:     /
+    defaults: { _controller: PromoBundle:Default:index }
+promotion:
+    path:     /promo
+    defaults: { _controller: PromoBundle:Promo:Afficher }
+modifier:
+    path:    /mod/{id}
+    defaults: { _controller: PromoBundle:Promo:modifier }
+supprimer:
+    path:    /supp/{id}
+    defaults: { _controller: PromoBundle:Promo:supprimer }
+ajout:
+    path:    /ajout
+    defaults: { _controller: PromoBundle:Promo:create }
+Produit_solde:
+    path:    /produitsolde
+    defaults: { _controller: PromoBundle:Promo:AfficherProduit }
+stat:
+    path:    /stat
+    defaults: { _controller: PromoBundle:Promo:stat }

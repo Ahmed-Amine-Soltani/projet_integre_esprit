@@ -1,0 +1,127 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block content %}
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <p class="page-title page-product">
+                    <a href="/admin">
+                        Home <i class="fa fa-angle-right"></i>
+                    </a>
+                    <a href="{{ path('categorieproduit_index') }}">
+                        Categorie <i class="fa fa-angle-right"></i>
+                    </a>
+                    Add</p>
+                <div class="row row-card-no-pd categorie-view">
+                    <div class="col-md-12">
+                        <h1 class="titlepage">Add Categorie</h1>
+                            <div class="form-cat">
+                                {{ form_start(form) }}
+
+                            <div class="row form-group">
+                                <div class="col-md-4">
+                                   <label>Libelle</label>
+                                </div>
+                                <div class="col-md-6">
+                                    {{ form_widget(form.libelle, { 'attr': {'class': 'form-control'} }) }}
+
+                                    <span class="error-required" id="libelle">
+                                       This Libelle is required
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-4">
+                                    <label>Image</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="" id="imgCat" style="display: none">
+                                    {{ form_widget(form.imageFile, { 'attr': {'class': 'imgInp'} }) }}
+
+                                    <span class="error-required" id="inpimg">
+                                       This Image is required
+                                    </span>
+
+                                </div>
+                            </div>
+                            <div class="offset-md-4 col-md-4 group-btn">
+                                <button type="submit" >Add</button>
+                            </div>
+
+                            {{ form_end(form) }}
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{%  block javascripts %}
+    <script>
+        $(document).ready(function(){
+
+
+            //FileReader
+
+            $(".imgInp").change(function() {
+
+                if (this.files && this.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(e) {
+                        $('#imgCat').attr('src', e.target.result);
+                        $('#imgCat').css('display','inline-block');
+
+                    }
+
+                    reader.readAsDataURL(this.files[0]);
+                }
+
+            });
+
+
+
+            $('form').submit(function (e) {
+
+                var libelle =$("#produitbundle_categorieproduit_libelle").val();
+                var img = $("#produitbundle_categorieproduit_imageFile").val();
+
+                if(libelle == ''){
+                    $("#produitbundle_categorieproduit_libelle").css('border-color','red');
+                    $("#libelle").css('display','block');
+                    e.preventDefault();
+                }else if(img == ''){
+                    $("#produitbundle_categorieproduit_imageFile").css('border-color','red');
+                    $("#inpimg").css('display','block');
+                    e.preventDefault();
+                }
+                else {
+                    return
+                }
+
+            })
+
+
+            $("#produitbundle_categorieproduit_libelle").keyup(function () {
+                $("#libelle").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+            $("#produitbundle_categorieproduit_imageFile").change(function () {
+                $("#inpimg").css('display','none');
+                $(this).css('border-color','#e1e1e1');
+            });
+
+
+
+
+
+        });
+    </script>
+{% endblock %}

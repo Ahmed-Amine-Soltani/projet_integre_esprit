@@ -1,0 +1,26 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% block fos_message_content %}
+    <div class="container">
+    <aside class="lg-side">
+        <div class="inbox-head">
+            <h3>{% trans from 'FOSMessageBundle' %}Boîte de réception{% endtrans %}</h3>
+            <form action="#" class="pull-right position">
+
+            </form>
+        </div>
+
+        <table class="table table-inbox table-hover">
+            <tbody>
+            <a href="{{ url('fos_message_thread_new' )}}" data-toggle="modal"  title="Compose"    class="btn btn-compose">
+                {% trans from 'FOSMessageBundle' %}Envoyer un nouveau message{% endtrans %}
+            </a>
+            <tr class="unread">
+                {% include 'FOSMessageBundle:Message:threads_list.html.twig' with {'threads': threads} %}
+            </tr>
+            </tbody>
+        </table>
+
+    </aside>
+    </div>
+{% endblock %}

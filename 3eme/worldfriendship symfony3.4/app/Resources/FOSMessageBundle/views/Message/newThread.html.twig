@@ -1,0 +1,59 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% block fos_message_content %}
+
+    <div class="container">
+        <aside class="lg-side">
+            <div class="inbox-head">
+                <h3>{% trans from 'FOSMessageBundle' %}Envoyer un nouveau message{% endtrans %}</h3>
+                <form action="#" class="pull-right position">
+
+                </form>
+            </div>
+
+            <table class="table table-inbox table-hover">
+                <tbody>
+                <tr class="unread">
+                    <form action="{{ url('fos_message_thread_new') }}" method="post">
+                        {{ form_start(form) }}
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">À :</label>
+                                    <div class="col-lg-10">
+                                        {{ form_widget(form.recipient,{'attr':{'type':'text','placeholder':'','class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Objet :</label>
+                                <div class="col-lg-10">
+                                    {{ form_widget(form.subject,{'attr':{'type':'text','placeholder':'','class':'form-control'}}) }}
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Message</label>
+                                <div class="col-lg-10">
+                                    {{ form_widget(form.body,{'attr':{'rows':'10','cols':'30','class':'form-control'}}) }}
+                                </div>
+                            </div>
+
+
+                        <br>
+
+                        <input class="btn btn-send" type="submit" />
+                        {{ form_end(form) }}
+                        </div>
+                    </form>
+                </tr>
+                </tbody>
+            </table>
+
+        </aside>
+    </div>
+
+
+
+{% endblock %}

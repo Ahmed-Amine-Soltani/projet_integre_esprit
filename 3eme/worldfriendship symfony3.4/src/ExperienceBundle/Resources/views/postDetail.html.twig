@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Custom Hero Area -->
+    {% for d in experience %}
+        <section class="custom-hero-area dark-overlay" data-parallax="scroll" data-speed="0.6"
+                 data-image-src="{{ vich_uploader_asset(d, 'imageFile') }}">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="custom-hero">
+
+                            <h2>{{ d.nomExp }}</h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Custom Hero Area -->
+
+        <!-- All Blog -->
+        <section class="all-blog section-padding">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="single-blog-content">
+                    <div>
+                        <h4>{{ d.nomExp }}</h4>
+                        <ul class="breadcrumbs">
+                            <li><a href="">Écrit par by</a></li>
+                            <li>&mdash;</li>
+                            <li>{{ d.user }}</li><br>
+                            <li><a href="">Catégorie</a></li>
+                            <li>&mdash;</li>
+                            {% if  e.categorie.nom is not defined %}
+                                <li>{{ "Randonnée" }}</li><br>
+                            {% else %}
+                                <li>{{ d.categorie.nom }}</li><br>
+                            {% endif %}
+                            <li><a href="">Lieu</a></li>
+                            <li>&mdash;</li>
+                            <li>{{ d.lieuExp }}</li><br>
+                            <li><a href="">Views</a></li>
+                            <li>&mdash;</li>
+                            <li>{{ d.SingularViewCount }}  <i class="ti-eye"></i></li><br>
+
+                        </ul>
+                        <br>
+                        <div class="blog-details-img">
+                            <img src="{{ vich_uploader_asset(d, 'imageFile') }}"/>
+                        </div>
+                        <div class="faq-contents">
+                            <ul class="accordion">
+                                <li>
+                                    <a><i class="fa fa-eye"></i>Lire tous</a>
+                                    <p>{{ d.descExp }}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Comment -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h2>Commentaires :</h2>
+                        <ul class="comment-list">
+                            {% for c in comm %}
+                                <li>
+                                    <div class="comment">
+                                        <div class="comment-photo">
+                                            <img src="{{ asset('/assets/img/experience/user.png') }}"/>
+                                        </div>
+                                        <div class="comment-body">
+                                            <blockquote class="post-quote">
+                                                <b><h5>{{ c.user }} </h5></b>
+                                                <div class="comment-meta">
+                                                    <i><span>{{ c.dateCommentaire|date }}</span></i>
+                                                </div>
+                                                <b><h5><a href="{{ path('SupprimerComm',{'id':c.id}) }}">
+                                                            Supprimer</a></h5></b>
+                                            </blockquote>
+                                            <p>{{ c.contenuCommentaire }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+
+                            <div class="post-comment">
+                                <h2>Leave a comment</h2>
+                                {{ form_start(form) }}
+                                {{ form_widget(form.contenuCommentaire) }}
+                                {{ form_widget(form.Partager, {'attr': {'class': 'btn-default btn-small btn-fill'}}) }}
+                                {{ form_end(form) }}
+                            </div>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Comment -->
+    {% endfor %}
+
+    {% for e in experience %}
+        {% if e.user==user %}
+        <a href="{{ path('Update',{'id':e.id}) }}">
+            <button type="button" class="btn btn-block btn-warning">
+                Modifier
+            </button>
+        </a>
+
+        <a href="{{ path('SupprimerExp',{'id':e.id}) }}">
+            <button type="button" class="btn btn-block btn-danger" onclick="myFunction()">
+                Supprimer
+            </button>
+        </a>
+        {% endif %}
+
+    {% endfor %}
+    <!-- All Blog -->
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'dashboard.html.twig' %}
+{% block stylesheets %}
+    <style>
+
+        .product-view table.table-bordered.dataTable td .btn-delete {
+            display: inline-block;
+            background: #dc2d0e;
+            color: #fff;
+            padding: 7px 12px;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+
+    <div class="main-panel">
+        <div class="content">
+            <div class="container-fluid">
+                <p class="page-title page-product">
+                    <a href="/admin">
+                        Home <i class="fa fa-angle-right"></i>
+                    </a>
+                    Evenement</p>
+                {% if app.session.flashBag.has('success-sup-ad') %}
+                    <div class="alert alert-success">
+                        {% for msg in app.session.flashBag.get('success-sup-ad') %}
+                            <p align="center">{{ msg }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="row row-card-no-pd product-view">
+                    <div class="col-md-12">
+
+                        <table id="example" class="table table-striped table-bordered" style="  width:100%">
+                            <thead>
+                            <tr>
+                                <th class="col-md-1 col-xs-1"> Titre</th>
+                                <th class="col-md-1 col-xs-1"> Type</th>
+                                <th class="col-md-1 col-xs-1"> Capacité</th>
+                                <th class="col-md-1 col-xs-1"> Type de réservation</th>
+                                <th class="col-md-1 col-xs-1"> Prix</th>
+                                <th class="col-md-1 col-xs-1"> Date</th>
+                                <th class="col-md-1 col-xs-1"> Durée</th>
+                                <th class="col-md-1 col-xs-1"> Localisation</th>
+                                <th class="col-md-1 col-xs-1"> Suppression</th>
+
+                            </tr>
+                            </thead>
+
+                            {% for evenement in evenements %}
+                                <tr>
+                                    <td> {{ evenement.nomEvenement }}</td>
+                                    <td> {{ evenement.typeEvenement }}</td>
+                                    <td> {{ evenement.capaciteEvenement }}</td>
+                                    <td> {{ evenement.typeReservation }}</td>
+                                    <td>{% if evenement.prixEvenement is null %}
+                                            -
+                                        {% else %}
+                                            {{ evenement.prixEvenement }} Dinars
+                                        {% endif %}
+                                    </td>
+                                    <td> {{ evenement.dateDebutEvenement|date('Y-m-d H:m') }}</td>
+                                    <td> {{ evenement.dureeEvenement }}</td>
+                                    <td> {{ evenement.lieuEvenement }}</td>
+                                    <td>
+                                        <a class="btn-delete"
+                                           href="{{ path('admin_supprimer_evenement', {'id':evenement.id}) }}"> delete
+                                        </a>
+                                    </td>
+                                </tr>
+
+                            {% endfor %}
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

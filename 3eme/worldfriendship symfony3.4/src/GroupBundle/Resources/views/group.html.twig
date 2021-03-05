@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <br>
+
+    <!-- Services Element -->
+    <section class="section-padding">
+        <!-- line modal -->
+        <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h3 class="modal-title" id="lineModalLabel">Ajouter article</h3>
+                    </div>
+                    <div class="modal-body">
+                        <!-- content goes here -->
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="title">Objet <span class="require">*</span></label>
+
+                                 {{ form_widget(form.title,{'attr':{'type':'text','class':'form-control','name':'title'}}) }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Description <span class="require">*</span></label>
+
+                                {{ form_widget(form.description,{'attr':{'rows':'5','class':'form-control','name':'description'}}) }}
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="categorie">Categories<span class="require">*</span></label>
+                                {{ form_widget(form.categorie) }}
+
+                            </div>
+
+                            {{ form_widget(form.ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Fermer</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center" align="center"><button data-toggle="modal"
+                                                   data-target="#squarespaceModal"
+                                                   class="btn-default btn-big btn-fill">Ajouter votre article</button></div>
+        <br>
+
+
+
+    <link rel="stylesheet" href={{ asset('assets/table.css') }}/>
+
+    <!------ Include the above in your HEAD tag ---------->
+    {% for f in categorie %}
+<div class="container">
+    <div class="wrapper">
+        <div class="span7">
+            <div class="widget stacked widget-table action-table">
+
+                <div class="widget-header">
+                    <i class="icon-th-list"></i>
+                    <h3>
+                        <a href="{{ path('forums_listpage',{'id':f.id}) }}">
+                            {{ f.nom }}
+                        </a>
+                    </h3>
+                </div> <!-- /widget-header -->
+    {% for l in lim %}
+        {% if  l.categorie.nom == f.nom   %}
+                <div class="widget-content">
+
+                    <table class="table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ l.title }}
+                                <p class="news-meta" align="right">
+                                    <span>{{ l.date|date }}</span>
+                                    <a href="{{ path('forums_commentpage',{'id':l.id}) }}">
+                                    <span> Détail</span>
+                                    </a>
+                                    <span><i class="ti-eye"></i> {{ l.singularViewCount }}</span>
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div> <!-- /widget-content -->
+        {% endif %}
+    {% endfor %}
+            </div> <!-- /widget -->
+        </div>
+    </div>
+</div>
+    {% endfor %}
+
+
+
+{% endblock %}

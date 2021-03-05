@@ -1,0 +1,8 @@
+.feu {
+background-color: #FFF5EE;
+color: #DAA520;
+width: 100px;
+heigth: 150px;
+-moz-border-radius: 20px; // Pour Firefox
+-webkit-border-radius: 10px; // Pour Safari et Chrome
+}

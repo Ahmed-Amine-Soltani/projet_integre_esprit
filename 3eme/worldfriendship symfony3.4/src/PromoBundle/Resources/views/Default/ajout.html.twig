@@ -1,0 +1,35 @@
+{% extends 'dashboard.html.twig' %}
+{% block content %}
+    {% if is_granted('ROLE_ADMIN') %}
+
+<div class="container">
+    <link rel="stylesheet" href="{{ asset("css/bootstrap.css") }}">
+    <h2>w</h2>
+    <center><h2>ajout un promotion</h2></center>
+    <table border="0" style="width:50%">
+        {% form_theme form 'bootstrap_3_layout.html.twig' %}
+    {{ form_start(form) }}
+    <div class="form-group"> {{form_row(form.nomPromotion)}} </div>
+        Date Debut:
+        <div class="form-group"> {{ form_widget(form.dateDebut) }}</div>
+        Date fin:
+        <div class="form-group"> {{ form_widget(form.dateFin)}}</div>
+        Pourcentage:
+                <div class="form-group"> {{  form_widget(form.pourcentage,{'attr':{'class':'form-control'}}) }}</div>
+        Produit:
+                    <div class="form-group"> {{ form_widget(form.Produit,{'attr':{'class':'form-control'}}) }}</div>
+
+
+    </table>
+    <tr><td></td><td>{{ form_widget(form.ajouter) }}</td></tr>
+    {{ form_end(form) }}
+
+</div>
+        {% else %}
+            <div class="container">
+            <h2>w</h2>
+            <center><h2>ajout un promotion</h2></center>
+        il faut connecter
+            </div>
+{% endif %} }}
+{% endblock %}

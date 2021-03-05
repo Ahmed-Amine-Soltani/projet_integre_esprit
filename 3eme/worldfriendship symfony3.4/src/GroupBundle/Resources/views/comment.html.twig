@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Custom Hero Area -->
+    <section class="custom-hero-area dark-overlay" data-parallax="scroll" data-speed="0.6" data-image-src="{{ asset('assets/img/6.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="custom-hero">
+                        <h2>Blog forum</h2>
+                        <ul class="breadcrumbs">
+                            <li><a>Article</a></li>
+                            <li>&mdash;</li>
+                            <li>Détails</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Custom Hero Area -->
+
+    <!-- All Blog -->
+
+    <section class="all-blog section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="single-blog-content">
+
+                        <div class="commented">
+                            {% for f in forum %}
+                            <ul class="comment-list">
+
+                                <li>
+                                    <div class="comment">
+                                        <h5>Nom : {{ f.User.Username }}</h5>
+                                        <div class="comment-meta">
+                                            <a>Objet : {{ f.title }}</a>
+                                        </div>
+                                        <blockquote class="post-quote">
+                                        <p>{{ f.description }}</p>
+                                        </blockquote>
+                                        <p class="news-meta" align="right">
+                                            <span>{{ f.date|date }}</span>
+                                            <span><i class="ti-eye"></i> {{ f.singularViewCount }}</span>
+
+                                        </p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            {% endfor %}
+                        </div>
+
+    <h1>Commentaires:</h1>
+
+    <section class="all-blog section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="single-blog-content">
+
+                        <div class="commented">
+                            {% for c in comment %}
+                                <ul class="comment-list">
+
+                                    <li>
+                                        <div class="comment">
+                                            <h5>Nom : {{ c.User.Username }}</h5>
+                                            <div class="comment-meta">
+                                                <a></a>
+                                            </div>
+                                            <blockquote class="post-quote">
+                                            <p>{{ c.contenu }}</p>
+                                            </blockquote>
+                                            <p class="news-meta" align="right">
+                                                <span>{{ c.date|date }}</span>
+                                                {% if  c.user == user   %}
+                                                <a href="{{ path("testmodcomm",{'id':c.id}) }}">
+                                                    <button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                </a>
+                                                <a href="{{ path("suppcom",{'id':c.id}) }}">
+                                                    <button type="button" data-toggle="tooltip" title="Remove"
+                                                            class="btn btn-link btn-simple-danger">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </a>
+                                                {% endif %}
+                                            </p>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            {% endfor %}
+                        </div>
+
+
+                        {{ form_start(form) }}
+                        <div class="post-comment">
+                            <form action="#">
+                                <h2>Pour Commenter</h2>
+                                <div class="col-md-12">
+
+                                    {{ form_widget(form.contenu,{'attr':{'name':'comment','rows':'7','placeholder':'Votre commentaire...'}}) }}
+
+                                   {{ form_widget(form.commenter,{'attr':{'class':'btn-default btn-small btn-fill'}}) }}
+                                    {{ form_end(form) }}
+                                    <br>
+                                    <br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- All Blog -->
+
+{% endblock %}

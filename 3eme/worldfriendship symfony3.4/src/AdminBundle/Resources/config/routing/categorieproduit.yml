@@ -1,0 +1,44 @@
+categorieproduit_index:
+    path:     /
+    defaults: { _controller: "AdminBundle:CategorieProduit:index" }
+    methods:  GET
+
+categorieproduit_show:
+    path:     /{id}/show
+    defaults: { _controller: "AdminBundle:CategorieProduit:show" }
+    methods:  GET
+
+categorieproduit_new:
+    path:     /new
+    defaults: { _controller: "AdminBundle:CategorieProduit:new" }
+    methods:  [GET, POST]
+
+categorieproduit_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AdminBundle:CategorieProduit:edit" }
+    methods:  [GET, POST]
+
+categorieproduit_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AdminBundle:CategorieProduit:delete" }
+
+
+check_categorie:
+    path:     /checkCategorie
+    defaults: { _controller: "AdminBundle:CategorieProduit:checkCategorie" }
+    methods:  POST
+
+categorieproduit_json:
+    path:     /categorieproduitJson
+    defaults: { _controller: "AdminBundle:CategorieProduit:getCategorieJson" }
+    methods:  POST
+
+categorie_exportCsv:
+    path:     /exportCsv
+    defaults: { _controller: "AdminBundle:CategorieProduit:exportCsv" }
+    methods: GET
+
+categorie_exportExcel:
+    path:     /exportExcel
+    defaults: { _controller: "AdminBundle:CategorieProduit:exportExcel" }
+    methods: GET

@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Custom Hero Area -->
+
+    <section class="custom-hero-area dark-overlay" data-parallax="scroll" data-speed="0.6"
+             data-image-src="{{ asset('assets/img/6.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="custom-hero">
+                        <h2>Blog forum</h2>
+                        <ul class="breadcrumbs">
+                            <li><a>Articles</a></li>
+                            <li>&mdash;</li>
+                            {% for f in categorie %}
+                            <li>{{ f.nom }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /Custom Hero Area -->
+
+
+
+
+
+
+    <!-- All Blog -->
+    {% for f in forum | reverse %}
+            <section class="all-blog section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="single-blog-content">
+                                <div class="commented">
+                                    <ul class="comment-list">
+
+                                        <li>
+                                            <div class="comment">
+                                                <h5>Nom : {{ f.User.Username }}</h5>
+                                                <div class="comment-meta">
+                                                    <a>Objet : {{ f.title }}</a>
+                                                </div>
+                                                <blockquote class="post-quote">
+                                                <p>{{ f.description }}</p>
+                                                </blockquote>
+                                                <p class="news-meta" align="right">
+                                                    <span>{{ f.date|date }}</span>
+                                                    <a href="{{ path('forums_commentpage',{'id':f.id}) }}">
+                                                    <span> Détails</span>
+                                                    </a>
+                                                    <span><i class="ti-eye"></i> {{ f.singularViewCount }}</span>
+                                                    {% if  f.user == user   %}
+                                                    <a href="{{ path("testmod",{'id':f.id}) }}">
+                                                    <button type="button" data-toggle="modal"
+                                                    data-target="#squarespaceModal"
+                                                    title="Edit Task" class="btn btn-link <btn-simple-primary">
+                                                        <i class="fa fa-edit"></i>
+                                                    </button>
+                                                    </a>
+                                                    <a href="{{ path("suppAr",{'id':f.id}) }}">
+                                                        <button type="button" data-toggle="tooltip" title="Remove"
+                                                                class="btn btn-link btn-simple-danger">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                    </a>
+                                                    {% endif %}
+                                                </p>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- All Blog -->
+
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,88 @@
+produit_homepage:
+    path:     /
+    defaults: { _controller: ProduitBundle:Produit:index }
+
+get_produitAjax:
+  path:     /getproduitAjax
+  defaults: { _controller: ProduitBundle:Produit:getProduitAjax }
+  methods:  POST
+
+produit_categorie:
+    path:     /categorie/{id}
+    defaults: { _controller: ProduitBundle:Produit:categorie }
+
+produit_search:
+  path:     /search
+  defaults: { _controller: ProduitBundle:Produit:search }
+
+search_produitAjax:
+  path:     /searchproduitajax
+  defaults: { _controller: ProduitBundle:Produit:searchProduitAjax }
+  methods:  POST
+
+produit_panier:
+  path:     /panier
+  defaults: { _controller: ProduitBundle:Produit:panier }
+
+create_panier:
+  path:     /createpanier
+  defaults: { _controller: ProduitBundle:Panier:createPanier }
+  methods:  POST
+
+get_panierAjax:
+  path:     /getpanierajax
+  defaults: { _controller: ProduitBundle:Panier:getPanierAjax }
+  methods:  POST
+
+increment_panierAjax:
+  path:     /incrementpanierajax
+  defaults: { _controller: ProduitBundle:Panier:incrementPanierAjax }
+  methods:  POST
+
+dicrement_panierAjax:
+  path:     /dicrementpanierajax
+  defaults: { _controller: ProduitBundle:Panier:dicrementPanierAjax }
+  methods:  POST
+
+delete_panierAjax:
+  path:     /deletepanierajax
+  defaults: { _controller: ProduitBundle:Panier:deletePanierAjax }
+  methods:  POST
+
+produit_wishlist:
+  path:     /mywishlist
+  defaults: { _controller: ProduitBundle:Produit:wishlist }
+
+
+like_produitAjax:
+  path:     /likeproduitajax
+  defaults: { _controller: ProduitBundle:LikeProduit:likeproduit }
+
+
+
+delete_likeproduit:
+  path:     /deletelikeproduit/{id}
+  defaults: { _controller: ProduitBundle:LikeProduit:deletelikeproduit }
+
+
+categorieproduit_json:
+  path:     /categorieproduitJson
+  defaults: { _controller: ProduitBundle:Categorie:getCategorieJson }
+  methods:  POST
+
+bestsellerporduit_json:
+  path:     /bestSellerProduit
+  defaults: { _controller: ProduitBundle:Produit:getBestSellerProduit }
+  methods:  POST
+
+topporduit_json:
+  path:     /topProduit
+  defaults: { _controller: ProduitBundle:Produit:topProduit }
+  methods:  GET
+
+
+produit_produit:
+  path:     /{id}
+  defaults: { _controller: ProduitBundle:Produit:produit }
+
+

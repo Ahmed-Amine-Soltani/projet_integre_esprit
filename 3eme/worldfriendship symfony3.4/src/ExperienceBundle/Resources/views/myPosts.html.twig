@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Preloader -->
+    <div class="page-wrapper">
+
+        <!-- Custom Hero Area -->
+        <section class="custom-hero-area dark-overlay" data-parallax="scroll" data-speed="0.6"
+                 data-image-src="/assets/img/experience/img4.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="custom-hero">
+                            <h2>Mes experiences</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Custom Hero Area -->
+
+        <!-- about-page1 area -->
+        <section class="about-page2 section-padding">
+            <div class="container">
+                <div class="row mb-50">
+                    <div class="col-md-6">
+                        <div class="containerr">
+                            <ul>
+                                {% for e in exp | reverse %}
+                                    <li>
+                                        <div>
+                                            <div class="title">{{ e.nomExp }}</div>
+                                            <div class="info">{{ e.descExp }}</div>
+                                            <img src="{{ vich_uploader_asset(e, 'imageFile') }}"/>
+                                            <div class="type"><a href="">Presentation</a></div>
+                                        </div> <span class="number"><span>{{ e.dateExp|date }}</span></span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{ asset('assets/img/experience/vertical.jpg') }}"/>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /about-page1 area -->
+
+        <!-- Video Area -->
+        <section class="video-area section-padding blue-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="video-thumb">
+                            <a class="pop-video" href="https://www.youtube.com/watch?v=Gc2en3nHxA4">
+                                <i class="fa fa-play"></i><span>Play the video</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- /Video Area-->
+
+    </div>
+{% endblock %}

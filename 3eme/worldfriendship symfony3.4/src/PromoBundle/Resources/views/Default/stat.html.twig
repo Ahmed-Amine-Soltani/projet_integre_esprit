@@ -1,0 +1,26 @@
+{% extends 'dashboard.html.twig' %}
+{% block content %}
+    <h2>w</h2>
+    <center><h2>stat</h2></center>
+    {% if is_granted('ROLE_ADMIN') %}
+
+    <center>
+<html>
+<head></head>
+<body>
+<div id="div_chart"></div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    {{ gc_draw(piechart, 'div_chart') }}
+</script>
+</body>
+</html>
+    </center>
+    {% else %}
+        <div class="container">
+            <h2>w</h2>
+            <center><h2>stat</h2></center>
+            il faut connecter
+        </div>
+    {% endif %} }}
+{% endblock %}

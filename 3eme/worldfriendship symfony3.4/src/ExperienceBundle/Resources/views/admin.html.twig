@@ -1,0 +1,73 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block content %}
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+</style>
+
+<div class="container">
+<div class="wrapper">
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Table Experience</h3>
+                        </div>
+                        <!-- /.box-header -->
+
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Lieu</th>
+                                    <th>User</th>
+                                    <th>Categorie</th>
+                                    <th>Supprimer</th>
+                                </tr>
+                                </thead>
+                                {% for e in exp %}
+                                    <tbody>
+                                    <tr>
+                                        <td>{{ e.id }}</td>
+                                        <td>{{ e.nomExp }}</td>
+                                        <td>{{ e.descExp }}</td>
+                                        <td>{{ e.imageName }}</td>
+                                        <td>{{ e.lieuExp }}</td>
+                                        <td>{{ e.user }}</td>
+                                        <td>{{ e.categorie.nom }}</td>
+                                        <td><a href="{{ path('SupprimerDash',{'id':e.id}) }}">
+                                                <button type="button" class="btn btn-block btn-danger">
+                                                    Supprimer
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                {% endfor %}
+                                <a href="{{ path('PDF') }}"> test </a>
+                            </table>
+                        </div>
+                        {# display navigation #}
+                        <div class="navigation text-center">
+                            {{ knp_pagination_render(exp) }}
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</div>
+{% endblock %}

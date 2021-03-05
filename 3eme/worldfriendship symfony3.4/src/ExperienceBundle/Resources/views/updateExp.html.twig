@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <!-- Custom Hero Area -->
+
+    <section class="custom-hero-area dark-overlay"
+             data-parallax="scroll"
+             data-speed="0.6"
+             data-image-src="/../assets/img/experience/up.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="custom-hero">
+                        <h2>Modifier</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        <!-- /Custom Hero Area -->
+
+        <!-- All Blog -->
+        <section class="all-blog section-padding">
+            <div class="container">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <div class="single-blog-content">
+                        <div>
+                            <div class="container">
+                            {{ form_start(form) }}
+                            <ul class="breadcrumbs">
+                                <li><a href="">Titre</a></li>
+                                <li>&mdash;</li>
+                                <li>{{ form_widget(form.nomExp) }}</li><br>
+
+                                <li><a href="">Description</a></li>
+                                <li>&mdash;</li>
+                                <li>{{ form_widget(form.descExp) }}</li>
+
+                                <li><a href="">Lieu</a></li>
+                                <li>&mdash;</li>
+                                <li>{{ form_widget(form.lieuExp) }}</li>
+
+                                <li><a href="">Categorie</a></li>
+                                <li>&mdash;</li>
+                                <li>{{ form_widget(form.categorie) }}</li><br>
+                                {{ form_widget(form.imageFile) }}
+                                {{ form_widget(form.Partager, {'attr': {'class': 'btn-default btn-small btn-fill'}}) }}
+                                {{ form_end(form) }}
+                            </ul>
+                            <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- All Blog -->
+{% endblock %}

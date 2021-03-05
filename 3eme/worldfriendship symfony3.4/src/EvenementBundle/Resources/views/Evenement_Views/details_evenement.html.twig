@@ -1,0 +1,198 @@
+{% extends '@Evenement/Evenement_Views/base_evenement.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset ('Evenement/css/comment.css') }}">
+    <style>
+
+        img {
+            border-radius: 50%;
+        }
+
+        .head {
+            float: left;
+            width: 100%;
+        }
+
+        body {
+            background: #24C6DC; /* fallback for old browsers */
+            background: -webkit-linear-gradient(to bottom, #514A9D, #24C6DC); /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to bottom, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        #acount-btn {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            display: inline-block;
+            border-radius: .25rem;
+            background: #114E8E;
+            padding: 0.6em 2em;
+            font-size: 1em;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            margin-bottom: 1em;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+        }
+        #acount-btn-r {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+            display: inline-block;
+            border-radius: .25rem;
+            background: #114E8E;
+            padding: 0.6em 2em;
+            font-size: 1em;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            margin-bottom: 1em;
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+            float: right;
+        }
+
+        .not-active {
+            pointer-events: none;
+            cursor: not-allowed;
+            text-decoration: none;
+            background: #8e000f;
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <section class="head">
+                <div class="container">
+                    <h2 class="text-center"><i class="fa fa-heart"></i>
+                        <span>Bienvenu dans l'événement {{ evenements.nomEvenement }}</span> <i class="fa fa-heart"></i>
+                    </h2>
+                </div>
+            </section>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-default">
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <img class="img-responsive center-block animated zoomInDown delay-1s"
+                                 src="{{ asset('Evenement/image/affiches/'~ evenements.Affiche ) }}"/>
+                            <br>
+                            <div align="center">
+                                {% form_theme formRes 'bootstrap_3_layout.html.twig' %}
+                                {{ form_start(formRes) }}
+                                    {% if (check == 0) and (evenements.capaciteEvenement > 0) %}
+                                        {{ form_widget(formRes.valider, {'id' : 'acount-btn'}) }}
+                                    {% else %}
+                                        {{ form_widget(formRes.valider , {'disabled' : true}) }}
+                                    {% endif %}
+                                {{ form_end(formRes) }}
+
+                            </div>
+                            <br>
+                            <div class="product-widget">
+                                <ul class="list-group">
+
+                                    <li class="list-group-item"><span
+                                                class="badge">{{ evenements.typeEvenement }} </span> Type
+                                        d'événement
+                                    </li>
+                                    {% if evenements.prixEvenement %}
+                                        <li class="list-group-item"> <span class="badge"> {{ evenements.prixEvenement }}
+                                            DT </span> Prix
+                                        </li>{% endif %}
+                                    <li class="list-group-item"><span
+                                                class="badge">{{ evenements.dateDebutEvenement | date('d F Y H:i') }}	</span>
+                                        Date
+                                    </li>
+                                    <li class="list-group-item"><span
+                                                class="badge">{{ evenements.dureeEvenement }}</span>Durée
+                                    </li>
+                                    <li class="list-group-item"><span
+                                                class="badge">{{ evenements.lieuEvenement }}</span>Localisation
+                                    </li>
+                                    <li class="list-group-item"><span
+                                                class="badge">{{ evenements.capaciteEvenement }}</span> Capacité
+                                    </li>
+                                    <li class="list-group-item"><span
+                                                class="badge">{{ evenements.descriptionEvenement }}</span> Description
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a id="acount-btn" href="{{ path('pdf_evenement',{'id':evenements.id}) }}"> Telecharger les détails en pdf </a>
+
+                                        <a  id="acount-btn-r" href="{{  path('envoyer_ticket' , {'id':evenements.id}) }}" {% if check == 0 %} class="not-active"  {% endif %}> Je veux recevoir mon ticket </a>
+                                        {#<a  id="acount-btn-r" href="{{  path('envoyer_ticket') }}" {% if check == 0 %} disabled="true"  {% endif %}> Je veux recevoir mon ticket </a>#}
+
+                                    </li>
+
+                                    {# <li class="list-group-item"> <span class="badge">{{ dispo }}</span> Places disponibles </li>#}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10 col-lg-offset-1">
+
+
+
+                {% if evenements.commentaires %}
+                    {% for commentaire in evenements.commentaires %}
+                        <div class="comment-wrap">
+                            <div class="photo">
+                                <div class="avatar"
+                                     style="background-image: url('https://img.icons8.com/color/48/000000/user-male.png')"></div>
+                            </div>
+                            <div class="comment-block">
+                                <p class="comment-text">{{ commentaire.contenu }}</p>
+                                <div class="bottom-comment">
+                                    <div class="comment-date">Ajouter Par : {{ commentaire.idUser.username }}  le  {{ commentaire.dateCommentaire | date(' d F Y H:i') }}</div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+            <div class="comment-wrap">
+                <div class="photo">
+                    <div class="avatar"
+                         style="background-image: url('https://img.icons8.com/color/48/000000/user-male.png')"></div>
+                </div>
+                <div class="comment-block">
+                    {% form_theme formCom 'bootstrap_3_layout.html.twig' %}
+                    {{ form_start(formCom) }}
+                    {{ form_widget(formCom.contenu) }}
+                    <br>
+                    {{ form_widget(formCom.valider)}}
+                    {{ form_end(formCom) }}
+
+
+                </div>
+            </div>
+
+
+            </div>
+
+
+
+    </div>
+
+{% endblock %}
+        {% block javascripts %}
+        {% endblock %}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/meanmenu.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/teckdevs/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Evenement/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
+</head>
+<body>
+<div class="header-search">
+    <div class="container">
+        <div class="row">
+            <div class="bl-search col-md-offset-2 col-md-8">
+                {% block search %} {%  endblock %}
+            </div>
+            <span class="close-search"><i class="fa fa-close"></i> </span>
+        </div>
+    </div>
+</div>
+
+<header class="navbar navbar-default nav-sticky">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img src="../assets/img/logow.png" />
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/"> Accueil <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                </li>
+                <li><a href="/product"> Produit <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                </li>
+                <li><a href="/group"> Forum <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                </li>
+                <li><a href="{{ path('accueil_evenement') }}"> Evenement <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                    <ul>
+                        <li><a href="{{ path('accueil_evenement') }}">Accueil</a></li>
+                        <li><a href="{{ path('afficher_mes_evenements') }}">Mes Evénement </a></li>
+                        <li><a href="{{ path('afficher_mes_reservation') }}"> Mes reservations  </a></li>
+                        <li><a href="{{ path('ajouter_evenement') }}">Ajouter un Evénement </a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="searchbtn btnopen">
+                        <img src="../assets/img/icons/search.png">
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <img src="../assets/img/icons/user.png">
+                    </a>
+                    <ul class="dropdown-menu user-setting">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li><a href="/profile" >
+                                    <i class="fa fa-user"></i>
+                                    {{  app.user.username }}</a>
+                            </li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">
+                                    <i class="fa fa-power-off"></i>
+                                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li><a href="{{ path('fos_user_security_login') }}">
+                                    <i class="fa fa-user"></i>
+                                    {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="mypanier">
+                        <img src="../assets/img/icons/shopmarket.png">
+                    </a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</header>
+
+
+<div class="page-wrapper">
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {%  else %}
+        <div class="alerts" align="center">
+            <div class="alert alert-danger" role="alert">
+                <strong>Aucune <a class="text-primary" href="{{ path ('fos_user_security_login') }}"> Authentification </a>!</strong> Pour créer un compte cliquez <a class="text-primary" href="{{ path('fos_user_registration_register') }}">ici</a>.
+            </div>
+        </div>
+    {%  endif %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('homepage') }}"> home </a></li>
+        <li><a href="{{ path('accueil_evenement') }}"> Accueil Evenement </a></li>
+        <li class="active">
+        {% block home %}
+
+             {% endblock %}</li>
+    </ol>
+    {% block content %}{% endblock %}
+
+    <!-- Footer Area -->
+    <footer class="site-footer footer-v2 footer-overlay" style="background:url({{ asset('assets/img/11.jpg') }}) no-repeat fixed;">
+        <div class="container">
+            <div class="row">
+                <!-- .site-bottom -->
+                <div class="bottom-footer">
+                    <div class="col-md-6 col-sm-4 pull-right">
+                        <div class="socials">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-8">
+                        <div class="copyright">
+                            <p>&copy; 2018 All Rights Reserved Buckion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .row -->
+        </div>
+    </footer><!-- /Footer Area -->
+
+
+
+
+    <div class="section-panier-right">
+        <div class="content-panier">
+            <div class="header-title">
+                <h1>shopping cart</h1>
+                <span class="close-panier">
+                            <i class="fa fa-close"></i>
+                        </span>
+            </div>
+            <div class="body-panier"></div>
+            <div class="footer-panier">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="{{ asset('assets/js/teckdevs/plugins.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/SmoothScroll.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/jquery.easing.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/jquery.meanmenu.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/jquery.scrollToTop.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/jqBootstrapValidation.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/parallax.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/converter.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/contact.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/waypoints.min.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/jquery.counterup.js') }}"></script>
+<script src="{{ asset('assets/js/teckdevs/main.js') }}"></script>
+
+
+
+
+
+{% block javascripts %}{% endblock %}
+
+<script>
+    $(document).ready(function(){
+
+        $(".btnopen").click(function(){
+            $(".header-search").slideUp( 300 ).delay( 500 ).fadeIn(350);
+        });
+
+        $(".close-search").click(function(){
+            $(this).addClass("btnopen")
+            $(".header-search").slideUp( 300 ).delay( 500 ).fadeOut(350);
+        });
+
+    });
+</script>
+
+</body>
+</html>

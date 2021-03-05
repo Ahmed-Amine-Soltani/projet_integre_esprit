@@ -1,0 +1,72 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% block fos_message_content %}
+
+    <div class="container">
+        <aside class="lg-side">
+            <div class="inbox-head">
+                <h3>Objet : {{ thread.subject }}</h3>
+                <form action="#" class="pull-right position">
+
+                </form>
+            </div>
+            <br>
+            <table class="table table-inbox table-hover">
+                <tbody>
+                <tr class="unread">
+                    {% for message in thread.messages %}
+                        <div class="messenger_thread_message">
+                            <div class="messenger_thread_message_info">
+                                <b><u>Détail :</u></b> {% trans with {'%sender%': message.sender|e, '%date%': message.createdAt|date} from 'FOSMessageBundle' %}message_info{% endtrans %}
+                            </div>
+
+                            <div class="messenger_thread_message_body" id="message_{{ message.id }}">
+                                <b>Message :</b>{{ message.body }}<br><br>
+                            </div>
+
+                        </div>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+
+        </aside>
+    </div>
+
+
+
+
+
+
+    <div class="container">
+        <aside class="lg-side">
+            <div class="inbox-head">
+                <h3>{% trans from 'FOSMessageBundle' %}Répondre ici{% endtrans %}</h3>
+                <form action="#" class="pull-right position">
+
+                </form>
+            </div>
+<br>
+            <br>
+            <table class="table table-inbox table-hover">
+                <tbody>
+                <tr class="unread">
+                    <form action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post">
+                        <div class="form-group">
+                            <label class="col-lg-2 control-label">Message</label>
+                            <div class="col-lg-10">
+                                {{ form_widget(form.body,{'attr':{'rows':'10','cols':'30','class':'form-control'}}) }}
+                            </div>
+                        </div>
+
+                        <input class="btn btn-send" type="submit" />
+                    </form>
+                </tr>
+                </tbody>
+            </table>
+
+        </aside>
+    </div>
+
+
+{% endblock %}

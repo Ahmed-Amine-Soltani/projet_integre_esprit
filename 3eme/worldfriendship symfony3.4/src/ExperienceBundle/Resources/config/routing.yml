@@ -1,0 +1,94 @@
+experience_homepage:
+    path:     /home
+    defaults: { _controller: ExperienceBundle:Experience:index }
+
+allPosts:
+    path:     /posts
+    defaults: { _controller: ExperienceBundle:Experience:AfficherAjouter }
+
+postDetail:
+    path:     /postDetail/{id}
+    defaults: { _controller: ExperienceBundle:Experience:PostDetails }
+
+AfficherDash:
+    path:     /admin
+    defaults: { _controller: ExperienceBundle:Dashboard:AfficheDash }
+
+AfficherDashMobile:
+    path:     /adminn
+    defaults: { _controller: ExperienceBundle:Dashboard:AfficheDashMobile }
+
+FindDashMobile:
+    path:     /adminnn/{id}
+    defaults: { _controller: ExperienceBundle:Dashboard:FindDashMobile }
+
+newMobile:
+    path:     /new
+    defaults: { _controller: ExperienceBundle:Experience:new }
+
+SupprimerDash:
+    path:     /supp/{id}
+    defaults: { _controller: ExperienceBundle:Dashboard:SupprimerDash }
+
+SupprimerExpMobile:
+    path:     /supreme/{id}
+    defaults: { _controller: ExperienceBundle:Dashboard:SupprimerExpMobile }
+
+SupprimerExp:
+    path:     /suppexp/{id}
+    defaults: { _controller: ExperienceBundle:Experience:SupprimerExp }
+
+SupprimerComm:
+    path:     /suppcomm/{id}
+    defaults: { _controller: ExperienceBundle:Experience:SupprimerComm }
+
+PDF:
+    path:     /pdf
+    defaults: { _controller: ExperienceBundle:Dashboard:Pdf }
+
+test:
+    path:     /test
+    defaults: { _controller: ExperienceBundle:Experience:test }
+
+MyPosts:
+    path:     /myPosts/{id}
+    defaults: { _controller: ExperienceBundle:Experience:myPosts }
+
+MyPostsMobile:
+    path:     /myPostss/{id}
+    defaults: { _controller: ExperienceBundle:Experience:myPostsMobile }
+
+
+
+Categorie:
+    path:     /categorie/{id}
+    defaults: { _controller: ExperienceBundle:Experience:categorie }
+
+Update:
+    path:     /update/{id}
+    defaults: { _controller: ExperienceBundle:Experience:update }
+
+UpdateMobile:
+    path:     /updatee/{id}/
+    defaults: { _controller: ExperienceBundle:Experience:updateExpMobile }
+
+AddCommMobile:
+    path:     /addcomm
+    defaults: { _controller: ExperienceBundle:Experience:ajCommentMobile }
+
+ShowCommMobile:
+    path:     /showcomm/{id}
+    defaults: { _controller: ExperienceBundle:Experience:affCommentMobile }
+
+newUserMobile:
+    path:     /newuser
+    defaults: { _controller: ExperienceBundle:Experience:newuser }
+
+allUserMobile:
+    path:     /all
+    defaults: { _controller: ExperienceBundle:Experience:all }
+
+findUserMobile:
+    path:     /find
+    defaults: { _controller: ExperienceBundle:Experience:find }
+

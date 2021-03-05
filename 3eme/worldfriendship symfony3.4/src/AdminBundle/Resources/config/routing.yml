@@ -1,0 +1,35 @@
+produit_souscategorieproduit:
+    resource: "@AdminBundle/Resources/config/routing/souscategorieproduit.yml"
+    prefix:   /souscategorieproduit
+
+produit_categorieproduit:
+    resource: "@AdminBundle/Resources/config/routing/categorieproduit.yml"
+    prefix:   /categorieproduit
+
+produit_gestionproduit:
+    resource: "@AdminBundle/Resources/config/routing/gestionproduit.yml"
+    prefix:   /gestionproduit
+
+admin_evenement:
+    path:     /gestion_evenement
+    defaults: { _controller: AdminBundle:GestionEvenement:afficherEvenementAdmin }
+
+admin_evenement_semaine:
+    path:     /gestion_evenement_semaine
+    defaults: { _controller: AdminBundle:GestionEvenement:findWeek }
+
+admin_supprimer_evenement:
+    path:     /gestion_evenement_supp
+    defaults: { _controller: AdminBundle:GestionEvenement:supprimerEvenementAdmin }
+
+admin_homepage:
+    path:     /
+    defaults: { _controller: AdminBundle:Dashboard:index }
+
+admin_forumpage:
+    path:     /forum
+    defaults: { _controller: AdminBundle:GestionForum:ajoutercategorie }
+
+admin_supppage:
+    path:     /supp/{id}
+    defaults: { _controller: AdminBundle:GestionForum:supprimercat }

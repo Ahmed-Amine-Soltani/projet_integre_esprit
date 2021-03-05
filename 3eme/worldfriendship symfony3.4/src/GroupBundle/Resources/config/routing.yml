@@ -1,0 +1,69 @@
+group_homepage:
+    path:     /group
+    defaults: { _controller: GroupBundle:Group:ajouter }
+
+forums_listpage:
+    path:     /list/{id}
+    defaults: { _controller: GroupBundle:Group:list }
+forums_commentpage:
+    path:     /comment/{id}
+    defaults: { _controller: GroupBundle:commentaire:ajoutercom }
+
+
+testmod:
+    path:     /testmod/{id}
+    defaults: { _controller: GroupBundle:Group:modifiertest }
+
+suppAr:
+    path:     /suppAr/{id}
+    defaults: { _controller: GroupBundle:Group:supprimerAr }
+
+
+testmodcomm:
+    path:     /testmodcomm/{id}
+    defaults: { _controller: GroupBundle:commentaire:modifiercomm }
+
+suppcom:
+    path:     /supprimercomm/{id}
+    defaults: { _controller: GroupBundle:commentaire:supprimercomm }
+
+testmobile:
+    path:     /listm
+    defaults: { _controller: GroupBundle:GroupeMobile:list }
+
+newmobile:
+    path:     /newm
+    defaults: { _controller: GroupBundle:GroupeMobile:new }
+
+newusermobile:
+    path:     /newuser
+    defaults: { _controller: GroupBundle:GroupeMobile:newuser }
+
+allusermobile:
+    path:     /all
+    defaults: { _controller: GroupBundle:GroupeMobile:all }
+
+findusermobile:
+    path:     /find
+    defaults: { _controller: GroupBundle:GroupeMobile:find }
+myquesmobile:
+    path:     /myQues/{id}
+    defaults: { _controller: GroupBundle:GroupeMobile:myQues }
+
+updatequesmobile:
+    path:     /updateQues/{id}
+    defaults: { _controller: GroupBundle:GroupeMobile:updateQues }
+
+suppquesmobile:
+    path:     /SuppQues/{id}
+    defaults: { _controller: GroupBundle:GroupeMobile:SuppQues }
+
+affcommobile:
+    path:     /affComment/{id}
+    defaults: { _controller: GroupBundle:GroupeMobile:affComment }
+
+newcommobile:
+    path:     /ajComment
+    defaults: { _controller: GroupBundle:GroupeMobile:ajComment }
+
+

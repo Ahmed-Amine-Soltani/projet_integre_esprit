@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    <br>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}" />
+
+    </head>
+
+    <body>
+
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+        <link rel="stylesheet" href="{{ asset('assets/chat.css') }}">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <div class="mail-box">
+            <aside class="sm-side">
+                <div class="user-head">
+
+                    <div class="user-name">
+                        <h5>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</h5>
+                    </div>
+
+                </div>
+
+                <ul class="inbox-nav inbox-divider">
+
+                    <li class="active">
+                        <a href="{{ url('fos_message_inbox') }}"><i class="fa fa-inbox"></i>{% trans from 'FOSMessageBundle' %}Boîte de réception{% endtrans %}<span class="label label-danger pull-right">{{ fos_message_nb_unread() }}</span></a>
+                    </li>
+                    <li>
+                        <a href="{{ url('fos_message_sent') }}"><i class="fa fa-envelope-o"></i> {% trans from 'FOSMessageBundle' %}Message envoyé{% endtrans %}</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('fos_message_deleted') }}"><i class=" fa fa-trash-o"></i>{% trans from 'FOSMessageBundle' %}Corbeille{% endtrans %}</a>
+                    </li>
+
+                </ul>
+            </aside>
+
+        </div>
+        </aside>
+    </div>
+    </div>
+    <aside class="lg-side">
+        {% block fos_message_content %}
+        {% endblock %}
+    </aside>
+    </body>
+</html>
+
+
+
+
+
+    <br>
+
+
+{% endblock %}

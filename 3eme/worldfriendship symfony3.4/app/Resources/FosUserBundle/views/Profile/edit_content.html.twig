@@ -1,0 +1,46 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<section class="section-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h2 class="title-form">Your Personal Information</h2>
+                <span class="hr-form"></span>
+                <div class="form-login">
+                    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.username, 'Username') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.username) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.email, 'email') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.email) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-md-3">
+                            {{ form_label(form.current_password, 'Current password') }}
+                        </label>
+                        <div class="col-md-7">
+                            {{ form_widget(form.current_password) }}
+                        </div>
+                    </div>
+                    {{ form_widget(form) }}
+                    <div class="btn-group">
+                        <button type="submit" >Update</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /Signup Area -->
